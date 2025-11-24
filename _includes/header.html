@@ -1,0 +1,75 @@
+<header class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-sm z-50" x-data="{ mobileMenu: false }">
+  <nav class="container-custom">
+    <div class="flex items-center justify-between py-4">
+      <!-- Logo -->
+      <a href="/" class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+        Dijital Ajans
+      </a>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+          Ana Sayfa
+        </a>
+        <a href="/hizmetler" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+          Hizmetler
+        </a>
+        <a href="/portfolyo" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+          Portfolyo
+        </a>
+        <a href="/blog" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+          Blog
+        </a>
+        <a href="/iletisim" class="btn btn-primary">
+          İletişim
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        @click="mobileMenu = !mobileMenu"
+        class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+        aria-label="Menü"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path x-show="!mobileMenu" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          <path x-show="mobileMenu" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div
+      x-show="mobileMenu"
+      x-transition:enter="transition ease-out duration-200"
+      x-transition:enter-start="opacity-0 transform -translate-y-2"
+      x-transition:enter-end="opacity-100 transform translate-y-0"
+      x-transition:leave="transition ease-in duration-150"
+      x-transition:leave-start="opacity-100 transform translate-y-0"
+      x-transition:leave-end="opacity-0 transform -translate-y-2"
+      class="md:hidden py-4 border-t"
+      style="display: none;"
+    >
+      <div class="flex flex-col gap-4">
+        <a href="/" class="text-gray-700 hover:text-blue-600 transition-colors font-medium py-2">
+          Ana Sayfa
+        </a>
+        <a href="/hizmetler" class="text-gray-700 hover:text-blue-600 transition-colors font-medium py-2">
+          Hizmetler
+        </a>
+        <a href="/portfolyo" class="text-gray-700 hover:text-blue-600 transition-colors font-medium py-2">
+          Portfolyo
+        </a>
+        <a href="/blog" class="text-gray-700 hover:text-blue-600 transition-colors font-medium py-2">
+          Blog
+        </a>
+        <a href="/iletisim" class="btn btn-primary w-full text-center">
+          İletişim
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- Spacer to prevent content from being hidden under fixed header -->
+<div class="h-20"></div>

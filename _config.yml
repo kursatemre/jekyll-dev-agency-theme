@@ -1,0 +1,57 @@
+title: "Dijital Ajans"
+description: "Kurumsal web tasarımından sosyal medya yönetimine kadar 360° dijital çözümler"
+url: ""
+baseurl: ""
+lang: tr
+
+# Build settings
+markdown: kramdown
+permalink: /:categories/:title/
+
+# Collections
+collections:
+  services:
+    output: true
+    permalink: /hizmetler/:slug/
+  portfolio:
+    output: true
+    permalink: /portfolyo/:slug/
+  posts:
+    output: true
+    permalink: /blog/:slug/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "services"
+    values:
+      layout: "service"
+  - scope:
+      path: ""
+      type: "portfolio"
+    values:
+      layout: "case-study"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+# Plugins
+plugins:
+  - jekyll-postcss
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-feed
+
+# Exclude from processing
+exclude:
+  - node_modules
+  - package.json
+  - package-lock.json
+  - postcss.config.js
+  - tailwind.config.js
+  - README.md
+  - Gemfile
+  - Gemfile.lock
