@@ -3,15 +3,17 @@
   "version": "1.0.0",
   "description": "Modern Jekyll website with Tailwind CSS and animations",
   "scripts": {
-    "dev": "bundle exec jekyll serve --livereload",
-    "build": "bundle exec jekyll build",
+    "css:build": "tailwindcss -i ./assets/css/main.css -o ./_site/assets/css/main.css --minify",
+    "dev": "npm run css:build && bundle exec jekyll serve --livereload",
+    "build": "npm run css:build && bundle exec jekyll build",
     "clean": "bundle exec jekyll clean",
-    "vercel-build": "bundle exec jekyll build"
+    "vercel-build": "npm run css:build && bundle exec jekyll build"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.32",
-    "tailwindcss": "^3.4.0"
+    "tailwindcss": "^3.4.0",
+    "tailwindcss-cli": "^0.1.2"
   }
 }

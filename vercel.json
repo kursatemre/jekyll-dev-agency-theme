@@ -1,7 +1,7 @@
 {
-  "buildCommand": "bundle install && npm install && bundle exec jekyll build",
+  "buildCommand": "npm run vercel-build",
   "outputDirectory": "_site",
   "framework": null,
-  "devCommand": "bundle exec jekyll serve --port $PORT",
+  "devCommand": "npm run dev",
   "installCommand": "bundle install && npm install"
 }

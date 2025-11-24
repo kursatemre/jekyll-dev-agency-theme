@@ -40,7 +40,6 @@ defaults:
 
 # Plugins
 plugins:
-  - jekyll-postcss
   - jekyll-sitemap
   - jekyll-seo-tag
   - jekyll-feed
@@ -55,3 +54,4 @@ exclude:
   - README.md
   - Gemfile
   - Gemfile.lock
+  - vendor

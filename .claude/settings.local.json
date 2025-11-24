@@ -7,7 +7,9 @@
       "Bash(if exist nul del /F /Q nul)",
       "Bash(git commit:*)",
       "Bash(tree:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(npx tailwindcss:*)",
+      "Bash(npm install)"
     ],
     "deny": [],
     "ask": []
