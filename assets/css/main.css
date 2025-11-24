@@ -48,6 +48,11 @@
     @apply bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden;
   }
 
+  .card h4,
+  .card p {
+    opacity: 1 !important;
+  }
+
   .container-custom {
     @apply container mx-auto px-4 sm:px-6 lg:px-8;
   }
