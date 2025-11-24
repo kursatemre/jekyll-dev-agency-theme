@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const animateElements = document.querySelectorAll('.animate-on-scroll');
 
     animateElements.forEach((element) => {
+      element.classList.add('will-animate');
+
       gsap.from(element, {
         scrollTrigger: {
           trigger: element,
@@ -19,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         opacity: 0,
         duration: 0.8,
         ease: 'power2.out',
+        onComplete: () => element.classList.add('animated'),
       });
     });
 
@@ -115,13 +118,4 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
-
-  // Page load fade-in
-  document.body.style.opacity = '1';
-});
-
-// Page transition on navigation
-window.addEventListener('beforeunload', () => {
-  document.body.style.opacity = '0';
-  document.body.style.transition = 'opacity 0.3s ease-out';
 });

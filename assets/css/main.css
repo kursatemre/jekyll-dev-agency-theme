@@ -11,6 +11,7 @@
 
   body {
     @apply font-sans antialiased;
+    opacity: 1 !important;
   }
 
   h1 {
@@ -65,6 +66,11 @@
 
 @layer utilities {
   .animate-on-scroll {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .animate-on-scroll.will-animate {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
