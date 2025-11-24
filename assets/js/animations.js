@@ -47,8 +47,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Hero parallax effect (desktop only)
     if (window.innerWidth > 768) {
       const heroSection = document.querySelector('.hero-section');
-      if (heroSection) {
-        gsap.to('.hero-parallax', {
+      const heroParallax = document.querySelector('.hero-parallax');
+      if (heroSection && heroParallax) {
+        gsap.to(heroParallax, {
           scrollTrigger: {
             trigger: heroSection,
             start: 'top top',
