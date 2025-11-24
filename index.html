@@ -39,7 +39,10 @@ title: "Dijital Dönüşüm Ortağınız"
     <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto animate-on-scroll">
       {% for stat in site.data.stats %}
       <div class="text-center">
-        <div class="text-3xl md:text-4xl font-bold text-blue-600 mb-2 counter" data-target="{{ stat.value | remove: '+' | remove: '%' }}">0</div>
+        {% assign clean_value = stat.value | remove: '+' | remove: '%' %}
+        <div class="text-3xl md:text-4xl font-bold text-blue-600 mb-2">
+          <span class="counter" data-target="{{ clean_value }}">0</span>{% if stat.value contains '+' %}+{% elsif stat.value contains '%' %}%{% endif %}
+        </div>
         <div class="text-gray-600 text-sm">{{ stat.label }}</div>
       </div>
       {% endfor %}
