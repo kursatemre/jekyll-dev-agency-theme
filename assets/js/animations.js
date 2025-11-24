@@ -31,6 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
     cardGroups.forEach((group) => {
       const cards = group.querySelectorAll('.card');
       if (cards.length > 0) {
+        // Set initial opacity to 1 to ensure visibility
+        gsap.set(cards, { opacity: 1 });
+
         gsap.from(cards, {
           scrollTrigger: {
             trigger: group,
