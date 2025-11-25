@@ -6,7 +6,7 @@ author: "Dijital Ajans Ekibi"
 categories: [Web Tasarım, Kurumsal]
 tags: [kurumsal web sitesi, web tasarım, dijital dönüşüm, SEO]
 excerpt: "Kurumsal web siteniz işletmenizin dijital vitrinidir. Modern, profesyonel ve kullanıcı dostu bir kurumsal web sitesinin tüm detaylarını keşfedin."
-featured_image: "/assets/images/blog/kurumsal-web-sitesi.jpg"
+featured_image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=630&fit=crop"
 ---
 
 # 2025 Kurumsal Web Sitesi Tasarımı: Kapsamlı Rehber

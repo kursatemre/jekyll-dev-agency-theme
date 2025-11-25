@@ -6,7 +6,7 @@ author: "Dijital Ajans Ekibi"
 categories: [Yazılım, Teknoloji]
 tags: [özel yazılım, custom software, web app, mobile app, crm, erp]
 excerpt: "Hazır yazılımlar iş süreçlerinize uymuyor mu? Özel yazılım geliştirmenin tüm yönlerini, maliyetlerini ve faydalarını keşfedin."
-featured_image: "/assets/images/blog/ozel-yazilim.jpg"
+featured_image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop"
 ---
 
 # Özel Yazılım Geliştirme: İhtiyaçlarınıza Özel Çözümler 2025

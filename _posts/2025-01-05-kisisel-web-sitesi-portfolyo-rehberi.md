@@ -6,7 +6,7 @@ author: "Dijital Ajans Ekibi"
 categories: [Web Tasarım, Portfolyo]
 tags: [portfolyo, kişisel site, freelancer, personal branding, cv website]
 excerpt: "Freelancer, sanatçı veya profesyonel olarak kişisel markanızı online'da nasıl inşa edersiniz? İşte etkileyici portfolyo sitesi oluşturmanın sırları."
-featured_image: "/assets/images/blog/kisisel-portfolyo.jpg"
+featured_image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1200&h=630&fit=crop"
 ---
 
 # Kişisel Web Sitesi ve Portfolyo Oluşturma Rehberi 2025

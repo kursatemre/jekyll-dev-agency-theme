@@ -6,7 +6,7 @@ author: "Dijital Ajans Ekibi"
 categories: [Dijital Reklam, PPC]
 tags: [google ads, facebook ads, instagram ads, ppc, dijital reklam, roas]
 excerpt: "Google ve Meta reklamlarıyla maksimum geri dönüş elde etmenin yolları. ROAS'ınızı 5X'e çıkaracak stratejiler ve taktikler."
-featured_image: "/assets/images/blog/google-meta-reklamlar.jpg"
+featured_image: "https://images.unsplash.com/photo-1533750516457-a7f992034fec?w=1200&h=630&fit=crop"
 ---
 
 # Google & Meta Reklam Yönetimi: 2025 Başarı Formülü

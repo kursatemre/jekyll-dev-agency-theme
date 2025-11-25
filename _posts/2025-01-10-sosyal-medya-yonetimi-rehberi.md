@@ -6,7 +6,7 @@ author: "Dijital Ajans Ekibi"
 categories: [Sosyal Medya, Dijital Pazarlama]
 tags: [sosyal medya, instagram, facebook, content marketing, marka yönetimi]
 excerpt: "Markanızın sosyal medyada başarılı olması için ihtiyacınız olan stratejiler, araçlar ve profesyonel ipuçları bu kapsamlı rehberde."
-featured_image: "/assets/images/blog/sosyal-medya-yonetimi.jpg"
+featured_image: "https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=1200&h=630&fit=crop"
 ---
 
 # Sosyal Medya Yönetimi 2025: Profesyonel Başarı Rehberi

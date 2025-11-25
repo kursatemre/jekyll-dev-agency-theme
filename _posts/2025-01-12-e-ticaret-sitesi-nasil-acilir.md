@@ -6,7 +6,7 @@ author: "Dijital Ajans Ekibi"
 categories: [E-Ticaret, Web Tasarım]
 tags: [e-ticaret, online satış, woocommerce, shopify, dijital ticaret]
 excerpt: "E-ticaret sitenizi sıfırdan kurmak için ihtiyacınız olan her şey: platform seçimi, ödeme sistemleri, lojistik entegrasyonu ve daha fazlası."
-featured_image: "/assets/images/blog/e-ticaret-sitesi.jpg"
+featured_image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=630&fit=crop"
 ---
 
 # 2025'te E-Ticaret Sitesi Nasıl Açılır? Adım Adım Rehber
