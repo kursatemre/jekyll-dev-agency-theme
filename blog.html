@@ -18,13 +18,64 @@ description: "Dijital dünya hakkında faydalı bilgiler, ipuçları ve trendler
   </div>
 </div>
 
-<section class="section bg-white">
+<section class="section bg-white" x-data="{ activeCategory: 'Tümü', searchQuery: '' }">
   <div class="container-custom">
-    <!-- Blog Posts Grid -->
+    <!-- Search Bar -->
     {% if site.posts.size > 0 %}
+    <div class="mb-8 max-w-2xl mx-auto animate-on-scroll">
+      <div class="relative">
+        <input
+          type="text"
+          x-model="searchQuery"
+          placeholder="Blog yazılarında ara..."
+          class="w-full px-6 py-4 pl-14 rounded-full border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors"
+        >
+        <svg class="w-6 h-6 text-gray-400 absolute left-5 top-1/2 transform -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Category Filter -->
+    <div class="mb-12 animate-on-scroll">
+      <div class="flex flex-wrap justify-center gap-3">
+        <button
+          @click="activeCategory = 'Tümü'"
+          :class="activeCategory === 'Tümü' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'"
+          class="px-6 py-2 rounded-full font-medium transition-all duration-300"
+        >
+          Tümü ({{ site.posts.size }})
+        </button>
+        {% assign categories = site.posts | map: "categories" | join: "," | split: "," | uniq | sort %}
+        {% for category in categories %}
+        {% if category != "" %}
+        {% assign category_count = site.posts | where_exp: "post", "post.categories contains category" | size %}
+        <button
+          @click="activeCategory = '{{ category }}'"
+          :class="activeCategory === '{{ category }}' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'"
+          class="px-6 py-2 rounded-full font-medium transition-all duration-300"
+        >
+          {{ category }} ({{ category_count }})
+        </button>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Blog Posts Grid -->
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 card-group">
       {% for post in site.posts %}
-      <a href="{{ post.url }}" class="card group">
+      <a
+        href="{{ post.url }}"
+        class="card group"
+        x-show="(activeCategory === 'Tümü' || '{{ post.categories | join: "," }}'.includes(activeCategory)) &&
+                (searchQuery === '' ||
+                 '{{ post.title | downcase }}'.includes(searchQuery.toLowerCase()) ||
+                 '{{ post.excerpt | strip_html | downcase }}'.includes(searchQuery.toLowerCase()))"
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0 transform scale-95"
+        x-transition:enter-end="opacity-100 transform scale-100"
+      >
         {% if post.featured_image %}
         <div class="aspect-video overflow-hidden bg-gradient-to-br from-blue-50 to-purple-50">
           <img
@@ -55,6 +106,28 @@ description: "Dijital dünya hakkında faydalı bilgiler, ipuçları ve trendler
         </div>
       </a>
       {% endfor %}
+    </div>
+
+    <!-- No Results Message -->
+    <div
+      x-show="[...document.querySelectorAll('[x-show]')].filter(el => el.style.display !== 'none').length === 0"
+      class="text-center py-16"
+    >
+      <div class="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
+        <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
+      </div>
+      <h3 class="mb-4">Sonuç Bulunamadı</h3>
+      <p class="text-gray-600 max-w-lg mx-auto mb-6">
+        Aradığınız kriterlere uygun blog yazısı bulunamadı. Lütfen farklı bir arama yapın veya kategori seçin.
+      </p>
+      <button
+        @click="activeCategory = 'Tümü'; searchQuery = ''"
+        class="btn btn-primary"
+      >
+        Filtreleri Temizle
+      </button>
     </div>
     {% else %}
     <!-- Placeholder when no posts -->
