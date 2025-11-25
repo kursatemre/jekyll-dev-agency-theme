@@ -23,9 +23,9 @@ layout: default
       </header>
 
       <!-- Featured Image -->
-      {% if page.image %}
-      <div class="mb-12 rounded-xl overflow-hidden animate-on-scroll">
-        <img src="{{ page.image }}" alt="{{ page.title }}" class="w-full h-auto">
+      {% if page.featured_image %}
+      <div class="mb-12 rounded-xl overflow-hidden shadow-lg animate-on-scroll">
+        <img src="{{ page.featured_image | relative_url }}" alt="{{ page.title }}" class="w-full h-auto">
       </div>
       {% endif %}
 
@@ -58,9 +58,9 @@ layout: default
     <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto card-group">
       {% for post in site.related_posts limit:3 %}
       <a href="{{ post.url }}" class="card group">
-        {% if post.image %}
+        {% if post.featured_image %}
         <div class="aspect-video overflow-hidden">
-          <img src="{{ post.image }}" alt="{{ post.title }}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+          <img src="{{ post.featured_image | relative_url }}" alt="{{ post.title }}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
         </div>
         {% endif %}
         <div class="p-6">
