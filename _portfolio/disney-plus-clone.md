@@ -6,7 +6,7 @@ category: "Web Uygulaması"
 tags: [React, Firebase, JavaScript, Streaming UI, Clone Project]
 date: 2024-11-16
 featured_image: "https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=1200&h=630&fit=crop"
-project_url: "https://disney-clone-d1e27.firebaseapp.com"
+project_url: "https://plusdsny.vercel.app/"
 excerpt: "React ile geliştirilmiş Disney+ arayüz klon projesi. Firebase backend, modern UI komponenler ve smooth animasyonlarla profesyonel streaming platform deneyimi."
 results:
   - value: "React"
