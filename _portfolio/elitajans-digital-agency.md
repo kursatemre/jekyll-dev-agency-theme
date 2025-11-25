@@ -106,6 +106,7 @@ Dijital ajansların web sitelerinde karşılaştıkları zorluklar:
 #### 1. Modern Ana Sayfa
 
 **Hero Section:**
+{% raw %}
 ```tsx
 // Modern gradient hero with glassmorphism
 <section className="relative min-h-screen flex items-center">
@@ -131,6 +132,7 @@ Dijital ajansların web sitelerinde karşılaştıkları zorluklar:
   </div>
 </section>
 ```
+{% endraw %}
 
 **Özellikler:**
 - 🎨 Gradient backgrounds
@@ -214,6 +216,7 @@ function AdminDashboard() {
 #### 4. Portfolyo Showcase
 
 **Project Cards:**
+{% raw %}
 ```tsx
 interface Project {
   id: string;
@@ -256,6 +259,7 @@ function ProjectCard({ project }: { project: Project }) {
   );
 }
 ```
+{% endraw %}
 
 #### 5. Blog Sistemi
 
@@ -380,7 +384,7 @@ function AnimatedSection() {
 
   return (
     <motion.div
-      style={{ opacity, scale }}
+      style={% raw %}{{ opacity, scale }}{% endraw %}
       className="section"
     >
       <h2>Animated Content</h2>

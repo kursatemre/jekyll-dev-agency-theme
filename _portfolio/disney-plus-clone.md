@@ -276,7 +276,7 @@ function DetailPage() {
     <div className="detail-page">
       <div
         className="detail-background"
-        style={{ backgroundImage: `url(${content.backgroundImage})` }}
+        style={% raw %}{{ backgroundImage: `url(${content.backgroundImage})` }}{% endraw %}
       >
         <div className="detail-overlay">
           <img src={content.logo} alt={content.title} className="title-logo" />

@@ -308,6 +308,7 @@ function search(query: string) {
 #### 8. Magazine-Style Layout
 
 **Grid Layout:**
+{% raw %}
 ```vue
 <template>
   <div class="post-grid">
@@ -342,6 +343,7 @@ function search(query: string) {
 }
 </style>
 ```
+{% endraw %}
 
 ### Geliştirme Süreci
 
@@ -377,6 +379,7 @@ function search(query: string) {
 ### Vue 3 Composition API
 
 **Post Component:**
+{% raw %}
 ```vue
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue';
@@ -429,6 +432,7 @@ onMounted(async () => {
   </article>
 </template>
 ```
+{% endraw %}
 
 ### SCSS Advanced Styling
 

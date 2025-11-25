@@ -328,7 +328,7 @@ export default function ContentDetail({ content, similar }: ContentDetailProps) 
       {/* Hero Section */}
       <div
         className="hero"
-        style={{ backgroundImage: `url(${content.backdrop})` }}
+        style={% raw %}{{ backgroundImage: `url(${content.backdrop})` }}{% endraw %}
       >
         <div className="overlay">
           <h1>{content.title}</h1>
