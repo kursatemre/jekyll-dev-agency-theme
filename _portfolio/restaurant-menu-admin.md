@@ -6,7 +6,7 @@ category: "Admin Panel"
 tags: [Next.js, TypeScript, Supabase, Vercel]
 date: 2024-11-01
 featured_image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&h=630&fit=crop"
-preview_url: "https://v0-digital-menu-ui-snowy.vercel.app"
+preview_url: "https://www.menumgo.digital"
 excerpt: "Modern dijital menü arayüzü projesi. Vercel deployment ve Supabase database entegrasyonu."
 results:
   - value: "Next.js"
@@ -30,7 +30,7 @@ technologies:
 
 Modern dijital menü arayüzü projesidir. Vercel üzerinden continuous deployment ve Supabase database entegrasyonu içerir.
 
-**Canlı Önizleme:** [v0-digital-menu-ui-snowy.vercel.app](https://v0-digital-menu-ui-snowy.vercel.app)
+**Canlı Önizleme:** [www.menumgo.digital](https://www.menumgo.digital)
 
 ## Challenge (Zorluk)
 
@@ -223,7 +223,7 @@ Modern dijital menü sistemlerinin geliştirilmesinde karşılaşılan zorluklar
 - **Total Commits**: 258
 - **Contributors**: 2
 - **License**: MIT
-- **Live URL**: [v0-digital-menu-ui-snowy.vercel.app](https://v0-digital-menu-ui-snowy.vercel.app)
+- **Live URL**: [www.menumgo.digital](https://www.menumgo.digital)
 
 ### Başarılan Özellikler
 
@@ -261,7 +261,7 @@ Modern dijital menü sistemlerinin geliştirilmesinde karşılaşılan zorluklar
 
 ## Proje Linki
 
-**Canlı Site**: [v0-digital-menu-ui-snowy.vercel.app](https://v0-digital-menu-ui-snowy.vercel.app)
+**Canlı Site**: [www.menumgo.digital](https://www.menumgo.digital)
 
 ---
 
