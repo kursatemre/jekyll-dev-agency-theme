@@ -3,26 +3,23 @@ layout: case-study
 title: "Digital Menu UI"
 client: "Restaurant Management"
 category: "Admin Panel"
-tags: [Next.js, TypeScript, Supabase, Vercel, v0.dev]
+tags: [Next.js, TypeScript, Supabase, Vercel]
 date: 2024-11-01
 featured_image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&h=630&fit=crop"
-repository_url: "https://github.com/kursatemre/v0-digital-menu-ui"
 preview_url: "https://v0-digital-menu-ui-snowy.vercel.app"
-v0_url: "https://v0.app/chat/ixdf10VnBdp"
-excerpt: "v0.dev ile geliştirilen modern dijital menü arayüzü. GitHub ile otomatik senkronizasyon, Vercel deployment ve Supabase database entegrasyonu."
+excerpt: "Modern dijital menü arayüzü projesi. Vercel deployment ve Supabase database entegrasyonu."
 results:
-  - value: "v0.dev"
-    label: "AI Development"
-  - value: "Auto Sync"
-    label: "GitHub Integration"
-  - value: "Vercel"
-    label: "Deployment"
+  - value: "Next.js"
+    label: "Framework"
+  - value: "TypeScript"
+    label: "Type Safety"
+  - value: "Supabase"
+    label: "Database"
 technologies:
   - Next.js
   - TypeScript
   - Supabase
   - Vercel
-  - v0.dev
   - JavaScript
   - CSS
 ---
@@ -31,11 +28,9 @@ technologies:
 
 ## Proje Özeti
 
-v0.dev AI platformu ile geliştirilen modern dijital menü arayüzü projesidir. GitHub ile otomatik senkronizasyon, Vercel üzerinden continuous deployment ve Supabase database entegrasyonu içerir. Proje v0.app üzerinden geliştirilebilir ve değişiklikler otomatik olarak GitHub repository'ye aktarılır.
+Modern dijital menü arayüzü projesidir. Vercel üzerinden continuous deployment ve Supabase database entegrasyonu içerir.
 
-**🔗 Canlı Önizleme:** [v0-digital-menu-ui-snowy.vercel.app](https://v0-digital-menu-ui-snowy.vercel.app)
-**💻 Repository:** [github.com/kursatemre/v0-digital-menu-ui](https://github.com/kursatemre/v0-digital-menu-ui)
-**🚀 v0.dev Düzenle:** [v0.app/chat/ixdf10VnBdp](https://v0.app/chat/ixdf10VnBdp)
+**Canlı Önizleme:** [v0-digital-menu-ui-snowy.vercel.app](https://v0-digital-menu-ui-snowy.vercel.app)
 
 ## Challenge (Zorluk)
 
@@ -43,8 +38,7 @@ v0.dev AI platformu ile geliştirilen modern dijital menü arayüzü projesidir.
 
 Modern dijital menü sistemlerinin geliştirilmesinde karşılaşılan zorluklar:
 
-- **Hızlı Geliştirme**: AI destekli hızlı prototipleme ve geliştirme
-- **Version Control**: Kod değişikliklerinin otomatik takibi
+- **Hızlı Geliştirme**: Modern araçlarla hızlı prototipleme ve geliştirme
 - **Continuous Deployment**: Her değişikliğin otomatik olarak yayınlanması
 - **Database Integration**: Supabase ile backend entegrasyonu
 - **Modern UI/UX**: Güncel tasarım standartları ve kullanıcı deneyimi
@@ -52,55 +46,40 @@ Modern dijital menü sistemlerinin geliştirilmesinde karşılaşılan zorluklar
 
 ### Teknik Gereksinimler
 
-- **AI Platform**: v0.dev ile görsel geliştirme
 - **Framework**: Next.js
 - **Language**: TypeScript (90.3%), JavaScript (5.1%)
 - **Database**: Supabase (PostgreSQL)
 - **Deployment**: Vercel
-- **Version Control**: GitHub otomatik senkronizasyon
 - **Styling**: Modern CSS ve component library
 
 ## Solution (Çözüm)
 
 ### Mimari Yaklaşım
 
-**v0.dev Development Workflow:**
+**System Architecture:**
 ```
 ┌─────────────────────────────────────────────┐
-│           Development Flow                   │
+│           Application Stack                  │
 │                                              │
-│  1. v0.dev AI Platform                       │
-│     - Visual design interface                │
-│     - AI-powered code generation             │
-│     - Real-time preview                      │
-│     - Component library                      │
+│  Frontend (Next.js)                          │
+│     - TypeScript                             │
+│     - React Components                       │
+│     - Responsive Design                      │
+│     - Modern CSS                             │
 │                                              │
-│  2. GitHub Sync                              │
-│     - Automatic code push                    │
-│     - Version control                        │
-│     - Commit history                         │
-│     - Collaboration support                  │
+│  Backend Services                            │
+│     - Supabase (PostgreSQL)                  │
+│     - Next.js API Routes                     │
+│     - Vercel Edge Functions                  │
 │                                              │
-│  3. Vercel Deployment                        │
-│     - Auto deployment                        │
-│     - Production builds                      │
-│     - Edge network CDN                       │
-│     - Performance optimization               │
-│                                              │
-├─────────────────────────────────────────────┤
-│         Backend Services                     │
-│  - Supabase (PostgreSQL)                     │
-│  - Next.js API Routes                        │
-│  - Vercel Edge Functions                     │
+│  Deployment                                  │
+│     - Vercel Hosting                         │
+│     - Automatic CI/CD                        │
+│     - Edge Network CDN                       │
 └─────────────────────────────────────────────┘
 ```
 
 ### Teknoloji Stack
-
-**Development Platform:**
-- **v0.dev**: AI-powered visual development
-- **GitHub**: Version control & collaboration
-- **Vercel**: Deployment & hosting
 
 **Frontend Technologies:**
 - **Next.js**: React framework
@@ -121,46 +100,29 @@ Modern dijital menü sistemlerinin geliştirilmesinde karşılaşılan zorluklar
 
 ### Temel Özellikler
 
-#### 1. v0.dev AI Development
+#### 1. Frontend Application
 
-**Görsel Geliştirme Arayüzü:**
-- 🤖 AI destekli kod üretimi
-- 👁️ Real-time görsel önizleme
-- 🎨 Component library erişimi
-- ⚡ Hızlı prototipleme
-- 💡 Akıllı öneriler
+**Next.js & TypeScript:**
+- Type-safe development
+- React component architecture
+- Server-side rendering
+- API routes
+- Responsive design
 
-**v0.dev Özellikleri:**
-- Chat tabanlı geliştirme
-- Otomatik kod generation
-- Modern UI/UX patterns
-- Responsive design otomasyonu
-- Component-based architecture
+**User Interface:**
+- Modern UI/UX design
+- Component-based structure
+- Mobile-first approach
+- Accessible interface
 
-#### 2. GitHub Integration
-
-**Otomatik Senkronizasyon:**
-- 🔄 v0.dev'den otomatik push
-- 📝 Commit history tracking
-- 🌿 Branch management
-- 👥 Collaboration support
-- 📊 Version control
-
-**Repository Özellikleri:**
-- 258 commit geçmişi
-- MIT License
-- TypeScript dominant (90.3%)
-- Active development
-- Open source collaboration
-
-#### 3. Vercel Deployment
+#### 2. Vercel Deployment
 
 **Otomatik Deployment:**
-- ⚡ GitHub push ile otomatik build
-- 🌐 Global CDN distribution
-- 🔧 Environment variables
-- 📈 Performance optimization
-- 🔒 HTTPS/SSL included
+- GitHub push ile otomatik build
+- Global CDN distribution
+- Environment variables
+- Performance optimization
+- HTTPS/SSL included
 
 **Deployment Özellikleri:**
 - Zero-config setup
@@ -169,14 +131,14 @@ Modern dijital menü sistemlerinin geliştirilmesinde karşılaşılan zorluklar
 - Edge Functions support
 - Analytics integration
 
-#### 4. Supabase Backend
+#### 3. Supabase Backend
 
 **Database Integration:**
-- 🗄️ PostgreSQL database
-- 🔐 Row Level Security (RLS)
-- 🔄 Real-time subscriptions
-- 🛡️ Built-in authentication
-- 📊 PLpgSQL functions (2.1%)
+- PostgreSQL database
+- Row Level Security (RLS)
+- Real-time subscriptions
+- Built-in authentication
+- PLpgSQL functions (2.1%)
 
 **Backend Özellikleri:**
 - RESTful API
@@ -185,7 +147,7 @@ Modern dijital menü sistemlerinin geliştirilmesinde karşılaşılan zorluklar
 - Migration tools
 - Cloud hosting
 
-#### 5. Technology Stack
+#### 4. Technology Stack
 
 **Language Breakdown:**
 - **TypeScript**: 90.3% (Type-safe development)
@@ -198,49 +160,42 @@ Modern dijital menü sistemlerinin geliştirilmesinde karşılaşılan zorluklar
 - Next.js (React framework)
 - Supabase (Backend-as-a-Service)
 - Vercel (Deployment platform)
-- v0.dev (AI development tool)
 
 ### Geliştirme Süreci
 
-#### 1. v0.dev Initialization
-- v0.app chat session başlatma
-- UI/UX requirements tanımlama
-- AI ile initial design oluşturma
-- Component library seçimi
+#### 1. Project Setup
+- Next.js project initialization
+- TypeScript configuration
+- UI/UX requirements analysis
+- Component library setup
 
-#### 2. AI-Powered Development
-- Chat-based iterative development
-- Real-time preview & testing
-- Component refinement
+#### 2. Frontend Development
+- Component development
+- State management
+- Responsive design implementation
 - Feature additions
 
-#### 3. GitHub Integration
-- Repository connection
-- Automatic code synchronization
-- Branch management
-- Version control setup
-
-#### 4. Supabase Setup
+#### 3. Backend Integration
+- Supabase configuration
 - Database schema design
-- API endpoint configuration
+- API endpoint development
 - Authentication setup
-- Data integration
 
-#### 5. Vercel Deployment
-- GitHub repository linking
-- Environment variables setup
-- Automatic deployment
+#### 4. Deployment
+- Vercel deployment setup
+- Environment variables configuration
+- CI/CD pipeline setup
 - Production optimization
 
 ## Teknik Detaylar
 
 ### Development Workflow
 
-**v0.dev → GitHub → Vercel Pipeline:**
-1. **v0.app**: Chat interface ile geliştirme
-2. **GitHub**: Otomatik code push ve versiyonlama
-3. **Vercel**: Automatic build ve deployment
-4. **Live Site**: Production URL üzerinden erişim
+**Development → Deployment Pipeline:**
+1. **Development**: Local development with Next.js
+2. **Version Control**: Code management with Git
+3. **Deployment**: Automatic build and deployment via Vercel
+4. **Live Site**: Production URL access
 
 ### Project Structure
 
@@ -255,41 +210,39 @@ Modern dijital menü sistemlerinin geliştirilmesinde karşılaşılan zorluklar
 ### Continuous Integration
 
 **Automated Workflow:**
-- v0.dev'de yapılan değişiklikler → GitHub'a push
-- GitHub push → Vercel build trigger
+- Code changes → Git commit
+- Git push → Vercel build trigger
 - Successful build → Production deployment
-- Failed build → Build error notifications
+- Failed build → Error notifications
 
 ## Results (Sonuçlar)
 
 ### Proje İstatistikleri
 
-- 🎯 **TypeScript Oranı**: %90.3
-- 📝 **Total Commits**: 258
-- 👥 **Contributors**: 2 (kursatemre + Claude)
-- ⭐ **GitHub Stars**: 1
-- 📄 **License**: MIT
-- 🌐 **Live URL**: [v0-digital-menu-ui-snowy.vercel.app](https://v0-digital-menu-ui-snowy.vercel.app)
+- **TypeScript Oranı**: %90.3
+- **Total Commits**: 258
+- **Contributors**: 2
+- **License**: MIT
+- **Live URL**: [v0-digital-menu-ui-snowy.vercel.app](https://v0-digital-menu-ui-snowy.vercel.app)
 
 ### Başarılan Özellikler
 
-- ✅ v0.dev AI ile hızlı geliştirme
-- ✅ GitHub otomatik senkronizasyon
-- ✅ Vercel continuous deployment
-- ✅ Supabase database entegrasyonu
-- ✅ TypeScript type safety
-- ✅ Responsive modern UI
-- ✅ Production-ready deployment
+- Modern web geliştirme yaklaşımı
+- Vercel continuous deployment
+- Supabase database entegrasyonu
+- TypeScript type safety
+- Responsive modern UI
+- Production-ready deployment
 
 ## Öğrenilen Dersler
 
 ### Başarılar
 
-1. **v0.dev AI Platform**: Hızlı ve verimli geliştirme süreci
-2. **GitHub Integration**: Sorunsuz otomatik senkronizasyon
-3. **Vercel Deployment**: Zero-config deployment deneyimi
-4. **TypeScript**: Güçlü type safety ve developer experience
-5. **Supabase**: Kolay backend-as-a-service entegrasyonu
+1. **Next.js Framework**: Modern React geliştirme deneyimi
+2. **Vercel Deployment**: Zero-config deployment deneyimi
+3. **TypeScript**: Güçlü type safety ve developer experience
+4. **Supabase**: Kolay backend-as-a-service entegrasyonu
+5. **CI/CD Pipeline**: Otomatik deployment süreci
 
 ### Geliştirilecek Alanlar
 
@@ -301,23 +254,19 @@ Modern dijital menü sistemlerinin geliştirilmesinde karşılaşılan zorluklar
 
 ## Kullanılan Teknolojiler
 
-- v0.dev (AI Development Platform)
 - Next.js (React Framework)
 - TypeScript (90.3%)
 - Supabase (PostgreSQL)
 - Vercel (Deployment)
-- GitHub (Version Control)
 
-## Proje Linkleri
+## Proje Linki
 
-- **🔗 Canlı Site**: [v0-digital-menu-ui-snowy.vercel.app](https://v0-digital-menu-ui-snowy.vercel.app)
-- **💻 Repository**: [github.com/kursatemre/v0-digital-menu-ui](https://github.com/kursatemre/v0-digital-menu-ui)
-- **🚀 v0.dev Düzenle**: [v0.app/chat/ixdf10VnBdp](https://v0.app/chat/ixdf10VnBdp)
+**Canlı Site**: [v0-digital-menu-ui-snowy.vercel.app](https://v0-digital-menu-ui-snowy.vercel.app)
 
 ---
 
 ## Benzer Bir Proje İçin
 
-AI destekli modern web uygulamaları, dijital menü sistemleri veya rapid prototyping mi istiyorsunuz? v0.dev ve modern teknolojilerle özel çözümler geliştiriyoruz.
+Modern web uygulamaları, dijital menü sistemleri veya özel yazılım çözümleri mi istiyorsunuz? Modern teknolojilerle özel çözümler geliştiriyoruz.
 
 [İletişime Geç](/iletisim) | [Portfolyoya Dön](/portfolyo)
