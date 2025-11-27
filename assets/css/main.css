@@ -171,7 +171,22 @@
     display: inline-block;
   }
 
+  /* Circle border around O */
   .orion-belt-logo::before {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: constellation-rotate 30s linear infinite;
+  }
+
+  /* Three stars inside the O */
+  .orion-belt-logo::after {
     content: '';
     position: absolute;
     width: 100%;
@@ -180,9 +195,9 @@
     left: 50%;
     transform: translate(-50%, -50%);
     background-image:
-      radial-gradient(circle at 35% 45%, rgba(0, 255, 255, 0.9) 0%, rgba(0, 255, 255, 0.9) 3px, transparent 3px),
-      radial-gradient(circle at 50% 50%, rgba(0, 255, 255, 0.95) 0%, rgba(0, 255, 255, 0.95) 4px, transparent 4px),
-      radial-gradient(circle at 65% 55%, rgba(0, 255, 255, 0.9) 0%, rgba(0, 255, 255, 0.9) 3px, transparent 3px);
+      radial-gradient(circle at 35% 35%, rgba(0, 255, 255, 0.9) 0%, rgba(0, 255, 255, 0.9) 2px, transparent 2px),
+      radial-gradient(circle at 50% 50%, rgba(0, 255, 255, 0.95) 0%, rgba(0, 255, 255, 0.95) 2.5px, transparent 2.5px),
+      radial-gradient(circle at 65% 65%, rgba(0, 255, 255, 0.9) 0%, rgba(0, 255, 255, 0.9) 2px, transparent 2px);
     animation: orion-belt-pulse 3s ease-in-out infinite;
     pointer-events: none;
   }
