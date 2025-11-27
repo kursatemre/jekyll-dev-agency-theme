@@ -65,7 +65,7 @@ layout: default
       <!-- Featured Image -->
       {% if page.featured_image %}
       <div class="mb-16 rounded-xl overflow-hidden shadow-2xl animate-on-scroll">
-        <img src="{{ page.featured_image }}" alt="{{ page.title }}" class="w-full h-auto">
+        <img src="{{ page.featured_image }}" alt="{{ page.title }}" loading="lazy" decoding="async" class="w-full h-auto">
       </div>
       {% endif %}
 

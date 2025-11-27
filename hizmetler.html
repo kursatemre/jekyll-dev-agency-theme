@@ -1,36 +1,37 @@
 ---
 layout: default
-title: "Hizmetlerimiz"
-description: "İşletmenizin dijital ihtiyaçlarına özel, kapsamlı çözümler sunuyoruz"
+title: "Hizmetlerimiz | OrionSoft.dev"
+description: "İşletmenizin dijital ihtiyaçlarına özel, kapsamlı çözümler sunuyoruz. Web geliştirme, e-ticaret, mobil uygulama, dijital pazarlama hizmetleri."
+keywords: "web geliştirme hizmetleri, e-ticaret çözümleri, mobil uygulama geliştirme, dijital pazarlama, seo hizmeti, kurumsal yazılım"
 ---
 
-<div class="py-16 bg-gradient-to-br from-blue-50 via-white to-purple-50">
+<div class="py-16 relative">
   <div class="container-custom text-center">
     <div class="animate-on-scroll">
-      <div class="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full mb-6 font-medium">
+      <div class="inline-block px-4 py-2 bg-orion-cyan/10 border border-orion-cyan/30 text-orion-cyan rounded-full mb-6 font-medium backdrop-blur-sm">
         Dijital Çözümlerimiz
       </div>
     </div>
-    <h1 class="mb-6 animate-on-scroll">{{ page.title }}</h1>
-    <p class="text-gray-600 text-lg max-w-3xl mx-auto animate-on-scroll">
+    <h1 class="mb-6 animate-on-scroll text-orion-white">{{ page.title }}</h1>
+    <p class="text-orion-gray text-lg max-w-3xl mx-auto animate-on-scroll">
       {{ page.description }}
     </p>
   </div>
 </div>
 
 <!-- Web Services -->
-<section class="section bg-white">
+<section class="section relative">
   <div class="container-custom">
     <div class="mb-12 animate-on-scroll">
       <div class="flex items-center gap-3 mb-4">
-        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-          <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="w-12 h-12 bg-orion-cyan/10 rounded-lg flex items-center justify-center">
+          <svg class="w-6 h-6 text-orion-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
           </svg>
         </div>
-        <h2>Web & Yazılım Çözümleri</h2>
+        <h2 class="text-orion-white">Web & Yazılım Çözümleri</h2>
       </div>
-      <p class="text-gray-600 text-lg">Modern ve ölçeklenebilir web çözümleri</p>
+      <p class="text-orion-gray text-lg">Modern ve ölçeklenebilir web çözümleri</p>
     </div>
 
     <div class="grid md:grid-cols-2 gap-8 mb-20 card-group">
@@ -38,18 +39,18 @@ description: "İşletmenizin dijital ihtiyaçlarına özel, kapsamlı çözümle
       {% for service in web_services %}
       <a href="{{ service.url }}" class="card group">
         <div class="p-8">
-          <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="w-16 h-16 bg-gradient-to-br from-orion-cyan to-orion-purple rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <svg class="w-8 h-8 text-orion-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
           </div>
-          <h3 class="mb-4 group-hover:text-blue-600 transition-colors">{{ service.title }}</h3>
-          <p class="text-gray-600 mb-6">{{ service.description }}</p>
+          <h3 class="mb-4 text-orion-white group-hover:text-orion-cyan transition-colors">{{ service.title }}</h3>
+          <p class="text-orion-gray mb-6">{{ service.description }}</p>
 
           <div class="space-y-2 mb-6">
             {% for feature in service.features limit:4 %}
-            <div class="flex items-center gap-2 text-sm text-gray-700">
-              <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <div class="flex items-center gap-2 text-sm text-orion-white">
+              <svg class="w-4 h-4 text-success flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
               </svg>
               <span>{{ feature }}</span>
@@ -57,7 +58,7 @@ description: "İşletmenizin dijital ihtiyaçlarına özel, kapsamlı çözümle
             {% endfor %}
           </div>
 
-          <div class="flex items-center text-blue-600 font-medium group-hover:gap-2 transition-all">
+          <div class="flex items-center text-orion-cyan font-medium group-hover:gap-2 transition-all">
             Detaylı İncele
             <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
@@ -71,14 +72,14 @@ description: "İşletmenizin dijital ihtiyaçlarına özel, kapsamlı çözümle
     <!-- Marketing Services -->
     <div class="mb-12 animate-on-scroll">
       <div class="flex items-center gap-3 mb-4">
-        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
-          <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="w-12 h-12 bg-orion-purple/10 rounded-lg flex items-center justify-center">
+          <svg class="w-6 h-6 text-orion-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
           </svg>
         </div>
-        <h2>Dijital Pazarlama & Yönetim</h2>
+        <h2 class="text-orion-white">Dijital Pazarlama & Yönetim</h2>
       </div>
-      <p class="text-gray-600 text-lg">Markanızı büyüten pazarlama çözümleri</p>
+      <p class="text-orion-gray text-lg">Markanızı büyüten pazarlama çözümleri</p>
     </div>
 
     <div class="grid md:grid-cols-2 gap-8 card-group">
@@ -86,18 +87,18 @@ description: "İşletmenizin dijital ihtiyaçlarına özel, kapsamlı çözümle
       {% for service in marketing_services %}
       <a href="{{ service.url }}" class="card group">
         <div class="p-8">
-          <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="w-16 h-16 bg-gradient-to-br from-orion-purple to-orion-cyan rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <svg class="w-8 h-8 text-orion-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
             </svg>
           </div>
-          <h3 class="mb-4 group-hover:text-purple-600 transition-colors">{{ service.title }}</h3>
-          <p class="text-gray-600 mb-6">{{ service.description }}</p>
+          <h3 class="mb-4 text-orion-white group-hover:text-orion-purple transition-colors">{{ service.title }}</h3>
+          <p class="text-orion-gray mb-6">{{ service.description }}</p>
 
           <div class="space-y-2 mb-6">
             {% for feature in service.features limit:4 %}
-            <div class="flex items-center gap-2 text-sm text-gray-700">
-              <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <div class="flex items-center gap-2 text-sm text-orion-white">
+              <svg class="w-4 h-4 text-success flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
               </svg>
               <span>{{ feature }}</span>
@@ -105,7 +106,7 @@ description: "İşletmenizin dijital ihtiyaçlarına özel, kapsamlı çözümle
             {% endfor %}
           </div>
 
-          <div class="flex items-center text-purple-600 font-medium group-hover:gap-2 transition-all">
+          <div class="flex items-center text-orion-purple font-medium group-hover:gap-2 transition-all">
             Detaylı İncele
             <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
@@ -119,10 +120,11 @@ description: "İşletmenizin dijital ihtiyaçlarına özel, kapsamlı çözümle
 </section>
 
 <!-- CTA -->
-<section class="section bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-  <div class="container-custom text-center animate-on-scroll">
-    <h2 class="text-white mb-6">Hangi Hizmetimiz Size Uygun?</h2>
-    <p class="text-blue-100 max-w-2xl mx-auto mb-8 text-lg">
+<section class="section bg-gradient-to-r from-orion-cyan to-orion-purple text-orion-navy relative overflow-hidden">
+  <div class="absolute inset-0 bg-orion-navy/60 backdrop-blur-sm"></div>
+  <div class="container-custom text-center animate-on-scroll relative z-10">
+    <h2 class="text-orion-white mb-6 drop-shadow-lg">Hangi Hizmetimiz Size Uygun?</h2>
+    <p class="text-orion-white/90 max-w-2xl mx-auto mb-8 text-lg drop-shadow-md">
       Ücretsiz danışmanlık için bizimle iletişime geçin, size en uygun çözümü bulalım
     </p>
     <a href="/iletisim" class="btn btn-secondary">

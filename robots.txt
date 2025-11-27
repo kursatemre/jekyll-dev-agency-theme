@@ -1,0 +1,26 @@
+# OrionSoft.dev - robots.txt
+# Tüm arama motorlarına izin ver
+
+User-agent: *
+Allow: /
+
+# Sitemap konumu
+Sitemap: https://orionsoft.dev/sitemap.xml
+
+# Yaygın botlar için özel ayarlar
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Engellenen alanlar (varsa)
+Disallow: /assets/
+Disallow: /_site/
+Disallow: /node_modules/
+
+# Crawl gecikme ayarı (saniye)
+Crawl-delay: 1

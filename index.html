@@ -1,26 +1,31 @@
 ---
 layout: default
-title: "Dijital Dönüşüm Ortağınız"
+title: "Modern Web Çözümleri | OrionSoft.dev"
+description: "Full-stack development, e-ticaret ve özel yazılım projeleri ile işletmenizi dijital dünyada zirveye taşıyoruz. React, Next.js, ASP.NET Core ile modern web çözümleri."
+keywords: "web tasarım, yazılım geliştirme, full-stack developer, e-ticaret, react, nextjs, asp.net core, dijital pazarlama"
+author: "OrionSoft.dev"
+image: /assets/images/og-image.jpg
 ---
 
 <!-- Hero Section -->
-<section class="hero-section relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50">
-  <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
+<section class="hero-section orion-constellation relative min-h-screen flex items-center justify-center overflow-hidden">
+
+  <!-- Orion Constellation Circle -->
+  <div class="orion-constellation-circle opacity-30"></div>
 
   <div class="container-custom relative z-10 py-32 text-center">
     <div class="animate-on-scroll">
-      <div class="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full mb-6 font-medium">
-        Dijital Dönüşüm Ortağınız
+      <div class="inline-block px-4 py-2 bg-orion-cyan/10 border border-orion-cyan/30 text-orion-cyan rounded-full mb-6 font-medium backdrop-blur-sm">
+        OrionSoft.dev - Modern Web Solutions
       </div>
     </div>
 
-    <h1 class="max-w-4xl mx-auto mb-6 animate-on-scroll">
-      Dijital Varlığınızı İnşa Ediyor ve Büyütüyoruz
+    <h1 class="max-w-4xl mx-auto mb-6 animate-on-scroll text-orion-white">
+      Dijital Vizyonunuzu Gerçeğe Dönüştürüyoruz
     </h1>
 
-    <p class="max-w-2xl mx-auto text-gray-600 text-lg mb-10 animate-on-scroll">
-      Kurumsal web tasarımından sosyal medya yönetimine kadar 360° dijital çözümler.
-      İşletmenizin dijital dünyada güçlü bir şekilde var olmasını sağlıyoruz.
+    <p class="max-w-2xl mx-auto text-orion-gray text-lg mb-10 animate-on-scroll">
+      Full-stack development, e-ticaret ve özel yazılım projeleri ile işletmenizi dijital dünyada zirveye taşıyoruz.
     </p>
 
     <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate-on-scroll">
@@ -40,10 +45,10 @@ title: "Dijital Dönüşüm Ortağınız"
       {% for stat in site.data.stats %}
       <div class="text-center">
         {% assign clean_value = stat.value | remove: '+' | remove: '%' %}
-        <div class="text-3xl md:text-4xl font-bold text-blue-600 mb-2">
+        <div class="text-3xl md:text-4xl font-bold text-orion-cyan mb-2">
           <span class="counter" data-target="{{ clean_value }}">0</span>{% if stat.value contains '+' %}+{% elsif stat.value contains '%' %}%{% endif %}
         </div>
-        <div class="text-gray-600 text-sm">{{ stat.label }}</div>
+        <div class="text-orion-gray text-sm">{{ stat.label }}</div>
       </div>
       {% endfor %}
     </div>
@@ -51,18 +56,18 @@ title: "Dijital Dönüşüm Ortağınız"
 
   <!-- Scroll indicator -->
   <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce-slow">
-    <div class="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
-      <div class="w-1 h-3 bg-gray-400 rounded-full mt-2"></div>
+    <div class="w-6 h-10 border-2 border-orion-cyan/50 rounded-full flex justify-center">
+      <div class="w-1 h-3 bg-orion-cyan rounded-full mt-2"></div>
     </div>
   </div>
 </section>
 
 <!-- Services Section -->
-<section class="section bg-white">
-  <div class="container-custom">
+<section class="section relative">
+  <div class="container-custom relative z-10">
     <div class="text-center mb-16 animate-on-scroll">
       <h2 class="mb-4">Hizmetlerimiz</h2>
-      <p class="text-gray-600 max-w-2xl mx-auto text-lg">
+      <p class="text-orion-gray max-w-2xl mx-auto text-lg">
         İşletmenizin dijital ihtiyaçlarına özel, kapsamlı çözümler sunuyoruz.
       </p>
     </div>
@@ -71,8 +76,8 @@ title: "Dijital Dönüşüm Ortağınız"
       <!-- Web Solutions -->
       <div>
         <div class="flex items-center gap-3 mb-6 animate-on-scroll">
-          <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="w-12 h-12 bg-orion-cyan/10 rounded-lg flex items-center justify-center">
+            <svg class="w-6 h-6 text-orion-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
             </svg>
           </div>
@@ -85,16 +90,16 @@ title: "Dijital Dönüşüm Ortağınız"
           <a href="{{ service.url }}" class="card group block">
             <div class="p-6">
               <div class="flex items-start gap-4">
-                <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="w-12 h-12 bg-gradient-to-br from-orion-cyan to-orion-purple rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <svg class="w-6 h-6 text-orion-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                   </svg>
                 </div>
                 <div class="flex-1">
-                  <h4 class="mb-2 text-gray-900 group-hover:text-blue-600 transition-colors">{{ service.title }}</h4>
-                  <p class="text-gray-600 text-sm">{{ service.description | truncate: 100 }}</p>
+                  <h4 class="mb-2 text-orion-white group-hover:text-orion-cyan transition-colors">{{ service.title }}</h4>
+                  <p class="text-orion-gray text-sm">{{ service.description | truncate: 100 }}</p>
                 </div>
-                <svg class="w-5 h-5 text-gray-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-5 h-5 text-orion-gray group-hover:text-orion-cyan group-hover:translate-x-1 transition-all flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                 </svg>
               </div>
@@ -107,8 +112,8 @@ title: "Dijital Dönüşüm Ortağınız"
       <!-- Marketing Solutions -->
       <div>
         <div class="flex items-center gap-3 mb-6 animate-on-scroll">
-          <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
-            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="w-12 h-12 bg-orion-purple/10 rounded-lg flex items-center justify-center">
+            <svg class="w-6 h-6 text-orion-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
             </svg>
           </div>
@@ -121,16 +126,16 @@ title: "Dijital Dönüşüm Ortağınız"
           <a href="{{ service.url }}" class="card group block">
             <div class="p-6">
               <div class="flex items-start gap-4">
-                <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="w-12 h-12 bg-gradient-to-br from-orion-purple to-orion-cyan rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <svg class="w-6 h-6 text-orion-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                   </svg>
                 </div>
                 <div class="flex-1">
-                  <h4 class="mb-2 text-gray-900 group-hover:text-purple-600 transition-colors">{{ service.title }}</h4>
-                  <p class="text-gray-600 text-sm">{{ service.description | truncate: 100 }}</p>
+                  <h4 class="mb-2 text-orion-white group-hover:text-orion-purple transition-colors">{{ service.title }}</h4>
+                  <p class="text-orion-gray text-sm">{{ service.description | truncate: 100 }}</p>
                 </div>
-                <svg class="w-5 h-5 text-gray-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-5 h-5 text-orion-gray group-hover:text-orion-purple group-hover:translate-x-1 transition-all flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                 </svg>
               </div>
@@ -153,11 +158,11 @@ title: "Dijital Dönüşüm Ortağınız"
 </section>
 
 <!-- Why Choose Us -->
-<section class="section bg-gray-50">
-  <div class="container-custom">
+<section class="section relative orion-belt-stars">
+  <div class="container-custom relative z-10">
     <div class="text-center mb-16 animate-on-scroll">
       <h2 class="mb-4">Neden Bizi Seçmelisiniz?</h2>
-      <p class="text-gray-600 max-w-2xl mx-auto text-lg">
+      <p class="text-orion-gray max-w-2xl mx-auto text-lg">
         Dijital projelerinizde güvenilir bir ortak arıyorsanız, doğru yerdesiniz.
       </p>
     </div>
@@ -166,13 +171,13 @@ title: "Dijital Dönüşüm Ortağınız"
       {% for feature in site.data.features %}
       <div class="card">
         <div class="p-6">
-          <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="w-12 h-12 bg-orion-cyan/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-orion-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
           </div>
           <h4 class="mb-3">{{ feature.title }}</h4>
-          <p class="text-gray-600 text-sm">{{ feature.description }}</p>
+          <p class="text-orion-gray text-sm">{{ feature.description }}</p>
         </div>
       </div>
       {% endfor %}
@@ -181,39 +186,39 @@ title: "Dijital Dönüşüm Ortağınız"
 </section>
 
 <!-- About Section -->
-<section class="section bg-white">
-  <div class="container-custom">
+<section class="section relative">
+  <div class="container-custom relative z-10">
     <div class="grid lg:grid-cols-2 gap-12 items-center">
       <!-- Left: Content -->
       <div class="animate-on-scroll">
-        <div class="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full mb-4 font-medium text-sm">
+        <div class="inline-block px-4 py-2 bg-orion-cyan/10 text-orion-cyan rounded-full mb-4 font-medium text-sm border border-orion-cyan/30">
           Hakkımızda
         </div>
         <h2 class="mb-6">Dijital Dünyada Güvenilir Çözüm Ortağınız</h2>
-        <p class="text-gray-600 text-lg mb-6">
+        <p class="text-orion-gray text-lg mb-6">
           150'den fazla başarılı projeyle, modern teknolojileri kullanarak işletmelerin dijital dönüşümüne öncülük ediyoruz.
         </p>
-        <p class="text-gray-600 mb-8">
+        <p class="text-orion-gray mb-8">
           React, Next.js, Vue.js, ASP.NET Core gibi en güncel teknolojilerle kurumsal web siteleri, e-ticaret platformları, özel yazılım çözümleri ve dijital pazarlama hizmetleri sunuyoruz. Clean Architecture, CQRS pattern ve mikroservis mimarisi gibi modern yazılım geliştirme prensipleriyle ölçeklenebilir ve sürdürülebilir projeler üretiyoruz.
         </p>
         <div class="flex flex-wrap gap-4 mb-8">
           <div class="flex items-center gap-2">
-            <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-5 h-5 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
-            <span class="text-gray-700">150+ Tamamlanmış Proje</span>
+            <span class="text-orion-white">150+ Tamamlanmış Proje</span>
           </div>
           <div class="flex items-center gap-2">
-            <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-5 h-5 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
-            <span class="text-gray-700">Modern Teknoloji Stack</span>
+            <span class="text-orion-white">Modern Teknoloji Stack</span>
           </div>
           <div class="flex items-center gap-2">
-            <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-5 h-5 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
-            <span class="text-gray-700">%100 Müşteri Memnuniyeti</span>
+            <span class="text-orion-white">%100 Müşteri Memnuniyeti</span>
           </div>
         </div>
         <a href="/hakkimizda" class="btn btn-primary inline-flex items-center gap-2">
@@ -229,39 +234,39 @@ title: "Dijital Dönüşüm Ortağınız"
         <div class="grid grid-cols-3 gap-4">
           <div class="card p-6 text-center hover:shadow-xl transition-shadow">
             <div class="text-3xl mb-2">⚛️</div>
-            <div class="text-sm font-medium text-gray-900">React</div>
+            <div class="text-sm font-medium text-orion-white">React</div>
           </div>
           <div class="card p-6 text-center hover:shadow-xl transition-shadow">
             <div class="text-3xl mb-2">▲</div>
-            <div class="text-sm font-medium text-gray-900">Next.js</div>
+            <div class="text-sm font-medium text-orion-white">Next.js</div>
           </div>
           <div class="card p-6 text-center hover:shadow-xl transition-shadow">
             <div class="text-3xl mb-2">💚</div>
-            <div class="text-sm font-medium text-gray-900">Vue.js</div>
+            <div class="text-sm font-medium text-orion-white">Vue.js</div>
           </div>
           <div class="card p-6 text-center hover:shadow-xl transition-shadow">
             <div class="text-3xl mb-2">📘</div>
-            <div class="text-sm font-medium text-gray-900">TypeScript</div>
+            <div class="text-sm font-medium text-orion-white">TypeScript</div>
           </div>
           <div class="card p-6 text-center hover:shadow-xl transition-shadow">
             <div class="text-3xl mb-2">🎨</div>
-            <div class="text-sm font-medium text-gray-900">Tailwind</div>
+            <div class="text-sm font-medium text-orion-white">Tailwind</div>
           </div>
           <div class="card p-6 text-center hover:shadow-xl transition-shadow">
             <div class="text-3xl mb-2">⚡</div>
-            <div class="text-sm font-medium text-gray-900">Vite</div>
+            <div class="text-sm font-medium text-orion-white">Vite</div>
           </div>
           <div class="card p-6 text-center hover:shadow-xl transition-shadow">
             <div class="text-3xl mb-2">🟦</div>
-            <div class="text-sm font-medium text-gray-900">ASP.NET</div>
+            <div class="text-sm font-medium text-orion-white">ASP.NET</div>
           </div>
           <div class="card p-6 text-center hover:shadow-xl transition-shadow">
             <div class="text-3xl mb-2">🐘</div>
-            <div class="text-sm font-medium text-gray-900">PostgreSQL</div>
+            <div class="text-sm font-medium text-orion-white">PostgreSQL</div>
           </div>
           <div class="card p-6 text-center hover:shadow-xl transition-shadow">
             <div class="text-3xl mb-2">🐳</div>
-            <div class="text-sm font-medium text-gray-900">Docker</div>
+            <div class="text-sm font-medium text-orion-white">Docker</div>
           </div>
         </div>
       </div>
@@ -270,17 +275,17 @@ title: "Dijital Dönüşüm Ortağınız"
 </section>
 
 <!-- Clients Section -->
-<section class="section bg-gray-50">
-  <div class="container-custom">
+<section class="section relative">
+  <div class="container-custom relative z-10">
     <div class="text-center mb-12 animate-on-scroll">
       <h3 class="mb-4">Güvenilir Markalar Bizi Tercih Ediyor</h3>
-      <p class="text-gray-600">Farklı sektörlerden 120+ mutlu müşterimiz var.</p>
+      <p class="text-orion-gray">Farklı sektörlerden 120+ mutlu müşterimiz var.</p>
     </div>
 
     <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center animate-on-scroll">
       {% for client in site.data.clients %}
-      <div class="flex items-center justify-center p-6 bg-white rounded-lg shadow-sm">
-        <span class="text-gray-400 text-lg font-semibold">{{ client.name }}</span>
+      <div class="flex items-center justify-center p-6 bg-orion-navy/40 border border-orion-cyan/20 rounded-lg shadow-sm backdrop-blur-md">
+        <span class="text-orion-gray text-lg font-semibold">{{ client.name }}</span>
       </div>
       {% endfor %}
     </div>
@@ -288,10 +293,13 @@ title: "Dijital Dönüşüm Ortağınız"
 </section>
 
 <!-- CTA Section -->
-<section class="section bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-  <div class="container-custom text-center animate-on-scroll">
-    <h2 class="text-white mb-6">Projeniz İçin Hemen Başlayalım</h2>
-    <p class="max-w-2xl mx-auto mb-8 text-blue-100 text-lg">
+<section class="section bg-gradient-to-r from-orion-cyan to-orion-purple text-orion-navy relative overflow-hidden">
+  <!-- Dark overlay for better text contrast -->
+  <div class="absolute inset-0 bg-orion-navy/60 backdrop-blur-sm"></div>
+
+  <div class="container-custom text-center animate-on-scroll relative z-10">
+    <h2 class="text-orion-white mb-6 drop-shadow-lg">Projeniz İçin Hemen Başlayalım</h2>
+    <p class="max-w-2xl mx-auto mb-8 text-orion-white/90 text-lg drop-shadow-md">
       Dijital dönüşüm yolculuğunuzda yanınızdayız. Ücretsiz danışmanlık için bizimle iletişime geçin.
     </p>
     <a href="/iletisim" class="btn btn-secondary">
