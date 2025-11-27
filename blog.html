@@ -1,7 +1,8 @@
 ---
 layout: default
-title: "Blog"
-description: "Dijital dünya hakkında faydalı bilgiler, ipuçları ve trendler"
+title: "Blog | OrionSoft.dev"
+description: "Dijital dünya hakkında faydalı bilgiler, ipuçları ve trendler. Web geliştirme, yazılım mimarisi ve teknoloji hakkında makaleler."
+keywords: "yazılım blog, web geliştirme ipuçları, teknoloji haberleri, programlama makaleleri"
 ---
 
 <div class="py-16 relative">
@@ -81,6 +82,8 @@ description: "Dijital dünya hakkında faydalı bilgiler, ipuçları ve trendler
           <img
             src="{{ post.featured_image | relative_url }}"
             alt="{{ post.title }}"
+            loading="lazy"
+            decoding="async"
             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
           >
         </div>

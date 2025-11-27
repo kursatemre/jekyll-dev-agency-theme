@@ -6,15 +6,32 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
   {% seo %}
+  {% include schema.html %}
 
+  <!-- Performance: Preconnect to external domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+
+  <!-- Performance: Preload critical CSS -->
+  <link rel="preload" href="{{ '/assets/css/main.css' | relative_url }}" as="style">
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+
+  <!-- Performance: Preload critical fonts -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style">
 
   <!-- Favicon - Using emoji as favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
 
-  <!-- Preconnect to external domains -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="{{ '/manifest.json' | relative_url }}">
+
+  <!-- Theme color for mobile browsers -->
+  <meta name="theme-color" content="#0A1128">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="OrionSoft.dev">
 </head>
 <body>
   {% include header.html %}

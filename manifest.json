@@ -1,0 +1,28 @@
+{
+  "name": "OrionSoft.dev - Modern Web Çözümleri",
+  "short_name": "OrionSoft.dev",
+  "description": "Modern web çözümleri ve yazılım geliştirme hizmetleri - Full-stack development, e-ticaret ve özel yazılım projeleri",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A1128",
+  "theme_color": "#0A1128",
+  "orientation": "portrait-primary",
+  "lang": "tr",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity", "technology"],
+  "screenshots": []
+}

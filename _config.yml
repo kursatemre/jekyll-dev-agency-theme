@@ -1,8 +1,36 @@
 title: "OrionSoft.dev"
 description: "Modern web çözümleri ve yazılım geliştirme hizmetleri - Full-stack development, e-ticaret ve özel yazılım projeleri"
-url: ""
+url: "https://orionsoft.dev"
 baseurl: ""
 lang: tr
+
+# SEO Settings
+author:
+  name: "OrionSoft.dev"
+  email: "info@orionsoft.dev"
+
+# Social Media & SEO
+twitter:
+  username: orionsoftdev
+  card: summary_large_image
+
+facebook:
+  app_id:
+  publisher:
+
+logo: /assets/images/logo.png
+social:
+  name: OrionSoft.dev
+  links:
+    - https://twitter.com/orionsoftdev
+    - https://github.com/orionsoft
+    - https://linkedin.com/company/orionsoft
+
+# Google Analytics (opsiyonel)
+# google_analytics: UA-XXXXXXXXX-X
+
+# Google Search Console (opsiyonel)
+# google_site_verification: "your-verification-code"
 
 # Build settings
 markdown: kramdown
