@@ -38,10 +38,10 @@ title: "Modern Web Çözümleri"
       {% for stat in site.data.stats %}
       <div class="text-center">
         {% assign clean_value = stat.value | remove: '+' | remove: '%' %}
-        <div class="text-3xl md:text-4xl font-bold text-blue-600 mb-2">
+        <div class="text-3xl md:text-4xl font-bold text-orion-cyan mb-2">
           <span class="counter" data-target="{{ clean_value }}">0</span>{% if stat.value contains '+' %}+{% elsif stat.value contains '%' %}%{% endif %}
         </div>
-        <div class="text-gray-600 text-sm">{{ stat.label }}</div>
+        <div class="text-orion-gray text-sm">{{ stat.label }}</div>
       </div>
       {% endfor %}
     </div>
@@ -49,8 +49,8 @@ title: "Modern Web Çözümleri"
 
   <!-- Scroll indicator -->
   <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce-slow">
-    <div class="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
-      <div class="w-1 h-3 bg-gray-400 rounded-full mt-2"></div>
+    <div class="w-6 h-10 border-2 border-orion-cyan/50 rounded-full flex justify-center">
+      <div class="w-1 h-3 bg-orion-cyan rounded-full mt-2"></div>
     </div>
   </div>
 </section>
@@ -69,8 +69,8 @@ title: "Modern Web Çözümleri"
       <!-- Web Solutions -->
       <div>
         <div class="flex items-center gap-3 mb-6 animate-on-scroll">
-          <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="w-12 h-12 bg-orion-cyan/10 rounded-lg flex items-center justify-center">
+            <svg class="w-6 h-6 text-orion-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
             </svg>
           </div>
@@ -83,16 +83,16 @@ title: "Modern Web Çözümleri"
           <a href="{{ service.url }}" class="card group block">
             <div class="p-6">
               <div class="flex items-start gap-4">
-                <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="w-12 h-12 bg-gradient-to-br from-orion-cyan to-orion-purple rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <svg class="w-6 h-6 text-orion-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                   </svg>
                 </div>
                 <div class="flex-1">
-                  <h4 class="mb-2 text-gray-900 group-hover:text-blue-600 transition-colors">{{ service.title }}</h4>
+                  <h4 class="mb-2 text-gray-900 group-hover:text-orion-cyan transition-colors">{{ service.title }}</h4>
                   <p class="text-gray-600 text-sm">{{ service.description | truncate: 100 }}</p>
                 </div>
-                <svg class="w-5 h-5 text-gray-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-5 h-5 text-gray-400 group-hover:text-orion-cyan group-hover:translate-x-1 transition-all flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                 </svg>
               </div>
@@ -105,8 +105,8 @@ title: "Modern Web Çözümleri"
       <!-- Marketing Solutions -->
       <div>
         <div class="flex items-center gap-3 mb-6 animate-on-scroll">
-          <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
-            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="w-12 h-12 bg-orion-purple/10 rounded-lg flex items-center justify-center">
+            <svg class="w-6 h-6 text-orion-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
             </svg>
           </div>
@@ -119,16 +119,16 @@ title: "Modern Web Çözümleri"
           <a href="{{ service.url }}" class="card group block">
             <div class="p-6">
               <div class="flex items-start gap-4">
-                <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="w-12 h-12 bg-gradient-to-br from-orion-purple to-orion-cyan rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <svg class="w-6 h-6 text-orion-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                   </svg>
                 </div>
                 <div class="flex-1">
-                  <h4 class="mb-2 text-gray-900 group-hover:text-purple-600 transition-colors">{{ service.title }}</h4>
+                  <h4 class="mb-2 text-gray-900 group-hover:text-orion-purple transition-colors">{{ service.title }}</h4>
                   <p class="text-gray-600 text-sm">{{ service.description | truncate: 100 }}</p>
                 </div>
-                <svg class="w-5 h-5 text-gray-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-5 h-5 text-gray-400 group-hover:text-orion-purple group-hover:translate-x-1 transition-all flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                 </svg>
               </div>
@@ -164,8 +164,8 @@ title: "Modern Web Çözümleri"
       {% for feature in site.data.features %}
       <div class="card">
         <div class="p-6">
-          <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="w-12 h-12 bg-orion-cyan/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-orion-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
           </div>
@@ -184,7 +184,7 @@ title: "Modern Web Çözümleri"
     <div class="grid lg:grid-cols-2 gap-12 items-center">
       <!-- Left: Content -->
       <div class="animate-on-scroll">
-        <div class="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full mb-4 font-medium text-sm">
+        <div class="inline-block px-4 py-2 bg-orion-cyan/10 text-orion-cyan rounded-full mb-4 font-medium text-sm">
           Hakkımızda
         </div>
         <h2 class="mb-6">Dijital Dünyada Güvenilir Çözüm Ortağınız</h2>
@@ -196,19 +196,19 @@ title: "Modern Web Çözümleri"
         </p>
         <div class="flex flex-wrap gap-4 mb-8">
           <div class="flex items-center gap-2">
-            <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-5 h-5 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
             <span class="text-gray-700">150+ Tamamlanmış Proje</span>
           </div>
           <div class="flex items-center gap-2">
-            <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-5 h-5 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
             <span class="text-gray-700">Modern Teknoloji Stack</span>
           </div>
           <div class="flex items-center gap-2">
-            <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-5 h-5 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
             <span class="text-gray-700">%100 Müşteri Memnuniyeti</span>
@@ -286,10 +286,10 @@ title: "Modern Web Çözümleri"
 </section>
 
 <!-- CTA Section -->
-<section class="section bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+<section class="section bg-gradient-to-r from-orion-cyan to-orion-purple text-orion-navy">
   <div class="container-custom text-center animate-on-scroll">
-    <h2 class="text-white mb-6">Projeniz İçin Hemen Başlayalım</h2>
-    <p class="max-w-2xl mx-auto mb-8 text-blue-100 text-lg">
+    <h2 class="text-orion-navy mb-6">Projeniz İçin Hemen Başlayalım</h2>
+    <p class="max-w-2xl mx-auto mb-8 text-orion-navy/80 text-lg">
       Dijital dönüşüm yolculuğunuzda yanınızdayız. Ücretsiz danışmanlık için bizimle iletişime geçin.
     </p>
     <a href="/iletisim" class="btn btn-secondary">
