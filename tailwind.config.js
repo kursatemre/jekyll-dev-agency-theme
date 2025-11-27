@@ -11,17 +11,30 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        // OrionSoft.dev Brand Colors
+        orion: {
+          navy: '#0A1128',      // Derin Lacivert - Primary Background
+          white: '#FFFFFF',     // Saf Beyaz - Primary Text
+          cyan: '#00FFFF',      // Parlak Camgöbeği - Accent/Interactive
+          gray: '#A0A0A0',      // Orta Gri - Secondary Text
+          purple: '#8A2BE2',    // Uzak Mor - Tertiary Accent
+        },
+        // Status Colors
+        success: '#28A745',
+        warning: '#FFC107',
+        error: '#DC3545',
+        // Legacy primary colors (for gradual migration)
         primary: {
-          50: '#eff6ff',
-          100: '#dbeafe',
-          200: '#bfdbfe',
-          300: '#93c5fd',
-          400: '#60a5fa',
-          500: '#3b82f6',
-          600: '#2563eb',
-          700: '#1d4ed8',
-          800: '#1e40af',
-          900: '#1e3a8a',
+          50: '#e6f9ff',
+          100: '#ccf3ff',
+          200: '#99e7ff',
+          300: '#66dbff',
+          400: '#33cfff',
+          500: '#00FFFF',  // Camgöbeği
+          600: '#00cccc',
+          700: '#009999',
+          800: '#006666',
+          900: '#0A1128',  // Lacivert
         },
       },
       fontFamily: {
