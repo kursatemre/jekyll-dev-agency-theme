@@ -15,19 +15,19 @@
   }
 
   h1 {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900;
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold text-orion-navy;
   }
 
   h2 {
-    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900;
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-orion-navy;
   }
 
   h3 {
-    @apply text-2xl md:text-3xl font-semibold text-gray-900;
+    @apply text-2xl md:text-3xl font-semibold text-orion-navy;
   }
 
   h4 {
-    @apply text-xl md:text-2xl font-semibold text-gray-900;
+    @apply text-xl md:text-2xl font-semibold text-orion-navy;
   }
 }
 
@@ -37,11 +37,11 @@
   }
 
   .btn-primary {
-    @apply bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 shadow-lg hover:shadow-xl transform hover:scale-105;
+    @apply bg-gradient-to-r from-orion-cyan to-orion-purple text-orion-navy hover:from-orion-purple hover:to-orion-cyan shadow-lg hover:shadow-xl transform hover:scale-105 font-semibold;
   }
 
   .btn-secondary {
-    @apply bg-white text-gray-900 border-2 border-gray-300 hover:border-blue-600 hover:text-blue-600;
+    @apply bg-orion-navy text-orion-cyan border-2 border-orion-cyan hover:bg-orion-cyan hover:text-orion-navy transition-all;
   }
 
   .card {
