@@ -171,7 +171,7 @@
     display: inline-block;
   }
 
-  /* Circle border around O - perfect circle */
+  /* Circle border around O - perfect circle, static */
   .orion-belt-logo::before {
     content: '';
     position: absolute;
@@ -182,7 +182,6 @@
     transform: translate(-50%, -50%);
     border: 1px solid rgba(0, 255, 255, 0.3);
     border-radius: 50%;
-    animation: constellation-rotate 30s linear infinite;
   }
 
   /* Three stars inside the O */
