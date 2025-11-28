@@ -286,9 +286,9 @@
   }
 }
 /* ...diğer kodlarınız */
-
 @media (max-width: 800px), (pointer: coarse) {
   body {
+    background: #0A1128 !important; /* veya istediğin bir düz renk/uyumlu bir gradient */
     background-attachment: scroll !important;
   }
 }
