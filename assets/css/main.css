@@ -285,3 +285,10 @@
     transform: translateY(0);
   }
 }
+/* ...diğer kodlarınız */
+
+@media (max-width: 800px), (pointer: coarse) {
+  body {
+    background-attachment: scroll !important;
+  }
+}
