@@ -1,4 +1,9 @@
 @media (max-width: 767px) {
+  .hero-section {
+    background: #0A1128 !important;
+  }
+}
+@media (max-width: 767px) {
   body::before {
     display: none !important;
   }
