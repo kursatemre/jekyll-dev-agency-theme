@@ -19,7 +19,6 @@
     @apply font-sans antialiased text-orion-white;
     opacity: 1 !important;
     background: linear-gradient(135deg, #0A1128 0%, #1a1f3a 50%, #0A1128 100%);
-    background-attachment: fixed;
     position: relative;
   }
 
