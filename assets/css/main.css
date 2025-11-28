@@ -1,3 +1,8 @@
+@media (max-width: 767px) {
+  body::before {
+    display: none !important;
+  }
+}
 /* Mobilde background-attachment: fixed sorununu düzeltir */
 @media (max-width: 767px) {
   body {
