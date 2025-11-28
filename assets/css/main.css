@@ -1,3 +1,9 @@
+/* Mobilde background-attachment: fixed sorununu düzeltir */
+@media (max-width: 767px) {
+  body {
+    background-attachment: scroll !important;
+  }
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
