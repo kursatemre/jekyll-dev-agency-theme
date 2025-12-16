@@ -14,8 +14,8 @@ layout: default
           </span>
           {% endif %}
         </div>
-        <h1 class="mb-6">{{ page.title }}</h1>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto">{{ page.excerpt }}</p>
+        <h1 class="mb-6 text-orion-white">{{ page.title }}</h1>
+        <p class="text-xl text-orion-gray max-w-3xl mx-auto">{{ page.excerpt }}</p>
 
         <!-- Project Links -->
         {% if page.project_url or page.github_url %}
@@ -44,20 +44,20 @@ layout: default
       <div class="grid md:grid-cols-3 gap-8 mb-16 card-group">
         {% if page.client %}
         <div class="card p-6 text-center">
-          <div class="text-blue-600 font-semibold mb-2">Müşteri</div>
-          <div class="text-gray-900">{{ page.client }}</div>
+          <div class="text-orion-cyan font-semibold mb-2">Müşteri</div>
+          <div class="text-orion-white">{{ page.client }}</div>
         </div>
         {% endif %}
         {% if page.date %}
         <div class="card p-6 text-center">
-          <div class="text-blue-600 font-semibold mb-2">Tarih</div>
-          <div class="text-gray-900">{{ page.date | date: "%B %Y" }}</div>
+          <div class="text-orion-cyan font-semibold mb-2">Tarih</div>
+          <div class="text-orion-white">{{ page.date | date: "%B %Y" }}</div>
         </div>
         {% endif %}
         {% if page.category %}
         <div class="card p-6 text-center">
-          <div class="text-blue-600 font-semibold mb-2">Kategori</div>
-          <div class="text-gray-900">{{ page.category }}</div>
+          <div class="text-orion-cyan font-semibold mb-2">Kategori</div>
+          <div class="text-orion-white">{{ page.category }}</div>
         </div>
         {% endif %}
       </div>
@@ -70,7 +70,7 @@ layout: default
       {% endif %}
 
       <!-- Content -->
-      <div class="prose prose-lg max-w-none mb-16 animate-on-scroll">
+      <div class="prose prose-lg max-w-none mb-16 animate-on-scroll prose-headings:text-orion-white prose-h1:text-orion-white prose-h2:text-orion-white prose-h3:text-orion-white prose-h4:text-orion-white prose-p:text-orion-gray prose-strong:text-orion-white prose-a:text-orion-cyan prose-a:no-underline hover:prose-a:text-orion-purple prose-code:text-orion-cyan prose-code:bg-orion-navy/60 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-pre:bg-orion-navy/80 prose-pre:border prose-pre:border-orion-cyan/30 prose-li:text-orion-gray prose-ul:text-orion-gray prose-ol:text-orion-gray prose-blockquote:text-orion-gray prose-blockquote:border-orion-cyan prose-img:rounded-lg">
         {{ content }}
       </div>
 
@@ -79,8 +79,8 @@ layout: default
       <div class="grid md:grid-cols-3 gap-8 mb-16 card-group">
         {% for result in page.results %}
         <div class="card p-8 text-center">
-          <div class="text-4xl font-bold text-blue-600 mb-2">{{ result.value }}</div>
-          <div class="text-gray-600">{{ result.label }}</div>
+          <div class="text-4xl font-bold text-orion-cyan mb-2">{{ result.value }}</div>
+          <div class="text-orion-gray">{{ result.label }}</div>
         </div>
         {% endfor %}
       </div>
@@ -89,10 +89,10 @@ layout: default
       <!-- Technologies -->
       {% if page.technologies %}
       <div class="animate-on-scroll">
-        <h3 class="mb-8 text-center">Kullanılan Teknolojiler</h3>
+        <h3 class="mb-8 text-center text-orion-white">Kullanılan Teknolojiler</h3>
         <div class="flex flex-wrap justify-center gap-4">
           {% for tech in page.technologies %}
-          <span class="px-6 py-3 bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-lg font-medium text-gray-700">
+          <span class="px-6 py-3 bg-orion-navy/60 border border-orion-cyan/30 rounded-lg font-medium text-orion-cyan hover:bg-orion-cyan/10 transition-colors">
             {{ tech }}
           </span>
           {% endfor %}
@@ -104,10 +104,11 @@ layout: default
 </article>
 
 <!-- CTA -->
-<div class="section bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-  <div class="container-custom text-center animate-on-scroll">
-    <h2 class="text-white mb-6">Siz de Başarı Hikayenizi Yazın</h2>
-    <p class="text-blue-100 max-w-2xl mx-auto mb-8 text-lg">
+<div class="section bg-gradient-to-r from-orion-cyan to-orion-purple text-white relative overflow-hidden">
+  <div class="absolute inset-0 bg-orion-navy/60 backdrop-blur-sm"></div>
+  <div class="container-custom text-center animate-on-scroll relative z-10">
+    <h2 class="text-orion-white mb-6 drop-shadow-lg">Siz de Başarı Hikayenizi Yazın</h2>
+    <p class="text-orion-white/90 max-w-2xl mx-auto mb-8 text-lg drop-shadow-md">
       Projeniz için ücretsiz danışmanlık alın ve dijital dönüşüm yolculuğunuza başlayın
     </p>
     <a href="/iletisim" class="btn btn-secondary inline-flex items-center gap-2">

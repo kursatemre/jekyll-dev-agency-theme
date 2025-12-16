@@ -12,8 +12,8 @@ layout: default
             {{ page.category_label }}
           </span>
         </div>
-        <h1 class="mb-6">{{ page.title }}</h1>
-        <div class="flex items-center gap-4 text-gray-600">
+        <h1 class="mb-6 text-orion-white">{{ page.title }}</h1>
+        <div class="flex items-center gap-4 text-orion-gray">
           <time datetime="{{ page.date | date_to_xmlschema }}">
             {{ page.date | date: "%d %B %Y" }}
           </time>
@@ -30,16 +30,16 @@ layout: default
       {% endif %}
 
       <!-- Content -->
-      <div class="prose prose-lg max-w-none animate-on-scroll">
+      <div class="prose prose-lg max-w-none animate-on-scroll prose-headings:text-orion-white prose-p:text-orion-gray prose-strong:text-orion-white prose-a:text-orion-cyan prose-a:no-underline hover:prose-a:text-orion-purple prose-code:text-orion-cyan prose-pre:bg-orion-navy/80 prose-pre:border prose-pre:border-orion-cyan/30 prose-li:text-orion-gray prose-blockquote:text-orion-gray prose-blockquote:border-orion-cyan">
         {{ content }}
       </div>
 
       <!-- Tags -->
       {% if page.tags %}
-      <div class="mt-12 pt-8 border-t animate-on-scroll">
+      <div class="mt-12 pt-8 border-t border-orion-cyan/30 animate-on-scroll">
         <div class="flex flex-wrap gap-2">
           {% for tag in page.tags %}
-          <span class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">
+          <span class="px-4 py-2 bg-orion-navy/60 border border-orion-cyan/30 text-orion-cyan rounded-full text-sm">
             #{{ tag }}
           </span>
           {% endfor %}
@@ -52,9 +52,9 @@ layout: default
 
 <!-- Related Posts -->
 {% if site.related_posts.size > 0 %}
-<div class="section bg-gray-50">
+<div class="section">
   <div class="container-custom">
-    <h3 class="mb-12 text-center animate-on-scroll">İlgili Yazılar</h3>
+    <h3 class="mb-12 text-center animate-on-scroll text-orion-white">İlgili Yazılar</h3>
     <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto card-group">
       {% for post in site.related_posts limit:3 %}
       <a href="{{ post.url }}" class="card group">
@@ -64,9 +64,9 @@ layout: default
         </div>
         {% endif %}
         <div class="p-6">
-          <h4 class="mb-3 group-hover:text-blue-600 transition-colors">{{ post.title }}</h4>
-          <p class="text-gray-600 text-sm mb-4">{{ post.excerpt | strip_html | truncate: 120 }}</p>
-          <div class="flex items-center text-blue-600 text-sm font-medium">
+          <h4 class="mb-3 text-orion-white group-hover:text-orion-cyan transition-colors">{{ post.title }}</h4>
+          <p class="text-orion-gray text-sm mb-4">{{ post.excerpt | strip_html | truncate: 120 }}</p>
+          <div class="flex items-center text-orion-cyan text-sm font-medium">
             Devamını Oku
             <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
