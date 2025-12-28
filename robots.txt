@@ -18,9 +18,13 @@ User-agent: Slurp
 Allow: /
 
 # Engellenen alanlar (varsa)
-Disallow: /assets/
 Disallow: /_site/
 Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /.jekyll-cache/
+
+# Assets'e izin ver (CSS, JS, resimler için gerekli)
+Allow: /assets/
 
 # Crawl gecikme ayarı (saniye)
 Crawl-delay: 1
