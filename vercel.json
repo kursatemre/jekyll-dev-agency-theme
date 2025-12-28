@@ -3,8 +3,5 @@
   "outputDirectory": "_site",
   "framework": null,
   "devCommand": "npm run dev",
-  "installCommand": "bundle install && npm install",
-  "analytics": {
-    "enable": true
-  }
+  "installCommand": "bundle install && npm install"
 }
