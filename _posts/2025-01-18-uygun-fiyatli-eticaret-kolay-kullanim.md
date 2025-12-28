@@ -168,44 +168,21 @@ SaaS platformlar yerine **size özel geliştirilmiş** e-ticaret sitesi ile tam 
 | **Entegrasyon** | Hazır olanlarla sınırlı | İstediğiniz her sistem |
 | **Performans** | Paylaşımlı sunucu | Optimize edilmiş |
 
-### 💡 OrionSoft.dev E-Ticaret Paketleri
+### 💡 OrionSoft.dev E-Ticaret Çözümleri
 
-#### 🎯 Başlangıç Paketi
-**İdeal:** Küçük işletmeler, ilk adım
-- ✅ Responsive tasarım (mobil uyumlu)
-- ✅ 500 ürün kapasitesi
-- ✅ Temel SEO optimizasyonu
-- ✅ Sipariş yönetim paneli
-- ✅ Kargo entegrasyonu (3 firma)
-- ✅ İyzico/PayTR ödeme sistemi
-- ✅ 6 ay ücretsiz destek
-- 💰 **Fiyat**: 15,000₺ (tek seferlik)
+İhtiyacınıza özel e-ticaret paketlerimiz ile dijital satışa hemen başlayın:
 
-#### 🚀 Profesyonel Paketi
-**İdeal:** Büyüyen işletmeler
-- ✅ Başlangıç paketinin tümü
-- ✅ **Sınırsız ürün** kapasitesi
-- ✅ Gelişmiş SEO & Analytics
-- ✅ Pazaryeri entegrasyonu (Trendyol, N11, Hepsiburada)
-- ✅ Çoklu dil & para birimi
-- ✅ Müşteri sadakat programı
-- ✅ SMS & Email marketing
-- ✅ 1 yıl ücretsiz destek
-- 💰 **Fiyat**: 35,000₺ (tek seferlik)
+- ✅ **Özel Tasarım**: Markanıza özgü, sıfırdan tasarım
+- ✅ **Tüm Entegrasyonlar**: Kargo, ödeme, pazaryerleri
+- ✅ **SEO Uyumlu**: Google'da üst sıralarda
+- ✅ **Mobil Uyumlu**: %100 responsive tasarım
+- ✅ **Kolay Yönetim**: Kullanıcı dostu admin panel
+- ✅ **Teknik Destek**: 7/24 Türkçe destek
+- ✅ **Modern Teknoloji**: Next.js, React, TypeScript
 
-#### 💎 Enterprise Paketi
-**İdeal:** Kurumsal firmalar
-- ✅ Profesyonel paketinin tümü
-- ✅ **Özel tasarım** (sıfırdan)
-- ✅ Mobil uygulama (iOS + Android)
-- ✅ ERP entegrasyonu
-- ✅ B2B & B2C modülleri
-- ✅ Özel raporlama sistemi
-- ✅ API geliştirme
-- ✅ 2 yıl ücretsiz destek
-- 💰 **Fiyat**: Proje bazlı (50,000₺+)
+> **💰 Maliyet Avantajı**: SaaS platformlarda sürekli aylık ücret ödemek yerine, **size özel yazılım** ile tek seferlik yatırım yapın, sonsuza kadar sahip olun!
 
-> **💰 Maliyet Hesabı**: SaaS platformlarda 12 ayda 3,600₺ - 24,000₺ ödeme yaparken, **size özel yazılım** tek seferlik yatırımla kalıcı çözüm sunar!
+[**E-Ticaret Paketlerimizi İnceleyin →**](https://orionsoft.dev/hizmetler/e-ticaret/)
 
 ### 🎨 Özelleştirme Özellikleri
 
