@@ -72,6 +72,12 @@ plugins:
   - jekyll-seo-tag
   - jekyll-feed
 
+# Sitemap Settings
+sitemap:
+  exclude:
+    - "/google*.html"
+    - "/404.html"
+
 # Exclude from processing
 exclude:
   - node_modules
@@ -83,3 +89,4 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - vendor
+  - google*.html
