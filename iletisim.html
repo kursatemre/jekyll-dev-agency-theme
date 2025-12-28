@@ -103,7 +103,11 @@ keywords: "iletişim, teklif al, ücretsiz danışmanlık, web tasarım teklifi,
       <div class="card animate-on-scroll">
         <div class="p-8">
           <h3 class="mb-6 text-orion-white">Bize Mesaj Gönderin</h3>
-          <form action="https://formspree.io/f/xvgoaogg" method="POST" class="space-y-6">
+          <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+            <input type="hidden" name="access_key" value="2c15588e-011d-432d-a003-deea55894a9d">
+            <input type="hidden" name="subject" value="Yeni İletişim Formu Mesajı - OrionSoft.dev">
+            <input type="hidden" name="from_name" value="OrionSoft.dev İletişim Formu">
+
             <div>
               <label for="name" class="block text-sm font-medium text-orion-white mb-2">Adınız Soyadınız</label>
               <input
