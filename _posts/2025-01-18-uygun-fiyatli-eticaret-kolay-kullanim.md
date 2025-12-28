@@ -147,31 +147,106 @@ Takıldığınız yerde size yardımcı olacak bir **destek ekibinin** olması, 
 
 ![Müşteri Desteği](https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1200&h=400&fit=crop)
 
-## En Popüler Uygun Fiyatlı E-Ticaret Platformları
+## OrionSoft.dev ile Özel E-Ticaret Çözümünüz
 
-### 1. **Shopify** - Global Lider
-- 💰 **Fiyat**: $29/ay'dan başlayan
-- 🚀 **Kurulum**: 24 saat içinde
-- 🎨 **Temalar**: 100+ ücretsiz tema
-- ⭐ **Avantaj**: En kolay kullanım
+SaaS platformlar yerine **size özel geliştirilmiş** e-ticaret sitesi ile tam kontrolü elinize alın. OrionSoft.dev olarak, işletmenizin ihtiyaçlarına özel, **uygun fiyatlı** ve **kolay kullanım** sunan e-ticaret çözümleri geliştiriyoruz.
 
-### 2. **WooCommerce** - WordPress Entegrasyonu
-- 💰 **Fiyat**: Ücretsiz (hosting hariç)
-- 🔧 **Özelleştirme**: Sınırsız
-- 📦 **Eklentiler**: 50,000+ eklenti
-- ⭐ **Avantaj**: En esnek yapı
+![Özel E-Ticaret Yazılımı](https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=400&fit=crop)
 
-### 3. **Ticimax** - Türk Platformu
-- 💰 **Fiyat**: 299₺/ay'dan
-- 🇹🇷 **Destek**: Türkçe 7/24
-- 📦 **Pazaryeri**: Otomatik entegrasyon
-- ⭐ **Avantaj**: Yerel destek
+### 🚀 Neden Özel Yazılım?
 
-### 4. **IdeasSoft** - Kurumsal Çözüm
-- 💰 **Fiyat**: 500₺/ay'dan
-- 🏢 **Hedef**: Orta-büyük ölçek
-- 🔌 **Entegrasyon**: Kapsamlı
-- ⭐ **Avantaj**: Gelişmiş özellikler
+#### SaaS vs Özel Yazılım Karşılaştırması
+
+| Özellik | SaaS Platformlar | OrionSoft.dev Özel Yazılım |
+|---------|------------------|---------------------------|
+| **Aylık Maliyet** | 300₺ - 2,000₺/ay (sınırsız) | Tek seferlik yatırım, düşük bakım |
+| **Özelleştirme** | Sınırlı, şablonlara bağlı | %100 ihtiyacınıza özel |
+| **Sahiplik** | Platform sahibi | **Siz sahipsiniz** |
+| **Bağımlılık** | Platforma bağımlı | Bağımsız |
+| **Veri Kontrolü** | Platform kontrolünde | Tamamen sizin |
+| **Ücret Artışı** | Yıllık artışlar | Sabit, öngörülebilir |
+| **Entegrasyon** | Hazır olanlarla sınırlı | İstediğiniz her sistem |
+| **Performans** | Paylaşımlı sunucu | Optimize edilmiş |
+
+### 💡 OrionSoft.dev E-Ticaret Paketleri
+
+#### 🎯 Başlangıç Paketi
+**İdeal:** Küçük işletmeler, ilk adım
+- ✅ Responsive tasarım (mobil uyumlu)
+- ✅ 500 ürün kapasitesi
+- ✅ Temel SEO optimizasyonu
+- ✅ Sipariş yönetim paneli
+- ✅ Kargo entegrasyonu (3 firma)
+- ✅ İyzico/PayTR ödeme sistemi
+- ✅ 6 ay ücretsiz destek
+- 💰 **Fiyat**: 15,000₺ (tek seferlik)
+
+#### 🚀 Profesyonel Paketi
+**İdeal:** Büyüyen işletmeler
+- ✅ Başlangıç paketinin tümü
+- ✅ **Sınırsız ürün** kapasitesi
+- ✅ Gelişmiş SEO & Analytics
+- ✅ Pazaryeri entegrasyonu (Trendyol, N11, Hepsiburada)
+- ✅ Çoklu dil & para birimi
+- ✅ Müşteri sadakat programı
+- ✅ SMS & Email marketing
+- ✅ 1 yıl ücretsiz destek
+- 💰 **Fiyat**: 35,000₺ (tek seferlik)
+
+#### 💎 Enterprise Paketi
+**İdeal:** Kurumsal firmalar
+- ✅ Profesyonel paketinin tümü
+- ✅ **Özel tasarım** (sıfırdan)
+- ✅ Mobil uygulama (iOS + Android)
+- ✅ ERP entegrasyonu
+- ✅ B2B & B2C modülleri
+- ✅ Özel raporlama sistemi
+- ✅ API geliştirme
+- ✅ 2 yıl ücretsiz destek
+- 💰 **Fiyat**: Proje bazlı (50,000₺+)
+
+> **💰 Maliyet Hesabı**: SaaS platformlarda 12 ayda 3,600₺ - 24,000₺ ödeme yaparken, **size özel yazılım** tek seferlik yatırımla kalıcı çözüm sunar!
+
+### 🎨 Özelleştirme Özellikleri
+
+**Tasarım Özgürlüğü:**
+- 🎨 Markanıza özel **sıfırdan tasarım**
+- 🌈 Renk paleti ve logo entegrasyonu
+- 📱 Mobil-first responsive
+- ⚡ Hız optimizasyonu (3 saniye altı)
+
+**İşlevsellik:**
+- 🛒 İstediğiniz her özellik
+- 🔌 Özel API entegrasyonları
+- 📊 Kişiselleştirilmiş dashboard
+- 🤖 Otomasyon sistemleri
+
+**Teknik Altyapı:**
+- 💻 Next.js 15 + React 19 (modern stack)
+- 🗄️ Supabase/PostgreSQL (güvenli database)
+- 🚀 Vercel/AWS (hızlı hosting)
+- 🔒 SSL + güvenlik sertifikaları dahil
+
+### 📞 Hemen Başlayın!
+
+**3 Kolay Adımda E-Ticaret Siteniz Hazır:**
+
+1. **📋 Ücretsiz Danışmanlık**
+   - İhtiyaç analizi
+   - Proje planı
+   - Fiyat teklifi
+
+2. **🎨 Tasarım & Geliştirme**
+   - 2-4 hafta süre
+   - Haftalık demo sunumları
+   - İstek değişiklikleri
+
+3. **🚀 Yayın & Destek**
+   - Domain ve hosting kurulumu
+   - Ürün yükleme eğitimi
+   - 7/24 teknik destek
+
+[**Ücretsiz Danışmanlık Alın →**](/iletisim)
 
 ## Başarılı E-Ticaret İçin 10 Altın Kural
 
@@ -188,25 +263,30 @@ Takıldığınız yerde size yardımcı olacak bir **destek ekibinin** olması, 
 9. **🎁 İndirimler**: İlk alışveriş kuponu ver
 10. **📊 Analiz Et**: Google Analytics kullan
 
-## Gerçek Başarı Hikayeleri
+## Gerçek Başarı Hikayeleri - OrionSoft.dev Projeleri
 
-### Örnek 1: Giyim Mağazası
-- **Başlangıç**: Fiziksel mağaza + uygun fiyatlı e-ticaret
-- **Platform**: Shopify
-- **Süre**: 3 gün kurulum
-- **Sonuç**: İlk ayda 50,000₺ ciro
+### Örnek 1: Motosiklet Yedek Parça E-Ticaret
+- **Müşteri**: Motorcycle Parts Shop
+- **Çözüm**: Özel Next.js e-ticaret platformu
+- **Özellikler**: 5,000+ ürün, gelişmiş filtreleme, B2B modülü
+- **Süre**: 3 hafta geliştirme
+- **Sonuç**: İlk 3 ayda 150,000₺ ciro, Trendyol entegrasyonu ile %180 büyüme
 
-### Örnek 2: El Yapımı Ürünler
-- **Başlangıç**: Instagram satışları
-- **Platform**: WooCommerce
-- **Süre**: 1 hafta kurulum
-- **Sonuç**: 6 ayda 100+ düzenli müşteri
+### Örnek 2: E-Ticaret SaaS Platformu (Supabase)
+- **Müşteri**: Startup girişimci
+- **Çözüm**: Enterprise e-ticaret platformu
+- **Özellikler**: Trendyol API, Meta Pixel, Google Analytics, çoklu pazaryeri
+- **Teknoloji**: Next.js 15 + Supabase + TypeScript
+- **Sonuç**: 6 ayda 50+ aktif satıcı, 300+ günlük işlem
 
-### Örnek 3: Elektronik Perakende
-- **Başlangıç**: Toptancı
-- **Platform**: Ticimax
-- **Süre**: 5 gün kurulum
-- **Sonuç**: Trendyol entegrasyonu ile %200 büyüme
+### Örnek 3: NetcoreTic E-Commerce
+- **Müşteri**: Online perakende mağazası
+- **Çözüm**: Modern e-ticaret altyapısı
+- **Özellikler**: Responsive tasarım, ödeme entegrasyonu, stok yönetimi
+- **Süre**: 2 hafta kurulum
+- **Sonuç**: Mobil satışlarda %65 artış, %40 daha hızlı checkout süreci
+
+> **Tüm projelerimizi** [portfolyo sayfamızdan](/portfolyo) inceleyebilirsiniz!
 
 ![Başarı Grafikleri](https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=400&fit=crop)
 
@@ -229,13 +309,15 @@ Takıldığınız yerde size yardımcı olacak bir **destek ekibinin** olması, 
 - Hazır temalar
 - Video eğitimler
 
-### Hangi platform en iyisi?
+### Hangi çözüm en iyisi?
 
-Bütçenize ve ihtiyacınıza göre:
-- **Sınırlı bütçe**: WooCommerce
-- **En kolay**: Shopify
-- **Türk pazarı**: Ticimax/IdeasSoft
-- **Kurumsal**: Magento
+**Özel yazılım** her zaman en iyi çözümdür çünkü:
+- ✅ **Tam kontrol**: Platformlara bağımlı değilsiniz
+- ✅ **Maliyet etkin**: Aylık ücret yerine tek seferlik yatırım
+- ✅ **Özelleştirilebilir**: İhtiyacınıza göre her özellik
+- ✅ **Ölçeklenebilir**: Büyüdükçe genişler
+
+[**Ücretsiz danışmanlık**](/iletisim) alın, sizin için en uygun çözümü birlikte belirleyelim!
 
 ### Ne kadar sürede satış yaparım?
 
