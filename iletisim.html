@@ -104,32 +104,6 @@ keywords: "iletişim, teklif al, ücretsiz danışmanlık, web tasarım teklifi,
         <div class="p-8">
           <h3 class="mb-6 text-orion-white">Bize Mesaj Gönderin</h3>
 
-          <!-- Success Message -->
-          <div id="form-success" class="hidden mb-6 p-4 bg-green-500/10 border border-green-500/30 rounded-lg">
-            <div class="flex items-center gap-3 text-green-400">
-              <svg class="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-              <div>
-                <p class="font-semibold">Mesajınız başarıyla gönderildi!</p>
-                <p class="text-sm text-green-300">En kısa sürede size dönüş yapacağız.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Error Message -->
-          <div id="form-error" class="hidden mb-6 p-4 bg-red-500/10 border border-red-500/30 rounded-lg">
-            <div class="flex items-center gap-3 text-red-400">
-              <svg class="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-              <div>
-                <p class="font-semibold">Bir hata oluştu!</p>
-                <p class="text-sm text-red-300">Lütfen tekrar deneyin veya doğrudan bize ulaşın.</p>
-              </div>
-            </div>
-          </div>
-
           <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
             <input type="hidden" name="access_key" value="2c15588e-011d-432d-a003-deea55894a9d">
             <input type="hidden" name="subject" value="Yeni İletişim Formu Mesajı - OrionSoft.dev">
@@ -214,15 +188,108 @@ keywords: "iletişim, teklif al, ücretsiz danışmanlık, web tasarım teklifi,
   </div>
 </section>
 
+<!-- Success Modal -->
+<div id="success-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 items-center justify-center p-4" style="display: none;">
+  <div class="bg-orion-navy border border-orion-cyan/30 rounded-2xl max-w-md w-full p-8 relative animate-on-scroll">
+    <!-- Close Button -->
+    <button id="close-modal" class="absolute top-4 right-4 text-orion-gray hover:text-orion-white transition-colors">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+
+    <!-- Success Icon -->
+    <div class="w-16 h-16 bg-green-500/20 border-2 border-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+      <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+      </svg>
+    </div>
+
+    <!-- Message -->
+    <h3 class="text-2xl font-bold text-orion-white text-center mb-3">Mesajınız Gönderildi!</h3>
+    <p class="text-orion-gray text-center mb-6">
+      Mesajınız başarıyla iletildi. En kısa sürede size dönüş yapacağız.
+    </p>
+
+    <!-- Close Button -->
+    <button id="close-modal-btn" class="btn btn-primary w-full">
+      Tamam
+    </button>
+  </div>
+</div>
+
+<!-- Error Modal -->
+<div id="error-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 items-center justify-center p-4" style="display: none;">
+  <div class="bg-orion-navy border border-red-500/30 rounded-2xl max-w-md w-full p-8 relative animate-on-scroll">
+    <!-- Close Button -->
+    <button id="close-error-modal" class="absolute top-4 right-4 text-orion-gray hover:text-orion-white transition-colors">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+
+    <!-- Error Icon -->
+    <div class="w-16 h-16 bg-red-500/20 border-2 border-red-500 rounded-full flex items-center justify-center mx-auto mb-6">
+      <svg class="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </div>
+
+    <!-- Message -->
+    <h3 class="text-2xl font-bold text-orion-white text-center mb-3">Bir Hata Oluştu!</h3>
+    <p class="text-orion-gray text-center mb-6">
+      Mesajınız gönderilemedi. Lütfen tekrar deneyin veya doğrudan bize ulaşın.
+    </p>
+
+    <!-- Close Button -->
+    <button id="close-error-modal-btn" class="btn btn-primary w-full">
+      Tamam
+    </button>
+  </div>
+</div>
+
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contact-form');
     const submitBtn = document.getElementById('submit-btn');
     const submitText = document.getElementById('submit-text');
     const submitLoading = document.getElementById('submit-loading');
-    const successMsg = document.getElementById('form-success');
-    const errorMsg = document.getElementById('form-error');
+    const successModal = document.getElementById('success-modal');
+    const errorModal = document.getElementById('error-modal');
 
+    // Modal close handlers
+    function closeSuccessModal() {
+      successModal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+    function closeErrorModal() {
+      errorModal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+    document.getElementById('close-modal').addEventListener('click', closeSuccessModal);
+    document.getElementById('close-modal-btn').addEventListener('click', closeSuccessModal);
+    document.getElementById('close-error-modal').addEventListener('click', closeErrorModal);
+    document.getElementById('close-error-modal-btn').addEventListener('click', closeErrorModal);
+
+    // Close on backdrop click
+    successModal.addEventListener('click', function(e) {
+      if (e.target === successModal) closeSuccessModal();
+    });
+    errorModal.addEventListener('click', function(e) {
+      if (e.target === errorModal) closeErrorModal();
+    });
+
+    // Close on ESC key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeSuccessModal();
+        closeErrorModal();
+      }
+    });
+
+    // Form submission
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
 
@@ -230,10 +297,6 @@ keywords: "iletişim, teklif al, ücretsiz danışmanlık, web tasarım teklifi,
       submitBtn.disabled = true;
       submitText.classList.add('hidden');
       submitLoading.classList.remove('hidden');
-
-      // Hide previous messages
-      successMsg.classList.add('hidden');
-      errorMsg.classList.add('hidden');
 
       try {
         const formData = new FormData(form);
@@ -245,19 +308,20 @@ keywords: "iletişim, teklif al, ücretsiz danışmanlık, web tasarım teklifi,
         const data = await response.json();
 
         if (data.success) {
-          // Show success message
-          successMsg.classList.remove('hidden');
           // Reset form
           form.reset();
-          // Scroll to success message
-          successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          // Show success modal
+          successModal.style.display = 'flex';
+          document.body.style.overflow = 'hidden';
         } else {
-          // Show error message
-          errorMsg.classList.remove('hidden');
+          // Show error modal
+          errorModal.style.display = 'flex';
+          document.body.style.overflow = 'hidden';
         }
       } catch (error) {
-        // Show error message
-        errorMsg.classList.remove('hidden');
+        // Show error modal
+        errorModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
       } finally {
         // Re-enable button
         submitBtn.disabled = false;
