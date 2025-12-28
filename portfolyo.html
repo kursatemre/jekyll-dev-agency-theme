@@ -30,7 +30,8 @@ keywords: "web tasarım örnekleri, portfolyo, başarılı projeler, referanslar
     <!-- Portfolio Grid -->
     {% if site.portfolio.size > 0 %}
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 card-group">
-      {% for project in site.portfolio %}
+      {% assign sorted_portfolio = site.portfolio | sort: 'date' | reverse %}
+      {% for project in sorted_portfolio %}
       <a href="{{ project.url }}" class="card group">
         {% if project.featured_image %}
         <div class="aspect-video overflow-hidden bg-gradient-to-br from-orion-cyan/20 to-orion-purple/20">
