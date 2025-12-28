@@ -5,7 +5,7 @@ client: "BCS İçecek"
 category: "Kurumsal Web Sitesi"
 tags: [Next.js 16, React 19, TypeScript, Tailwind CSS v4, SEO, Turbopack, Vercel]
 date: 2024-12-16
-featured_image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&h=630&fit=crop"
+featured_image: "https://i.hizliresim.com/8xntcwc.png"
 project_url: "https://bcsmesrubat.com/"
 github_url: "https://github.com/kursatemre/bcs-icecek-website"
 excerpt: "İstanbul'da toptan damacana su, Cola Turka ve meşrubat dağıtımı için Next.js 16 ve Tailwind CSS v4 ile geliştirilmiş ultra hızlı, SEO-optimize kurumsal website. 100/100 SEO skoru ve 95+ performance."
