@@ -3,7 +3,7 @@ layout: case-study
 title: "Elitajans - Dijital Ajans Web Sitesi"
 client: "Elitajans"
 category: "Kurumsal Web"
-tags: [React, TypeScript, Vite, Tailwind CSS, Framer Motion, Admin Panel]
+tags: [React, TypeScript, Vite, Tailwind CSS, Admin Panel]
 date: 2024-11-22
 featured_image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1200&h=630&fit=crop"
 project_url: "https://elitajanstemas.vercel.app"
@@ -16,14 +16,11 @@ results:
   - value: "Modern UI"
     label: "Tasarım"
 technologies:
-  - React 18
+  - React
   - TypeScript
-  - Vite 6
+  - Vite
   - Tailwind CSS
   - Framer Motion
-  - React Router
-  - Zustand
-  - shadcn/ui
 ---
 
 # Elitajans - Modern Dijital Ajans Platformu
@@ -60,26 +57,6 @@ Dijital ajansların web sitelerinde karşılaştıkları zorluklar:
 ### Mimari Yaklaşım
 
 **Application Architecture:**
-```
-┌─────────────────────────────────────────┐
-│        Public Website (Frontend)        │
-│  - Homepage                              │
-│  - Services Page                         │
-│  - Portfolio Page                        │
-│  - Blog Page                             │
-│  - Contact Page                          │
-├─────────────────────────────────────────┤
-│        Admin Dashboard                   │
-│  - Project Management                    │
-│  - Blog Management                       │
-│  - Client References                     │
-│  - Contact Messages                      │
-├─────────────────────────────────────────┤
-│      React Router (Client-side)         │
-├─────────────────────────────────────────┤
-│      Zustand (State Management)         │
-└─────────────────────────────────────────┘
-```
 
 ### Teknoloji Stack
 
@@ -107,31 +84,6 @@ Dijital ajansların web sitelerinde karşılaştıkları zorluklar:
 
 **Hero Section:**
 {% raw %}
-```tsx
-// Modern gradient hero with glassmorphism
-<section className="relative min-h-screen flex items-center">
-  <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-500" />
-  <div className="absolute inset-0 backdrop-blur-3xl bg-white/10" />
-
-  <div className="relative z-10 container mx-auto px-4">
-    <motion.h1
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="text-6xl font-bold text-white mb-6"
-    >
-      Dijital Dönüşümde Yanınızdayız
-    </motion.h1>
-    <motion.p
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.2 }}
-      className="text-xl text-white/90"
-    >
-      Modern web çözümleri ile işinizi büyütün
-    </motion.p>
-  </div>
-</section>
-```
 {% endraw %}
 
 **Özellikler:**
@@ -144,25 +96,6 @@ Dijital ajansların web sitelerinde karşılaştıkları zorluklar:
 #### 2. 7 Hizmet Kategorisi
 
 **Service Showcase:**
-```tsx
-const services = [
-  {
-    id: 1,
-    title: "Web Geliştirme",
-    description: "Modern, responsive ve SEO uyumlu web siteleri",
-    icon: <Code2 />,
-    features: ["React/Next.js", "TypeScript", "Tailwind CSS"]
-  },
-  {
-    id: 2,
-    title: "React & Next.js Geliştirme",
-    description: "Performanslı ve ölçeklenebilir React uygulamaları",
-    icon: <Blocks />,
-    features: ["SSR/SSG", "API Routes", "Optimizasyon"]
-  },
-  // ... 5 more services
-];
-```
 
 **Hizmet Kategorileri:**
 1. 💻 **Web Geliştirme**: Modern, responsive web siteleri
@@ -176,30 +109,6 @@ const services = [
 #### 3. Admin Panel
 
 **Dashboard Features:**
-```tsx
-// Admin route protection
-const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
-  const { user } = useAuthStore();
-
-  if (!user) {
-    return <Navigate to="/admin/login" replace />;
-  }
-
-  return <>{children}</>;
-};
-
-// Admin dashboard structure
-function AdminDashboard() {
-  return (
-    <div className="flex">
-      <Sidebar />
-      <main className="flex-1 p-8">
-        <Outlet />
-      </main>
-    </div>
-  );
-}
-```
 
 **Admin Panel Özellikleri:**
 - 📝 **Proje Yönetimi**: Portfolyo projelerini ekle/düzenle/sil
@@ -217,128 +126,15 @@ function AdminDashboard() {
 
 **Project Cards:**
 {% raw %}
-```tsx
-interface Project {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
-  category: string;
-  technologies: string[];
-  link?: string;
-}
-
-function ProjectCard({ project }: { project: Project }) {
-  return (
-    <motion.div
-      whileHover={{ y: -10 }}
-      className="group relative rounded-2xl overflow-hidden bg-gradient-to-br from-white to-gray-50 shadow-xl"
-    >
-      <div className="aspect-video overflow-hidden">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-        />
-      </div>
-      <div className="p-6">
-        <span className="text-sm text-blue-600 font-medium">
-          {project.category}
-        </span>
-        <h3 className="text-xl font-bold mt-2 mb-3">{project.title}</h3>
-        <p className="text-gray-600 mb-4">{project.description}</p>
-        <div className="flex flex-wrap gap-2">
-          {project.technologies.map((tech) => (
-            <span key={tech} className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">
-              {tech}
-            </span>
-          ))}
-        </div>
-      </div>
-    </motion.div>
-  );
-}
-```
 {% endraw %}
 
 #### 5. Blog Sistemi
 
 **Blog Management:**
-```tsx
-interface BlogPost {
-  id: string;
-  title: string;
-  excerpt: string;
-  content: string;
-  author: string;
-  date: string;
-  image: string;
-  category: string;
-  tags: string[];
-}
-
-// Blog list with filtering
-function BlogPage() {
-  const [selectedCategory, setSelectedCategory] = useState<string>('all');
-  const posts = useBlogStore((state) => state.posts);
-
-  const filteredPosts = selectedCategory === 'all'
-    ? posts
-    : posts.filter((post) => post.category === selectedCategory);
-
-  return (
-    <div>
-      <CategoryFilter
-        categories={['all', 'Web Tasarım', 'SEO', 'Dijital Pazarlama']}
-        selected={selectedCategory}
-        onChange={setSelectedCategory}
-      />
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {filteredPosts.map((post) => (
-          <BlogCard key={post.id} post={post} />
-        ))}
-      </div>
-    </div>
-  );
-}
-```
 
 #### 6. İletişim Formu
 
 **Contact Form with Validation:**
-```tsx
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
-
-const contactSchema = z.object({
-  name: z.string().min(2, 'İsim en az 2 karakter olmalı'),
-  email: z.string().email('Geçerli bir email adresi girin'),
-  phone: z.string().optional(),
-  subject: z.string().min(5, 'Konu en az 5 karakter olmalı'),
-  message: z.string().min(10, 'Mesaj en az 10 karakter olmalı'),
-});
-
-function ContactForm() {
-  const { register, handleSubmit, formState: { errors } } = useForm({
-    resolver: zodResolver(contactSchema)
-  });
-
-  const onSubmit = async (data: ContactFormData) => {
-    await submitContactForm(data);
-    toast.success('Mesajınız başarıyla gönderildi!');
-  };
-
-  return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-      <Input label="İsim" {...register('name')} error={errors.name?.message} />
-      <Input label="Email" {...register('email')} error={errors.email?.message} />
-      <Textarea label="Mesaj" {...register('message')} error={errors.message?.message} />
-      <Button type="submit">Gönder</Button>
-    </form>
-  );
-}
-```
 
 ### Geliştirme Süreci
 
@@ -374,134 +170,17 @@ function ContactForm() {
 ### Framer Motion Animations
 
 **Scroll-triggered animations:**
-```tsx
-import { motion, useScroll, useTransform } from 'framer-motion';
-
-function AnimatedSection() {
-  const { scrollYProgress } = useScroll();
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [0.8, 1]);
-
-  return (
-    <motion.div
-      style={% raw %}{{ opacity, scale }}{% endraw %}
-      className="section"
-    >
-      <h2>Animated Content</h2>
-    </motion.div>
-  );
-}
-```
 
 **Stagger children:**
-```tsx
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1
-    }
-  }
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 }
-};
-
-<motion.div
-  variants={containerVariants}
-  initial="hidden"
-  animate="visible"
->
-  {items.map((item) => (
-    <motion.div key={item.id} variants={itemVariants}>
-      {item.content}
-    </motion.div>
-  ))}
-</motion.div>
-```
 
 ### Zustand State Management
 
-```typescript
-import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
-
-interface ProjectStore {
-  projects: Project[];
-  addProject: (project: Project) => void;
-  updateProject: (id: string, data: Partial<Project>) => void;
-  deleteProject: (id: string) => void;
-}
-
-export const useProjectStore = create<ProjectStore>()(
-  persist(
-    (set) => ({
-      projects: [],
-      addProject: (project) =>
-        set((state) => ({ projects: [...state.projects, project] })),
-      updateProject: (id, data) =>
-        set((state) => ({
-          projects: state.projects.map((p) =>
-            p.id === id ? { ...p, ...data } : p
-          ),
-        })),
-      deleteProject: (id) =>
-        set((state) => ({
-          projects: state.projects.filter((p) => p.id !== id),
-        })),
-    }),
-    { name: 'project-storage' }
-  )
-);
-```
 
 ### Tailwind Custom Configuration
 
-```javascript
-// tailwind.config.js
-export default {
-  theme: {
-    extend: {
-      colors: {
-        primary: {
-          50: '#eff6ff',
-          500: '#3b82f6',
-          600: '#2563eb',
-          700: '#1d4ed8',
-        },
-      },
-      animation: {
-        'gradient': 'gradient 8s linear infinite',
-        'float': 'float 6s ease-in-out infinite',
-      },
-      keyframes: {
-        gradient: {
-          '0%, 100%': { backgroundPosition: '0% 50%' },
-          '50%': { backgroundPosition: '100% 50%' },
-        },
-        float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-20px)' },
-        },
-      },
-    },
-  },
-};
-```
 
 ### Glassmorphism Effect
 
-```css
-.glass-card {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-}
-```
 
 ## Results (Sonuçlar)
 

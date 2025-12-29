@@ -3,12 +3,16 @@ layout: case-study
 title: "MenuMgo - Dijital Menü Sistemi"
 client: "MenuMgo"
 category: "Web Uygulaması"
-tags: [React, Next.js, TypeScript, Tailwind CSS, QR Menu, Restaurant Tech]
+tags: [React, Next.js, TypeScript, Dijital Menü, QR Kod]
 date: 2024-12-15
 featured_image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&h=630&fit=crop"
 project_url: "https://www.menumgo.digital/"
-github_url: "https://github.com/kursatemre/v0-digital-menu-ui"
 excerpt: "Modern restoranlar için QR kod tabanlı dijital menü çözümü. Müşteriler telefonlarından kolayca menüye erişebilir, siparişlerini verebilir."
+technologies:
+  - Next.js
+  - React
+  - TypeScript
+  - Tailwind CSS
 ---
 
 # MenuMgo - Dijital Menü Sistemi
@@ -37,26 +41,13 @@ Restoran sektöründe dijital dönüşüm ihtiyacı:
 
 ## Solution (Çözüm)
 
-### Teknoloji Stack
+### Kullanılan Teknolojiler
 
-**Frontend:**
-- **Next.js 14**: Modern React framework, SSR ve SSG
-- **TypeScript**: Type-safe geliştirme
-- **Tailwind CSS**: Hızlı ve responsive tasarım
-- **Framer Motion**: Smooth animasyonlar
-
-**Backend & Database:**
-- **Next.js API Routes**: Serverless backend
-- **Vercel**: Hosting ve deployment
-- **Image Optimization**: Next.js Image component
-
-**Özellikler:**
-- QR kod entegrasyonu
-- Kategori bazlı menü organizasyonu
-- Görsel odaklı ürün kartları
-- Fiyat filtreleme
-- Arama fonksiyonu
-- Responsive tasarım
+Modern web teknolojileri kullanılarak hızlı, güvenilir ve kullanıcı dostu bir platform geliştirildi:
+- Next.js ile performanslı web uygulaması
+- TypeScript ile güvenli kod yapısı
+- Tailwind CSS ile modern tasarım
+- Responsive tasarım ile tüm cihazlarda mükemmel görünüm
 
 ### Geliştirme Süreci
 
@@ -101,49 +92,6 @@ Restoran sektöründe dijital dönüşüm ihtiyacı:
 - 🏷️ Stok yönetimi
 - 👥 Kullanıcı yönetimi
 
-## Teknik Detaylar
-
-### Performance Optimizasyonu
-
-```javascript
-// Next.js Image Optimization
-<Image
-  src={product.image}
-  alt={product.name}
-  width={400}
-  height={300}
-  loading="lazy"
-  quality={85}
-/>
-```
-
-### Responsive Design
-
-```css
-/* Mobile-first Approach */
-.product-grid {
-  @apply grid grid-cols-1;
-  @apply md:grid-cols-2;
-  @apply lg:grid-cols-3;
-  @apply xl:grid-cols-4;
-  @apply gap-6;
-}
-```
-
-### TypeScript Type Safety
-
-```typescript
-interface Product {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  category: string;
-  image: string;
-  available: boolean;
-}
-```
-
 ## Results (Sonuçlar)
 
 ### Performans Metrikleri
@@ -167,66 +115,6 @@ interface Product {
 - 😊 Müşteri memnuniyeti artışı
 - 🌍 Uluslararası müşterilere daha iyi hizmet
 
-## Kullanılan Teknolojiler
-
-<div class="flex flex-wrap gap-3 my-8">
-  <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-lg font-medium">Next.js</span>
-  <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-lg font-medium">React</span>
-  <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-lg font-medium">TypeScript</span>
-  <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-lg font-medium">Tailwind CSS</span>
-  <span class="px-4 py-2 bg-purple-100 text-purple-700 rounded-lg font-medium">Framer Motion</span>
-  <span class="px-4 py-2 bg-green-100 text-green-700 rounded-lg font-medium">Vercel</span>
-</div>
-
-## Öğrenilen Dersler
-
-### Başarılar
-
-1. **Mobile-First Yaklaşım**: Mobil kullanıcı odaklı tasarım doğru kararydı
-2. **TypeScript**: Type safety geliştirme sürecini hızlandırdı
-3. **Next.js Image**: Otomatik image optimization performansı artırdı
-4. **Tailwind CSS**: Hızlı ve tutarlı UI geliştirme
-
-### Geliştirilecek Alanlar
-
-1. **Çoklu Dil**: i18n implementasyonu
-2. **Admin Panel**: Yönetim arayüzü
-3. **Offline Mode**: PWA özellikleri
-4. **Analytics**: Detaylı kullanım istatistikleri
-
-## Gelecek Planları
-
-### v2.0 Özellikleri
-
-- 🌐 Çoklu dil desteği (İngilizce, Almanca, Rusça)
-- 👨‍💼 Admin panel entegrasyonu
-- 📊 Analytics dashboard
-- 💳 Online ödeme entegrasyonu
-- 🔔 Sipariş bildirim sistemi
-- 📱 Native mobile app (React Native)
-
-### Ölçeklendirme
-
-- Multi-tenant architecture
-- Custom domain support
-- White-label çözüm
-- Franchise desteği
-
-## Proje Linkleri
-
-- **Live Demo**: [menumgo.digital](https://www.menumgo.digital/)
-- **GitHub Repository**: [v0-digital-menu-ui](https://github.com/kursatemre/v0-digital-menu-ui)
-
-## Testimonial
-
-> "MenuMgo ile dijital dönüşümümüzü tamamladık. Müşterilerimiz artık kendi telefonlarından menüye erişebiliyor ve sipariş verebiliyor. Hem maliyetlerimiz düştü hem de müşteri memnuniyetimiz arttı."
->
-> **— Restaurant Owner**
-
 ---
 
-## Benzer Bir Proje İçin
-
-Eğer siz de restoranınız, kafeınız veya işletmeniz için modern bir dijital menü sistemi arıyorsanız, bizimle iletişime geçin. Size özel çözümler geliştirebiliriz.
-
-[Teklif Al](#contact) | [Portfolyoya Dön](/portfolyo)
+*Bu proje, restoran sektöründe dijital dönüşüm için modern web teknolojilerinin nasıl etkin kullanılabileceğini göstermektedir.*

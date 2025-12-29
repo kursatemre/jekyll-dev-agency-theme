@@ -3,7 +3,7 @@ layout: case-study
 title: "MotoParça - Motorcycle Parts E-Commerce Platform"
 client: "E-Commerce / Automotive"
 category: "Full-Stack E-Commerce"
-tags: [Next.js 16, React, TypeScript, Supabase, E-Commerce, B2B]
+tags: [Next.js, React, TypeScript, E-Ticaret, B2B]
 date: 2024-12-01
 featured_image: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=1200&h=630&fit=crop"
 preview_url: "https://motorcycle-parts-e-commerce.vercel.app"
@@ -16,14 +16,11 @@ results:
   - value: "Advanced Search"
     label: "Product Filter"
 technologies:
-  - Next.js 16
+  - Next.js
   - TypeScript
   - Supabase
-  - Tailwind CSS v4
+  - Tailwind CSS
   - Radix UI
-  - React Hook Form
-  - Zod
-  - Vercel
 ---
 
 # MotoParça - Motorcycle Parts E-Commerce Platform
@@ -66,49 +63,6 @@ Otomotiv yedek parça sektöründe karşılaşılan zorluklar:
 ### Mimari Yaklaşım
 
 **Full-Stack E-Commerce Architecture:**
-```
-┌─────────────────────────────────────────────────┐
-│         E-Commerce Platform                      │
-│                                                  │
-│  Customer Side                                   │
-│     - Gelişmiş ürün arama sistemi                │
-│     - Alışveriş sepeti (persistent storage)      │
-│     - Sipariş takibi                             │
-│     - Favoriler/wishlist                         │
-│     - Email authentication                       │
-│     - Çoklu ödeme seçenekleri                    │
-│                                                  │
-│  B2B Dealer Portal                               │
-│     - Özel bayi fiyatlandırması                  │
-│     - Kredi limiti yönetimi                      │
-│     - Detaylı satın alma geçmişi                 │
-│     - Analytics ve raporlama                     │
-│                                                  │
-│  Admin Dashboard                                 │
-│     - Ürün yönetimi                              │
-│     - Kategori organizasyonu                     │
-│     - Araç uyumluluk eşleştirme                  │
-│     - Sipariş işleme                             │
-│     - Müşteri yönetimi                           │
-│     - Kupon oluşturma                            │
-│     - Blog yayınlama                             │
-│     - Kargo konfigürasyonu                       │
-│     - Site ayarları                              │
-│                                                  │
-├─────────────────────────────────────────────────┤
-│         Backend Services                         │
-│  - Supabase (PostgreSQL)                         │
-│  - Supabase Auth                                 │
-│  - Row Level Security (RLS)                      │
-│  - Next.js API Routes                            │
-│  - Server Components                             │
-│                                                  │
-│         Deployment                               │
-│  - Vercel Hosting                                │
-│  - Automatic CI/CD                               │
-│  - Edge Network CDN                              │
-└─────────────────────────────────────────────────┘
-```
 
 ### Teknoloji Stack
 
@@ -246,13 +200,6 @@ Otomotiv yedek parça sektöründe karşılaşılan zorluklar:
 ### Proje Yapısı
 
 **Directory Structure:**
-```
-├── /app                 # Page routes (App Router)
-├── /components          # Reusable React components
-├── /lib                 # Utilities ve Supabase clients
-├── /scripts             # Database migrations
-└── /public              # Static assets
-```
 
 **Key Components:**
 - Product catalog ve listing

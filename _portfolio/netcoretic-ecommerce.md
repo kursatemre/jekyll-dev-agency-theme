@@ -3,7 +3,7 @@ layout: case-study
 title: "Netcoretic - Modern E-Ticaret Platformu"
 client: "Netcoretic"
 category: "E-Ticaret"
-tags: [ASP.NET Core, Next.js, PostgreSQL, Redis, Elasticsearch, Clean Architecture, CQRS]
+tags: [ASP.NET Core, Next.js, E-Ticaret, Clean Architecture, CQRS]
 date: 2024-11-23
 featured_image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=630&fit=crop"
 project_url: "https://netcoretic.vercel.app"
@@ -16,14 +16,11 @@ results:
   - value: "Clean Code"
     label: "Mimari Prensibi"
 technologies:
-  - ASP.NET Core 8.0
-  - Next.js 14
-  - PostgreSQL 16
-  - Redis 7
+  - ASP.NET Core
+  - Next.js
+  - PostgreSQL
   - Elasticsearch
   - Docker
-  - TypeScript
-  - Tailwind CSS
 ---
 
 # Netcoretic - Profesyonel E-Ticaret Platformu
@@ -57,19 +54,6 @@ Modern e-ticaret platformlarında karşılaşılan temel zorluklar:
 ### Mimari Yaklaşım
 
 **Backend Architecture:**
-```
-┌─────────────────────────────────────────┐
-│         ASP.NET Core Web API            │
-├─────────────────────────────────────────┤
-│  Application Layer (CQRS + MediatR)     │
-├─────────────────────────────────────────┤
-│  Domain Layer (Entities & Business)     │
-├─────────────────────────────────────────┤
-│  Infrastructure (EF Core + Redis)       │
-├─────────────────────────────────────────┤
-│  PostgreSQL | Redis | Elasticsearch     │
-└─────────────────────────────────────────┘
-```
 
 **Frontend Architecture:**
 - Next.js 14 App Router
@@ -107,17 +91,6 @@ Modern e-ticaret platformlarında karşılaşılan temel zorluklar:
 #### 1. Gelişmiş Ürün Yönetimi
 
 **Sınırsız Varyasyon Sistemi:**
-```csharp
-public class ProductVariation
-{
-    public int Id { get; set; }
-    public int ProductId { get; set; }
-    public Dictionary<string, string> Attributes { get; set; } // Color, Size, Memory, etc.
-    public decimal Price { get; set; }
-    public int Stock { get; set; }
-    public string SKU { get; set; }
-}
-```
 
 **Özellikler:**
 - 📦 Sınırsız ürün varyasyonu (renk, beden, hafıza, vb.)
@@ -129,19 +102,6 @@ public class ProductVariation
 #### 2. Elasticsearch Entegrasyonu
 
 **Gelişmiş Arama Özellikleri:**
-```typescript
-// Frontend arama implementasyonu
-const searchProducts = async (query: string) => {
-  const results = await axios.get('/api/search', {
-    params: {
-      q: query,
-      fuzzy: true,
-      autocomplete: true
-    }
-  });
-  return results.data;
-};
-```
 
 **Arama Yetenekleri:**
 - 🔍 Full-text search
@@ -154,21 +114,6 @@ const searchProducts = async (query: string) => {
 #### 3. CQRS Pattern
 
 **Command ve Query Ayrımı:**
-```csharp
-// Command - Veri değişikliği
-public class CreateProductCommand : IRequest<int>
-{
-    public string Name { get; set; }
-    public decimal Price { get; set; }
-    // ...
-}
-
-// Query - Veri okuma
-public class GetProductByIdQuery : IRequest<ProductDto>
-{
-    public int ProductId { get; set; }
-}
-```
 
 **Faydaları:**
 - ✅ Kod organizasyonu ve temizliği
@@ -179,23 +124,6 @@ public class GetProductByIdQuery : IRequest<ProductDto>
 #### 4. Repository Pattern & Unit of Work
 
 **Clean Code Implementasyonu:**
-```csharp
-public interface IRepository<T> where T : class
-{
-    Task<T> GetByIdAsync(int id);
-    Task<IEnumerable<T>> GetAllAsync();
-    Task AddAsync(T entity);
-    Task UpdateAsync(T entity);
-    Task DeleteAsync(int id);
-}
-
-public interface IUnitOfWork
-{
-    IRepository<Product> Products { get; }
-    IRepository<Order> Orders { get; }
-    Task<int> CommitAsync();
-}
-```
 
 #### 5. Ödeme & Kargo Entegrasyonu
 
@@ -244,181 +172,19 @@ public interface IUnitOfWork
 ### Clean Architecture Layers
 
 **1. Domain Layer:**
-```csharp
-public class Product : BaseEntity
-{
-    public string Name { get; set; }
-    public string Description { get; set; }
-    public decimal BasePrice { get; set; }
-    public int CategoryId { get; set; }
-    public Category Category { get; set; }
-    public ICollection<ProductVariation> Variations { get; set; }
-    public ICollection<ProductImage> Images { get; set; }
-}
-```
 
 **2. Application Layer (CQRS):**
-```csharp
-public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, int>
-{
-    private readonly IUnitOfWork _unitOfWork;
-    private readonly IValidator<CreateProductCommand> _validator;
-
-    public async Task<int> Handle(CreateProductCommand request, CancellationToken cancellationToken)
-    {
-        var validationResult = await _validator.ValidateAsync(request);
-        if (!validationResult.IsValid)
-            throw new ValidationException(validationResult.Errors);
-
-        var product = new Product
-        {
-            Name = request.Name,
-            Description = request.Description,
-            BasePrice = request.Price
-        };
-
-        await _unitOfWork.Products.AddAsync(product);
-        await _unitOfWork.CommitAsync();
-
-        return product.Id;
-    }
-}
-```
 
 **3. Infrastructure Layer:**
-```csharp
-public class ProductRepository : Repository<Product>, IProductRepository
-{
-    private readonly ApplicationDbContext _context;
-    private readonly IDistributedCache _cache;
-
-    public async Task<Product> GetByIdWithCacheAsync(int id)
-    {
-        var cacheKey = $"product:{id}";
-        var cached = await _cache.GetStringAsync(cacheKey);
-
-        if (cached != null)
-            return JsonSerializer.Deserialize<Product>(cached);
-
-        var product = await _context.Products
-            .Include(p => p.Category)
-            .Include(p => p.Variations)
-            .Include(p => p.Images)
-            .FirstOrDefaultAsync(p => p.Id == id);
-
-        await _cache.SetStringAsync(cacheKey, JsonSerializer.Serialize(product),
-            new DistributedCacheEntryOptions { AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(10) });
-
-        return product;
-    }
-}
-```
 
 ### Elasticsearch Implementation
 
 **Index Mapping:**
-```csharp
-public class ProductDocument
-{
-    public int Id { get; set; }
-    [Text(Analyzer = "turkish")]
-    public string Name { get; set; }
-    [Text(Analyzer = "turkish")]
-    public string Description { get; set; }
-    [Number]
-    public decimal Price { get; set; }
-    [Keyword]
-    public string CategoryName { get; set; }
-    [Number]
-    public double Rating { get; set; }
-}
-```
 
 **Search Query:**
-```csharp
-var searchResponse = await _elasticClient.SearchAsync<ProductDocument>(s => s
-    .Index("products")
-    .Query(q => q
-        .MultiMatch(m => m
-            .Query(searchTerm)
-            .Fields(f => f
-                .Field(p => p.Name, 2.0)
-                .Field(p => p.Description)
-            )
-            .Fuzziness(Fuzziness.Auto)
-        )
-    )
-    .Aggregations(a => a
-        .Terms("categories", t => t.Field(f => f.CategoryName))
-        .Range("price_ranges", r => r
-            .Field(f => f.Price)
-            .Ranges(
-                new AggregationRange { To = 100 },
-                new AggregationRange { From = 100, To = 500 },
-                new AggregationRange { From = 500 }
-            )
-        )
-    )
-);
-```
 
 ### Docker Compose Setup
 
-```yaml
-version: '3.8'
-
-services:
-  postgres:
-    image: postgres:16-alpine
-    environment:
-      POSTGRES_DB: netcoretic
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: password
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-
-  redis:
-    image: redis:7-alpine
-    ports:
-      - "6379:6379"
-    command: redis-server --appendonly yes
-
-  elasticsearch:
-    image: elasticsearch:8.11.0
-    environment:
-      - discovery.type=single-node
-      - xpack.security.enabled=false
-    ports:
-      - "9200:9200"
-    volumes:
-      - elasticsearch_data:/usr/share/elasticsearch/data
-
-  kibana:
-    image: kibana:8.11.0
-    ports:
-      - "5601:5601"
-    depends_on:
-      - elasticsearch
-
-  api:
-    build: ./backend
-    ports:
-      - "5000:80"
-    depends_on:
-      - postgres
-      - redis
-      - elasticsearch
-    environment:
-      - ConnectionStrings__DefaultConnection=Host=postgres;Database=netcoretic;Username=admin;Password=password
-      - Redis__Configuration=redis:6379
-      - Elasticsearch__Uri=http://elasticsearch:9200
-
-volumes:
-  postgres_data:
-  elasticsearch_data:
-```
 
 ## Results (Sonuçlar)
 

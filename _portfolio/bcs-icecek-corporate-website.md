@@ -3,11 +3,10 @@ layout: case-study
 title: "BCS İçecek - Toptan Su ve Meşrubat Dağıtım"
 client: "BCS İçecek"
 category: "Kurumsal Web Sitesi"
-tags: [Next.js 16, React 19, TypeScript, Tailwind CSS v4, SEO, Turbopack, Vercel]
+tags: [Next.js, React, TypeScript, Tailwind CSS, SEO]
 date: 2024-12-16
 featured_image: "https://i.hizliresim.com/8xntcwc.png"
 project_url: "https://bcsmesrubat.com/"
-github_url: "https://github.com/kursatemre/bcs-icecek-website"
 excerpt: "İstanbul'da toptan damacana su, Cola Turka ve meşrubat dağıtımı için Next.js 16 ve Tailwind CSS v4 ile geliştirilmiş ultra hızlı, SEO-optimize kurumsal website. 100/100 SEO skoru ve 95+ performance."
 ---
 
@@ -159,153 +158,21 @@ Geleneksel iş modelinde dijital dönüşüm:
 
 ### Next.js 16 with Turbopack
 
-```javascript
-// next.config.js - Modern configuration
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  images: {
-    remotePatterns: [
-      // 18 farklı external domain için optimize edilmiş
-      { protocol: 'https', hostname: 'i.hizliresim.com' },
-      { protocol: 'https', hostname: 'scontent.cdninstagram.com' },
-      { protocol: 'https', hostname: 'upload.wikimedia.org' },
-      // ... brand logos
-    ],
-    formats: ['image/webp', 'image/avif'],
-  },
-  // Turbopack enabled for ultra-fast builds
-  experimental: {
-    turbo: {
-      resolveAlias: {
-        underscore: 'lodash',
-      },
-    },
-  },
-}
-```
 
 ### Tailwind CSS v4 - OKLCH Color System
 
-```css
-/* Modern OKLCH color system - future-proof colors */
-@theme {
-  --color-primary: oklch(65% 0.25 250);
-  --color-accent: oklch(75% 0.20 180);
-  --color-neutral: oklch(90% 0.02 240);
-}
-
-/* Smooth animations */
-.animate-fade-in {
-  animation: fadeIn 0.6s ease-out;
-}
-
-.animate-slide-up {
-  animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-```
 
 ### Schema.org Structured Data
 
-```typescript
-// Local Business Schema
-const localBusinessSchema = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "BCS İçecek - İstanbul Toptan Su ve Meşrubat",
-  "description": "23 yıldır İstanbul'da toptan damacana su, Cola Turka ve meşrubat dağıtımı",
-  "url": "https://bcsmesrubat.com",
-  "telephone": "+90-XXX-XXX-XXXX",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "İstanbul",
-    "addressCountry": "TR"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 41.0082,
-    "longitude": 28.9784
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.8",
-    "reviewCount": "150"
-  }
-}
-
-// Product Schema for each category
-const productSchema = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "19L Damacana Su",
-  "description": "Toptan damacana su satışı ve dağıtımı",
-  "brand": { "@type": "Brand", "name": "BCS İçecek" },
-  "offers": {
-    "@type": "Offer",
-    "availability": "https://schema.org/InStock",
-    "priceCurrency": "TRY"
-  }
-}
-```
 
 ### Image Optimization
 
-```typescript
-// 18 external domain için optimize edilmiş next/image
-import Image from 'next/image'
-
-<Image
-  src="https://i.hizliresim.com/brand-logo.webp"
-  alt="Cola Turka Logo"
-  width={200}
-  height={100}
-  loading="lazy"
-  quality={90}
-  placeholder="blur"
-  blurDataURL="data:image/png;base64,..."
-  className="object-contain"
-/>
-```
 
 ### Marquee Animation - İş Ortakları
 
-```typescript
-// Infinite scroll brand logos
-'use client'
-
-export function BrandMarquee() {
-  const brands = [
-    { name: 'Cola Turka', logo: '/brands/cola-turka.png' },
-    { name: 'Erikli', logo: '/brands/erikli.png' },
-    { name: 'Pınar', logo: '/brands/pinar.png' },
-    // ... 15+ brand
-  ]
-
-  return (
-    <div className="relative overflow-hidden">
-      <div className="flex animate-marquee">
-        {brands.map((brand, i) => (
-          <div key={i} className="flex-shrink-0 mx-8">
-            <Image src={brand.logo} alt={brand.name} width={120} height={60} />
-          </div>
-        ))}
-      </div>
-    </div>
-  )
-}
-```
 
 ### Instagram Integration
 
-```typescript
-// Instagram feed embed
-<div className="instagram-embed">
-  <script
-    async
-    src="//www.instagram.com/embed.js"
-    data-instgrm-permalink="https://www.instagram.com/bcsicecek/"
-  />
-</div>
-```
 
 ## Results (Sonuçlar)
 
@@ -422,7 +289,6 @@ export function BrandMarquee() {
 ## Proje Linkleri
 
 - **Live Website**: [bcsmesrubat.com](https://bcsmesrubat.com/)
-- **GitHub Repository**: [bcs-icecek-website](https://github.com/kursatemre/bcs-icecek-website)
 - **Instagram**: [@bcsicecek](https://www.instagram.com/bcsicecek/)
 - **Developer**: [OrionSoft.dev](https://orionsoft.dev)
 

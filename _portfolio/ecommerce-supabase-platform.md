@@ -3,11 +3,10 @@ layout: case-study
 title: "Enterprise E-commerce Platform - Supabase"
 client: "E-Commerce SaaS"
 category: "E-ticaret"
-tags: [Next.js 15, React 19, TypeScript, Supabase, Tailwind CSS, Trendyol API, Meta Pixel, Google Analytics]
+tags: [Next.js, React, TypeScript, Supabase, E-Ticaret]
 date: 2024-12-16
 featured_image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=1200&h=630&fit=crop"
 project_url: "https://e-commerce-supabase-bice.vercel.app/"
-github_url: "https://github.com/kursatemre/E-commerce-supabase"
 excerpt: "Next.js 15 ve Supabase ile geliştirilmiş enterprise-grade e-ticaret platformu. Trendyol entegrasyonu, Meta Conversions API, Google Analytics ve gelişmiş ürün varyant sistemi."
 ---
 
@@ -163,147 +162,18 @@ Modern e-ticaret işletmelerinin karşılaştığı zorluklar:
 
 ### Server Actions - Type Safe Mutations
 
-```typescript
-'use server'
-
-export async function createProduct(formData: FormData) {
-  const supabase = createServerClient()
-
-  // Type-safe validation
-  const product = productSchema.parse({
-    name: formData.get('name'),
-    price: formData.get('price'),
-    stock: formData.get('stock')
-  })
-
-  // Insert with RLS
-  const { data, error } = await supabase
-    .from('products')
-    .insert(product)
-    .select()
-    .single()
-
-  if (error) throw error
-  return data
-}
-```
 
 ### Meta Conversions API - Server-Side Tracking
 
-```typescript
-// Server-side event tracking for better data quality
-export async function trackPurchase(orderId: string) {
-  const event = {
-    event_name: 'Purchase',
-    event_time: Math.floor(Date.now() / 1000),
-    user_data: {
-      em: hashEmail(user.email), // Hashed email
-      ph: hashPhone(user.phone), // Hashed phone
-    },
-    custom_data: {
-      currency: 'TRY',
-      value: orderTotal,
-      content_ids: productIds,
-      content_type: 'product',
-    }
-  }
-
-  await fetch(`https://graph.facebook.com/v18.0/${PIXEL_ID}/events`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      data: [event],
-      access_token: CONVERSION_API_TOKEN,
-    })
-  })
-}
-```
 
 ### Trendyol Marketplace Integration
 
-```typescript
-// Automatic product synchronization
-export async function syncToTrendyol(productId: string) {
-  const product = await getProduct(productId)
-
-  const trendyolProduct = {
-    barcode: product.sku,
-    title: product.name,
-    productMainId: product.id,
-    brandId: product.brand_id,
-    categoryId: product.trendyol_category_id,
-    quantity: product.stock,
-    stockCode: product.sku,
-    dimensionalWeight: product.weight,
-    description: product.description,
-    currencyType: 'TRY',
-    listPrice: product.price,
-    salePrice: product.sale_price || product.price,
-    vatRate: 18,
-    cargoCompanyId: 10, // Trendyol cargo
-    images: product.images.map(img => ({ url: img.url }))
-  }
-
-  const response = await fetch(
-    `https://api.trendyol.com/sapigw/suppliers/${SUPPLIER_ID}/products`,
-    {
-      method: 'POST',
-      headers: {
-        'Authorization': `Basic ${TRENDYOL_API_KEY}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(trendyolProduct)
-    }
-  )
-
-  return response.json()
-}
-```
 
 ### Row Level Security Policies
 
-```sql
--- Kullanıcılar sadece kendi siparişlerini görebilir
-CREATE POLICY "Users can view own orders"
-ON orders FOR SELECT
-USING (auth.uid() = user_id);
-
--- Admin kullanıcılar tüm ürünleri yönetebilir
-CREATE POLICY "Admins can manage products"
-ON products FOR ALL
-USING (
-  EXISTS (
-    SELECT 1 FROM profiles
-    WHERE profiles.user_id = auth.uid()
-    AND profiles.role = 'admin'
-  )
-);
-```
 
 ### Advanced Product Variants
 
-```typescript
-interface Product {
-  id: string
-  name: string
-  base_price: number
-  variants: ProductVariant[]
-}
-
-interface ProductVariant {
-  id: string
-  sku: string
-  attributes: Record<string, string> // { "Beden": "M", "Renk": "Kırmızı" }
-  price_modifier: number
-  stock: number
-  images: string[]
-}
-
-// Dynamic pricing
-const finalPrice = product.base_price + variant.price_modifier
-```
 
 ## Results (Sonuçlar)
 
@@ -414,7 +284,6 @@ const finalPrice = product.base_price + variant.price_modifier
 ## Proje Linkleri
 
 - **Live Demo**: [e-commerce-supabase-bice.vercel.app](https://e-commerce-supabase-bice.vercel.app/)
-- **GitHub Repository**: [E-commerce-supabase](https://github.com/kursatemre/E-commerce-supabase)
 - **Documentation**: Comprehensive setup guide in README
 
 ## Use Cases

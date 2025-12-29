@@ -3,7 +3,7 @@ layout: case-study
 title: "ETIC - E-Ticaret SaaS Platformu"
 client: "ETIC"
 category: "SaaS Platform"
-tags: [Node.js, Next.js, PostgreSQL, Prisma, Multi-Tenant, TypeScript, Turborepo]
+tags: [Node.js, Next.js, SaaS, Multi-Tenant, E-Ticaret]
 date: 2024-11-20
 featured_image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=630&fit=crop"
 excerpt: "Multi-tenant mimarisine sahip, tam özellikli E-Ticaret SaaS platformu. Sınırsız mağaza, ürün ve trafik kapasitesi, çoklu ödeme sağlayıcı desteği ve özelleştirilebilir tema sistemi."
@@ -15,16 +15,11 @@ results:
   - value: "Monorepo"
     label: "Turborepo Yapısı"
 technologies:
-  - Node.js
-  - Next.js 14
+  - Next.js
   - TypeScript
   - PostgreSQL
-  - Prisma ORM
-  - React Query
-  - Zustand
+  - Prisma
   - Turborepo
-  - Tailwind CSS
-  - Framer Motion
 ---
 
 # ETIC - E-Ticaret SaaS Platformu
@@ -61,34 +56,8 @@ SaaS tabanlı e-ticaret platformlarında karşılaşılan zorluklar:
 ### Mimari Yaklaşım
 
 **Multi-Tenant Architecture:**
-```
-┌────────────────────────────────────────────┐
-│         Tenant 1        Tenant 2   Tenant N │
-├────────────────────────────────────────────┤
-│          Application Layer (Next.js)        │
-├────────────────────────────────────────────┤
-│         API Routes (Tenant Context)         │
-├────────────────────────────────────────────┤
-│      Prisma ORM (Row-Level Security)        │
-├────────────────────────────────────────────┤
-│         PostgreSQL (Single DB)              │
-└────────────────────────────────────────────┘
-```
 
 **Monorepo Structure:**
-```
-etic/
-├── apps/
-│   ├── web/              # Main SaaS platform
-│   ├── storefront/       # Customer-facing stores
-│   └── admin/            # Admin dashboard
-├── packages/
-│   ├── database/         # Prisma schema & migrations
-│   ├── ui/              # Shared components
-│   ├── auth/            # Authentication logic
-│   └── config/          # Shared configs
-└── package.json         # Turborepo configuration
-```
 
 ### Teknoloji Stack
 
@@ -121,31 +90,6 @@ etic/
 #### 1. Multi-Tenant İzolasyonu
 
 **Tenant Bazlı Veri Ayrımı:**
-```typescript
-// Prisma Schema
-model Store {
-  id        String   @id @default(cuid())
-  tenantId  String   @unique
-  name      String
-  domain    String   @unique
-  settings  Json
-  products  Product[]
-  orders    Order[]
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@index([tenantId])
-}
-
-// Middleware ile tenant context
-export async function getTenantContext(req: Request) {
-  const domain = req.headers.host;
-  const store = await prisma.store.findUnique({
-    where: { domain }
-  });
-  return store?.tenantId;
-}
-```
 
 **Özellikler:**
 - 🏢 Tenant bazlı veri izolasyonu
@@ -157,29 +101,6 @@ export async function getTenantContext(req: Request) {
 #### 2. Esnek Ürün Yönetimi
 
 **Sınırsız Ürün Kapasitesi:**
-```typescript
-interface Product {
-  id: string;
-  tenantId: string;
-  name: string;
-  description: string;
-  price: number;
-  compareAtPrice?: number;
-  images: string[];
-  variants: ProductVariant[];
-  inventory: InventoryItem[];
-  seo: SEOMetadata;
-  status: 'draft' | 'active' | 'archived';
-}
-
-interface ProductVariant {
-  id: string;
-  sku: string;
-  options: { [key: string]: string }; // Size: "L", Color: "Red"
-  price: number;
-  inventory: number;
-}
-```
 
 **Özellikler:**
 - ∞ Sınırsız ürün ve varyant
@@ -191,34 +112,6 @@ interface ProductVariant {
 #### 3. Çoklu Ödeme Sağlayıcısı
 
 **Payment Provider Integration:**
-```typescript
-// Payment adapter pattern
-interface PaymentProvider {
-  name: string;
-  initialize(config: any): void;
-  createPayment(amount: number, currency: string): Promise<PaymentIntent>;
-  verifyPayment(paymentId: string): Promise<PaymentStatus>;
-}
-
-class StripeProvider implements PaymentProvider {
-  private stripe: Stripe;
-
-  initialize(config: { apiKey: string }) {
-    this.stripe = new Stripe(config.apiKey);
-  }
-
-  async createPayment(amount: number, currency: string) {
-    return await this.stripe.paymentIntents.create({
-      amount: amount * 100,
-      currency
-    });
-  }
-}
-
-class IyzicoProvider implements PaymentProvider {
-  // Iyzico implementation
-}
-```
 
 **Desteklenen Sağlayıcılar:**
 - 💳 **Stripe**: Global ödeme platformu
@@ -228,31 +121,6 @@ class IyzicoProvider implements PaymentProvider {
 #### 4. Gelişmiş Satış Analitiği
 
 **Analytics Dashboard:**
-```typescript
-interface AnalyticsData {
-  revenue: {
-    total: number;
-    trend: number;
-    byPeriod: { date: string; amount: number }[];
-  };
-  orders: {
-    total: number;
-    trend: number;
-    avgOrderValue: number;
-  };
-  customers: {
-    total: number;
-    new: number;
-    returning: number;
-  };
-  topProducts: {
-    id: string;
-    name: string;
-    revenue: number;
-    quantity: number;
-  }[];
-}
-```
 
 **Analytics Özellikleri:**
 - 📊 Gelir ve satış trendleri
@@ -264,26 +132,6 @@ interface AnalyticsData {
 #### 5. Özelleştirilebilir Tema Sistemi
 
 **Theme Customization:**
-```typescript
-interface StoreTheme {
-  colors: {
-    primary: string;
-    secondary: string;
-    accent: string;
-    background: string;
-    text: string;
-  };
-  typography: {
-    headingFont: string;
-    bodyFont: string;
-  };
-  layout: {
-    headerStyle: 'minimal' | 'classic' | 'modern';
-    productCardStyle: 'grid' | 'list' | 'masonry';
-  };
-  customCSS?: string;
-}
-```
 
 **Theme Özellikleri:**
 - 🎨 Renk paleti özelleştirmesi
@@ -328,182 +176,16 @@ interface StoreTheme {
 ### Prisma Schema Highlights
 
 **Multi-Tenant Models:**
-```prisma
-model Store {
-  id          String    @id @default(cuid())
-  tenantId    String    @unique
-  name        String
-  domain      String    @unique
-  subdomain   String    @unique
-
-  // Relations
-  products    Product[]
-  orders      Order[]
-  customers   Customer[]
-  settings    StoreSettings?
-
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
-
-  @@index([tenantId])
-  @@index([domain])
-}
-
-model Product {
-  id          String   @id @default(cuid())
-  storeId     String
-  store       Store    @relation(fields: [storeId], references: [id])
-
-  name        String
-  slug        String
-  description String?  @db.Text
-  price       Decimal  @db.Decimal(10, 2)
-
-  // Variants
-  variants    ProductVariant[]
-
-  // Media
-  images      ProductImage[]
-
-  // SEO
-  seoTitle    String?
-  seoDescription String?
-
-  status      ProductStatus @default(DRAFT)
-
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  @@unique([storeId, slug])
-  @@index([storeId, status])
-}
-
-enum ProductStatus {
-  DRAFT
-  ACTIVE
-  ARCHIVED
-}
-```
 
 ### Next.js App Router Structure
 
 **API Route with Tenant Context:**
-```typescript
-// app/api/products/route.ts
-import { NextRequest, NextResponse } from 'next/server';
-import { getTenantId } from '@/lib/tenant';
-import { prisma } from '@etic/database';
-
-export async function GET(req: NextRequest) {
-  try {
-    const tenantId = await getTenantId(req);
-
-    if (!tenantId) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
-
-    const products = await prisma.product.findMany({
-      where: {
-        store: { tenantId }
-      },
-      include: {
-        variants: true,
-        images: true
-      }
-    });
-
-    return NextResponse.json({ products });
-  } catch (error) {
-    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
-  }
-}
-
-export async function POST(req: NextRequest) {
-  const tenantId = await getTenantId(req);
-  const body = await req.json();
-
-  const product = await prisma.product.create({
-    data: {
-      ...body,
-      store: {
-        connect: { tenantId }
-      }
-    }
-  });
-
-  return NextResponse.json({ product }, { status: 201 });
-}
-```
 
 ### State Management with Zustand
 
-```typescript
-// stores/useProductStore.ts
-import { create } from 'zustand';
-
-interface ProductStore {
-  products: Product[];
-  isLoading: boolean;
-  error: string | null;
-
-  fetchProducts: () => Promise<void>;
-  addProduct: (product: CreateProductDto) => Promise<void>;
-  updateProduct: (id: string, data: Partial<Product>) => Promise<void>;
-  deleteProduct: (id: string) => Promise<void>;
-}
-
-export const useProductStore = create<ProductStore>((set, get) => ({
-  products: [],
-  isLoading: false,
-  error: null,
-
-  fetchProducts: async () => {
-    set({ isLoading: true });
-    try {
-      const res = await fetch('/api/products');
-      const { products } = await res.json();
-      set({ products, isLoading: false });
-    } catch (error) {
-      set({ error: error.message, isLoading: false });
-    }
-  },
-
-  addProduct: async (productData) => {
-    const res = await fetch('/api/products', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(productData)
-    });
-    const { product } = await res.json();
-    set({ products: [...get().products, product] });
-  },
-
-  // ... other actions
-}));
-```
 
 ### Turborepo Configuration
 
-```json
-{
-  "pipeline": {
-    "build": {
-      "dependsOn": ["^build"],
-      "outputs": [".next/**", "dist/**"]
-    },
-    "dev": {
-      "cache": false
-    },
-    "lint": {
-      "outputs": []
-    },
-    "test": {
-      "dependsOn": ["build"],
-      "outputs": ["coverage/**"]
-    }
-  }
-}
-```
 
 ## Results (Sonuçlar)
 

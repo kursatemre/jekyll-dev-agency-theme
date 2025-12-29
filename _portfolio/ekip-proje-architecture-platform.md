@@ -3,11 +3,10 @@ layout: case-study
 title: "Ekip Proje - Mimarlık & Mühendislik Platformu"
 client: "Ekip Proje"
 category: "Kurumsal Web Platformu"
-tags: [Next.js 15, React 18, TypeScript, Supabase, Tailwind CSS, Framer Motion, Admin Panel]
+tags: [Next.js, React, TypeScript, Supabase, Mimarlık]
 date: 2024-12-17
 featured_image: "https://i.hizliresim.com/qb7nnmx.png"
 project_url: "https://ekipproje.vercel.app/"
-github_url: "https://github.com/kursatemre/insaatprojeweb"
 excerpt: "Türk mimarlık ve mühendislik firması için geliştirilmiş enterprise-grade web platformu. Next.js 15, Supabase ve gelişmiş admin panel ile lüks marka kimliği yansıtan modern çözüm."
 ---
 
@@ -158,237 +157,21 @@ Mimarlık ve mühendislik sektöründe dijital varlık:
 
 #### Next.js 15 App Router
 
-```typescript
-// app/projeler/[slug]/page.tsx
-// Dynamic project detail pages
-export async function generateStaticParams() {
-  const { data: projects } = await supabase
-    .from('projects')
-    .select('slug')
-
-  return projects?.map((project) => ({
-    slug: project.slug,
-  })) ?? []
-}
-
-export default async function ProjectPage({
-  params
-}: {
-  params: { slug: string }
-}) {
-  const { data: project } = await supabase
-    .from('projects')
-    .select('*')
-    .eq('slug', params.slug)
-    .single()
-
-  return <ProjectDetail project={project} />
-}
-```
 
 #### Supabase Database Schema
 
-```sql
--- Projects table
-CREATE TABLE projects (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-  title TEXT NOT NULL,
-  slug TEXT UNIQUE NOT NULL,
-  category TEXT, -- 'public', 'private', 'residential', 'commercial'
-  description TEXT,
-  images TEXT[],
-  location TEXT,
-  year INTEGER,
-  area DECIMAL,
-  status TEXT, -- 'completed', 'ongoing', 'planned'
-  featured BOOLEAN DEFAULT false,
-  created_at TIMESTAMPTZ DEFAULT NOW()
-);
-
--- Services table
-CREATE TABLE services (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-  title TEXT NOT NULL,
-  slug TEXT UNIQUE NOT NULL,
-  icon TEXT,
-  description TEXT,
-  features TEXT[],
-  technical_specs JSONB,
-  order_index INTEGER
-);
-
--- Contact messages
-CREATE TABLE messages (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-  name TEXT NOT NULL,
-  email TEXT NOT NULL,
-  phone TEXT,
-  message TEXT NOT NULL,
-  service_interest TEXT,
-  status TEXT DEFAULT 'new',
-  created_at TIMESTAMPTZ DEFAULT NOW()
-);
-```
 
 #### Framer Motion Animations
 
-```typescript
-// Smooth page transitions
-import { motion } from 'framer-motion'
-
-const fadeInUp = {
-  initial: { opacity: 0, y: 60 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, ease: [0.6, -0.05, 0.01, 0.99] }
-}
-
-export function ProjectCard({ project }) {
-  return (
-    <motion.div
-      variants={fadeInUp}
-      whileHover={{ scale: 1.03 }}
-      whileTap={{ scale: 0.98 }}
-      className="project-card"
-    >
-      <img src={project.image} alt={project.title} />
-      <h3>{project.title}</h3>
-      <p>{project.category}</p>
-    </motion.div>
-  )
-}
-```
 
 #### Interactive Turkey Map
 
-```typescript
-// components/TurkeyMap.tsx
-import { useState } from 'react'
-
-interface RegionData {
-  name: string
-  projectCount: number
-  cities: string[]
-}
-
-export function TurkeyMap() {
-  const [selectedRegion, setSelectedRegion] = useState<string | null>(null)
-
-  const regions: Record<string, RegionData> = {
-    'marmara': { name: 'Marmara', projectCount: 45, cities: ['İstanbul', 'Bursa', 'Kocaeli'] },
-    'ege': { name: 'Ege', projectCount: 28, cities: ['İzmir', 'Manisa', 'Aydın'] },
-    // ... other regions
-  }
-
-  return (
-    <div className="turkey-map-container">
-      <svg viewBox="0 0 1000 600">
-        {Object.entries(regions).map(([key, data]) => (
-          <path
-            key={key}
-            d={regionPaths[key]}
-            fill={selectedRegion === key ? '#b89150' : '#0f172a'}
-            onClick={() => setSelectedRegion(key)}
-            className="hover:fill-gold transition-colors cursor-pointer"
-          />
-        ))}
-      </svg>
-      {selectedRegion && (
-        <div className="region-info">
-          <h4>{regions[selectedRegion].name}</h4>
-          <p>{regions[selectedRegion].projectCount} Proje</p>
-        </div>
-      )}
-    </div>
-  )
-}
-```
 
 #### Admin Settings Panel
 
-```typescript
-// app/admin/settings/page.tsx
-'use client'
-
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-
-export default function AdminSettings() {
-  return (
-    <div className="admin-settings">
-      <Tabs defaultValue="theme">
-        <TabsList className="grid grid-cols-4 lg:grid-cols-8">
-          <TabsTrigger value="theme">Tema</TabsTrigger>
-          <TabsTrigger value="hero">Hero</TabsTrigger>
-          <TabsTrigger value="stats">İstatistikler</TabsTrigger>
-          <TabsTrigger value="contact">İletişim</TabsTrigger>
-          <TabsTrigger value="social">Sosyal Medya</TabsTrigger>
-          <TabsTrigger value="about">Hakkımızda</TabsTrigger>
-          <TabsTrigger value="cta">CTA</TabsTrigger>
-          <TabsTrigger value="nav">Navigasyon</TabsTrigger>
-        </TabsList>
-
-        <TabsContent value="theme">
-          <ThemeColorPicker />
-        </TabsContent>
-
-        <TabsContent value="hero">
-          <HeroContentEditor />
-        </TabsContent>
-
-        {/* ... other tabs */}
-      </Tabs>
-    </div>
-  )
-}
-```
 
 #### Project Filtering System
 
-```typescript
-// components/ProjectFilter.tsx
-'use client'
-
-import { useState } from 'react'
-
-type Category = 'all' | 'public' | 'private' | 'residential' | 'commercial'
-
-export function ProjectFilter({ projects }) {
-  const [activeCategory, setActiveCategory] = useState<Category>('all')
-
-  const filteredProjects = projects.filter(project =>
-    activeCategory === 'all' || project.category === activeCategory
-  )
-
-  const categories = [
-    { value: 'all', label: 'Tümü', count: projects.length },
-    { value: 'public', label: 'Kamu Projeleri', count: projects.filter(p => p.category === 'public').length },
-    { value: 'private', label: 'Özel Sektör', count: projects.filter(p => p.category === 'private').length },
-    { value: 'residential', label: 'Konut', count: projects.filter(p => p.category === 'residential').length },
-    { value: 'commercial', label: 'Ticari', count: projects.filter(p => p.category === 'commercial').length },
-  ]
-
-  return (
-    <>
-      <div className="filter-tabs">
-        {categories.map(cat => (
-          <button
-            key={cat.value}
-            onClick={() => setActiveCategory(cat.value as Category)}
-            className={activeCategory === cat.value ? 'active' : ''}
-          >
-            {cat.label} <span>({cat.count})</span>
-          </button>
-        ))}
-      </div>
-
-      <div className="grid md:grid-cols-3 gap-8">
-        {filteredProjects.map(project => (
-          <ProjectCard key={project.id} project={project} />
-        ))}
-      </div>
-    </>
-  )
-}
-```
 
 ## Results (Sonuçlar)
 
@@ -495,7 +278,6 @@ export function ProjectFilter({ projects }) {
 ## Proje Linkleri
 
 - **Live Website**: [ekipproje.vercel.app](https://ekipproje.vercel.app/)
-- **GitHub Repository**: [insaatprojeweb](https://github.com/kursatemre/insaatprojeweb)
 
 ## Testimonial
 

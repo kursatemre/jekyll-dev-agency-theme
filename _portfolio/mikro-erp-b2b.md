@@ -3,7 +3,7 @@ layout: case-study
 title: "Mikro ERP B2B - Plasiyer Cari Entegreli Sistem"
 client: "B2B Enterprise"
 category: "ERP Entegrasyonu"
-tags: [ERP, B2B, Mikro ERP, Plasiyer, Cari Hesap, 3D Ödeme, Stok Yönetimi]
+tags: [ERP, B2B, Mikro ERP, Plasiyer, Cari Hesap]
 date: 2024-10-25
 featured_image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&h=630&fit=crop"
 excerpt: "Mikro ERP yazılımı ile tam entegre B2B satış sistemi. Saha plasiyerleri için cari hesap yönetimi, şubeye göre stok takibi, 3D kredi kartı ödemeleri ve sipariş yönetimi."
@@ -15,12 +15,10 @@ results:
   - value: "B2B"
     label: "Satış Sistemi"
 technologies:
-  - Mikro ERP
+  - Mikro ERP API
   - 3D Secure
-  - API Integration
-  - B2B Platform
-  - Stok Yönetimi
-  - Cari Hesap
+  - ASP.NET Core
+  - SQL Server
 ---
 
 # Mikro ERP B2B - Plasiyer Cari Entegreli Sistem
@@ -58,60 +56,12 @@ Saha satış ekiplerinin karşılaştığı zorluklar:
 ### Mimari Yaklaşım
 
 **System Architecture:**
-```
-┌─────────────────────────────────────────────┐
-│         B2B Web Application                  │
-│  - Plasiyer Login                            │
-│  - Cari Hesap Görüntüleme                    │
-│  - Sipariş Oluşturma                         │
-│  - Ödeme İşlemleri                           │
-├─────────────────────────────────────────────┤
-│         Integration Layer                    │
-│  - Mikro ERP API                             │
-│  - 3D Secure Payment Gateway                 │
-│  - Stock Synchronization                     │
-├─────────────────────────────────────────────┤
-│         Mikro ERP System                     │
-│  - Cari Hesap Modülü                         │
-│  - Stok Yönetimi                             │
-│  - Fatura Sistemi                            │
-│  - Şube Yönetimi                             │
-└─────────────────────────────────────────────┘
-```
 
 ### Temel Özellikler
 
 #### 1. Plasiyer Bazlı Cari Hesap Yönetimi
 
 **Cari Hesap Modülü:**
-```typescript
-interface CariHesap {
-  musteriKodu: string;
-  unvan: string;
-  yetkiliKisi: string;
-  telefon: string;
-  adres: string;
-
-  // Finansal Bilgiler
-  bakiye: number;
-  riskLimiti: number;
-  acikHesap: number;
-
-  // İşlemler
-  hareketler: CariHareket[];
-  siparisler: Siparis[];
-  tahsilatlar: Tahsilat[];
-}
-
-interface CariHareket {
-  tarih: Date;
-  islemTipi: 'Fatura' | 'Tahsilat' | 'İade' | 'Virman';
-  evrakNo: string;
-  tutar: number;
-  aciklama: string;
-  bakiye: number;
-}
-```
 
 **Özellikler:**
 - 📊 Detaylı cari hesap bilgileri
@@ -124,44 +74,6 @@ interface CariHareket {
 #### 2. Şubeye Göre Stok Takibi
 
 **Stok Yönetimi:**
-```typescript
-interface StokBilgisi {
-  urunKodu: string;
-  urunAdi: string;
-  barkod: string;
-  birim: string;
-
-  // Şube Bazlı Stok
-  subeler: {
-    subeKodu: string;
-    subeAdi: string;
-    miktar: number;
-    rezerve: number;
-    kullanilabilir: number;
-  }[];
-
-  // Fiyat Bilgileri
-  listeFiyati: number;
-  iskonto: number;
-  netFiyat: number;
-  kdv: number;
-}
-
-// Şubeye göre stok sorgulama
-async function getStokByBranch(subeKodu: string, urunKodu?: string) {
-  const response = await mikroErpApi.get('/stok', {
-    params: {
-      sube: subeKodu,
-      urun: urunKodu
-    }
-  });
-
-  return response.data.map(item => ({
-    ...item,
-    kullanilabilir: item.miktar - item.rezerve
-  }));
-}
-```
 
 **Stok Özellikleri:**
 - 🏢 Multi-branch stok görünümü
@@ -174,62 +86,6 @@ async function getStokByBranch(subeKodu: string, urunKodu?: string) {
 #### 3. 3D Secure Kredi Kartı Ödeme
 
 **Payment Integration:**
-```csharp
-public class ThreeDSecurePayment
-{
-    private readonly IPaymentGateway _paymentGateway;
-    private readonly IMikroErpService _mikroErp;
-
-    public async Task<PaymentResult> ProcessPayment(PaymentRequest request)
-    {
-        // 1. Validate payment info
-        ValidatePaymentInfo(request);
-
-        // 2. Initialize 3D Secure transaction
-        var threeDResult = await _paymentGateway.Initialize3DSecure(new
-        {
-            CardNumber = request.CardNumber,
-            ExpireDate = request.ExpireDate,
-            CVV = request.CVV,
-            Amount = request.Amount,
-            OrderId = request.OrderId,
-            ReturnUrl = GetReturnUrl()
-        });
-
-        // 3. Return 3D form for user authentication
-        return new PaymentResult
-        {
-            Status = "Pending3D",
-            ThreeDForm = threeDResult.HtmlForm,
-            TransactionId = threeDResult.TransactionId
-        };
-    }
-
-    public async Task<PaymentResult> Complete3DPayment(string transactionId)
-    {
-        // 1. Complete 3D authentication
-        var result = await _paymentGateway.Complete3DSecure(transactionId);
-
-        if (result.Success)
-        {
-            // 2. Record payment in Mikro ERP
-            await _mikroErp.RecordPayment(new
-            {
-                CariKodu = result.CustomerId,
-                Tutar = result.Amount,
-                OdemeTipi = "Kredi Kartı",
-                ReferansNo = result.TransactionId,
-                Tarih = DateTime.Now
-            });
-
-            // 3. Update order status
-            await UpdateOrderPaymentStatus(result.OrderId, "Paid");
-        }
-
-        return result;
-    }
-}
-```
 
 **Ödeme Özellikleri:**
 - 💳 3D Secure güvenli ödeme
@@ -242,66 +98,6 @@ public class ThreeDSecurePayment
 #### 4. Sipariş Yönetimi
 
 **Order Management:**
-```typescript
-interface Siparis {
-  siparisNo: string;
-  musteriKodu: string;
-  plasiyerKodu: string;
-  tarih: Date;
-  durum: 'Beklemede' | 'Onaylandi' | 'Hazirlaniyor' | 'Sevk Edildi' | 'Tamamlandi';
-
-  // Satırlar
-  satirlar: SiparisSatir[];
-
-  // Toplam
-  araToplam: number;
-  kdvToplam: number;
-  genelToplam: number;
-
-  // Teslimat
-  teslimatAdresi: string;
-  teslimatTarihi: Date;
-  kargoBilgisi?: string;
-}
-
-interface SiparisSatir {
-  urunKodu: string;
-  urunAdi: string;
-  miktar: number;
-  birim: string;
-  birimFiyat: number;
-  iskonto: number;
-  kdvOrani: number;
-  tutar: number;
-}
-
-// Sipariş oluşturma
-async function createOrder(siparis: Siparis): Promise<string> {
-  // 1. Stok kontrolü
-  for (const satir of siparis.satirlar) {
-    const stok = await checkStock(satir.urunKodu, satir.miktar);
-    if (!stok.available) {
-      throw new Error(`Yetersiz stok: ${satir.urunAdi}`);
-    }
-  }
-
-  // 2. Mikro ERP'ye sipariş gönder
-  const result = await mikroErpApi.post('/siparis', {
-    cariKodu: siparis.musteriKodu,
-    plasiyerKodu: siparis.plasiyerKodu,
-    satirlar: siparis.satirlar,
-    teslimatBilgileri: {
-      adres: siparis.teslimatAdresi,
-      tarih: siparis.teslimatTarihi
-    }
-  });
-
-  // 3. Stok rezerve et
-  await reserveStock(siparis.satirlar);
-
-  return result.data.siparisNo;
-}
-```
 
 **Sipariş Özellikleri:**
 - 📝 Hızlı sipariş oluşturma
@@ -314,54 +110,6 @@ async function createOrder(siparis: Siparis): Promise<string> {
 #### 5. Hesap Özeti ve Raporlama
 
 **Report Generation:**
-```csharp
-public class HesapOzetiService
-{
-    public async Task<byte[]> GenerateHesapOzeti(string cariKodu, DateTime baslangic, DateTime bitis)
-    {
-        // 1. Cari hesap verilerini al
-        var cariHesap = await _mikroErp.GetCariHesap(cariKodu);
-        var hareketler = await _mikroErp.GetCariHareketler(cariKodu, baslangic, bitis);
-
-        // 2. PDF oluştur
-        var pdf = new PdfDocument();
-
-        // Başlık
-        AddHeader(pdf, cariHesap.Unvan);
-
-        // Özet bilgiler
-        AddSummary(pdf, new
-        {
-            DevrenBakiye = GetDevrenBakiye(cariKodu, baslangic),
-            ToplamBorc = hareketler.Where(h => h.Borc > 0).Sum(h => h.Borc),
-            ToplamAlacak = hareketler.Where(h => h.Alacak > 0).Sum(h => h.Alacak),
-            GuncelBakiye = cariHesap.Bakiye
-        });
-
-        // Hareket tablosu
-        AddHareketTable(pdf, hareketler);
-
-        return pdf.Save();
-    }
-
-    public async Task SendHesapOzeti(string cariKodu, string email)
-    {
-        var pdf = await GenerateHesapOzeti(cariKodu,
-            DateTime.Now.AddMonths(-1),
-            DateTime.Now);
-
-        await _emailService.SendEmail(new
-        {
-            To = email,
-            Subject = "Hesap Özeti",
-            Body = "Aylık hesap özetiniz ekte yer almaktadır.",
-            Attachments = new[] {
-                new Attachment("hesap-ozeti.pdf", pdf)
-            }
-        });
-    }
-}
-```
 
 **Raporlama Özellikleri:**
 - 📊 Detaylı hesap özeti
@@ -374,54 +122,6 @@ public class HesapOzetiService
 ### Mikro ERP Entegrasyonu
 
 **API Integration:**
-```csharp
-public class MikroErpApiClient
-{
-    private readonly HttpClient _httpClient;
-    private readonly string _apiKey;
-
-    // Cari hesap senkronizasyonu
-    public async Task<List<CariHesap>> SyncCariHesaplar(string plasiyerKodu)
-    {
-        var response = await _httpClient.GetAsync(
-            $"/api/cari?plasiyer={plasiyerKodu}"
-        );
-
-        return await response.Content.ReadAsAsync<List<CariHesap>>();
-    }
-
-    // Stok senkronizasyonu
-    public async Task<List<Stok>> SyncStok(string subeKodu)
-    {
-        var response = await _httpClient.GetAsync(
-            $"/api/stok?sube={subeKodu}"
-        );
-
-        return await response.Content.ReadAsAsync<List<Stok>>();
-    }
-
-    // Sipariş gönderimi
-    public async Task<string> SendSiparis(SiparisDto siparis)
-    {
-        var response = await _httpClient.PostAsJsonAsync(
-            "/api/siparis",
-            siparis
-        );
-
-        var result = await response.Content.ReadAsAsync<SiparisResponse>();
-        return result.SiparisNo;
-    }
-
-    // Tahsilat kaydı
-    public async Task RecordTahsilat(TahsilatDto tahsilat)
-    {
-        await _httpClient.PostAsJsonAsync(
-            "/api/tahsilat",
-            tahsilat
-        );
-    }
-}
-```
 
 ### Geliştirme Süreci
 
@@ -459,95 +159,10 @@ public class MikroErpApiClient
 ### Mikro ERP Data Synchronization
 
 **Real-time Sync:**
-```csharp
-public class DataSyncService : BackgroundService
-{
-    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
-    {
-        while (!stoppingToken.IsCancellationRequested)
-        {
-            try
-            {
-                // Her 5 dakikada bir senkronizasyon
-                await SyncCariHesaplar();
-                await SyncStok();
-                await SyncSiparisler();
-
-                await Task.Delay(TimeSpan.FromMinutes(5), stoppingToken);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Sync error");
-                await Task.Delay(TimeSpan.FromMinutes(1), stoppingToken);
-            }
-        }
-    }
-
-    private async Task SyncCariHesaplar()
-    {
-        var mikroCarilar = await _mikroErpApi.GetCariHesaplar();
-
-        foreach (var cari in mikroCarilar)
-        {
-            await _dbContext.CariHesaplar.Upsert(cari)
-                .On(c => c.CariKodu)
-                .WhenMatched((existing, incoming) => new CariHesap
-                {
-                    Unvan = incoming.Unvan,
-                    Bakiye = incoming.Bakiye,
-                    UpdatedAt = DateTime.Now
-                })
-                .RunAsync();
-        }
-    }
-}
-```
 
 ### Security Implementation
 
 **Authorization:**
-```csharp
-[Authorize(Roles = "Plasiyer")]
-public class CariHesapController : ControllerBase
-{
-    [HttpGet]
-    public async Task<ActionResult<List<CariHesap>>> GetMyCariHesaplar()
-    {
-        var plasiyerKodu = User.FindFirst("PlasiyerKodu")?.Value;
-
-        // Sadece kendi müşterilerini görebilir
-        var carilar = await _cariService
-            .GetByPlasiyer(plasiyerKodu);
-
-        return Ok(carilar);
-    }
-
-    [HttpGet("{cariKodu}/hareketler")]
-    public async Task<ActionResult<List<CariHareket>>> GetHareketler(
-        string cariKodu,
-        [FromQuery] DateTime? baslangic,
-        [FromQuery] DateTime? bitis)
-    {
-        // Yetki kontrolü
-        if (!await CanAccessCari(cariKodu))
-        {
-            return Forbid();
-        }
-
-        var hareketler = await _cariService
-            .GetHareketler(cariKodu, baslangic, bitis);
-
-        return Ok(hareketler);
-    }
-
-    private async Task<bool> CanAccessCari(string cariKodu)
-    {
-        var plasiyerKodu = User.FindFirst("PlasiyerKodu")?.Value;
-        return await _cariService
-            .IsCariAssignedToPlasiyer(cariKodu, plasiyerKodu);
-    }
-}
-```
 
 ## Results (Sonuçlar)
 
