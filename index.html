@@ -537,21 +537,21 @@ image: /assets/images/og-image.jpg
   }
 
   @keyframes scroll {
-    0% {
+    from {
       transform: translateX(0);
     }
-    100% {
-      transform: translateX(calc(-456px * 5 - 1.5rem * 5));
+    to {
+      transform: translateX(calc(-474px * 5));
     }
   }
 
   @media (max-width: 768px) {
     @keyframes scroll {
-      0% {
+      from {
         transform: translateX(0);
       }
-      100% {
-        transform: translateX(calc(-356px * 5 - 1.5rem * 5));
+      to {
+        transform: translateX(calc(-374px * 5));
       }
     }
   }
