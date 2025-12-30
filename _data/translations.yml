@@ -58,7 +58,7 @@ tr:
     services_title: "Hizmetlerimiz"
     contact_title: "İletişim"
     rights: "Tüm hakları saklıdır."
-    location: "İstanbul, Türkiye"
+    location: "İzmir, Türkiye"
 
   contact:
     title: "İletişim"
@@ -140,7 +140,7 @@ en:
     services_title: "Our Services"
     contact_title: "Contact"
     rights: "All rights reserved."
-    location: "Istanbul, Turkey"
+    location: "Izmir, Turkey"
 
   contact:
     title: "Contact"
