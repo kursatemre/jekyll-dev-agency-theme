@@ -1,0 +1,79 @@
+{% assign current_lang = page.lang | default: 'tr' %}
+{% assign current_path = page.url %}
+
+{% comment %}
+  URL Mapping Logic:
+  TR: / → EN: /en/
+  TR: /hizmetler → EN: /en/services
+  TR: /portfolyo → EN: /en/portfolio
+  TR: /blog → EN: /en/blog
+  TR: /hakkimizda → EN: /en/about
+  TR: /iletisim → EN: /en/contact
+{% endcomment %}
+
+{% if current_lang == 'tr' %}
+  {% if current_path == '/' or current_path == '/index.html' %}
+    {% assign en_url = '/en/' %}
+  {% elsif current_path contains '/hizmetler' %}
+    {% assign en_url = current_path | replace: '/hizmetler', '/en/services' %}
+  {% elsif current_path contains '/portfolyo' %}
+    {% assign en_url = current_path | replace: '/portfolyo', '/en/portfolio' %}
+  {% elsif current_path contains '/blog' %}
+    {% assign en_url = current_path | replace: '/blog', '/en/blog' %}
+  {% elsif current_path contains '/hakkimizda' %}
+    {% assign en_url = '/en/about' %}
+  {% elsif current_path contains '/iletisim' %}
+    {% assign en_url = '/en/contact' %}
+  {% else %}
+    {% assign en_url = '/en/' %}
+  {% endif %}
+  {% assign tr_url = current_path %}
+{% else %}
+  {% if current_path == '/en/' or current_path == '/en/index.html' %}
+    {% assign tr_url = '/' %}
+  {% elsif current_path contains '/en/services' %}
+    {% assign tr_url = current_path | replace: '/en/services', '/hizmetler' %}
+  {% elsif current_path contains '/en/portfolio' %}
+    {% assign tr_url = current_path | replace: '/en/portfolio', '/portfolyo' %}
+  {% elsif current_path contains '/en/blog' %}
+    {% assign tr_url = current_path | replace: '/en/blog', '/blog' %}
+  {% elsif current_path contains '/en/about' %}
+    {% assign tr_url = '/hakkimizda' %}
+  {% elsif current_path contains '/en/contact' %}
+    {% assign tr_url = '/iletisim' %}
+  {% else %}
+    {% assign tr_url = '/' %}
+  {% endif %}
+  {% assign en_url = current_path %}
+{% endif %}
+
+<div class="flex items-center gap-2">
+  <a href="{{ tr_url }}"
+     class="w-8 h-8 rounded-full border-2 overflow-hidden transition-all hover:scale-110 {% if current_lang == 'tr' %}border-orion-cyan shadow-lg shadow-orion-cyan/30{% else %}border-orion-gray/30 hover:border-orion-cyan/50{% endif %}"
+     aria-label="Türkçe"
+     title="Türkçe">
+    <svg viewBox="0 0 900 600" class="w-full h-full">
+      <rect width="900" height="600" fill="#E30A17"/>
+      <circle cx="425" cy="300" r="120" fill="#fff"/>
+      <circle cx="445" cy="300" r="95" fill="#E30A17"/>
+      <polygon points="565,250 520,268 545,230 535,275 565,250" fill="#fff" transform="rotate(15 530 260)"/>
+    </svg>
+  </a>
+
+  <a href="{{ en_url }}"
+     class="w-8 h-8 rounded-full border-2 overflow-hidden transition-all hover:scale-110 {% if current_lang == 'en' %}border-orion-cyan shadow-lg shadow-orion-cyan/30{% else %}border-orion-gray/30 hover:border-orion-cyan/50{% endif %}"
+     aria-label="English"
+     title="English">
+    <svg viewBox="0 0 60 30" class="w-full h-full">
+      <clipPath id="s"><path d="M0,0 v30 h60 v-30 z"/></clipPath>
+      <clipPath id="t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath>
+      <g clip-path="url(#s)">
+        <path d="M0,0 v30 h60 v-30 z" fill="#012169"/>
+        <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+        <path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t)" stroke="#C8102E" stroke-width="4"/>
+        <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>
+        <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/>
+      </g>
+    </svg>
+  </a>
+</div>

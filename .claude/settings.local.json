@@ -14,7 +14,16 @@
       "Bash(git check-ignore:*)",
       "Bash(git reset:*)",
       "Bash(git pull:*)",
-      "Bash(git stash:*)"
+      "Bash(git stash:*)",
+      "Bash(npm install:*)",
+      "Bash(curl:*)",
+      "Bash(wc:*)",
+      "Bash(python clean_portfolios.py:*)",
+      "Bash(python update_all.py:*)",
+      "Bash(grep:*)",
+      "Bash(ls:*)",
+      "Bash(timeout /t 10 /nobreak)",
+      "Bash(timeout /t 15 /nobreak)"
     ],
     "deny": [],
     "ask": []

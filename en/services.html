@@ -1,0 +1,138 @@
+---
+layout: default
+title: "Our Services | OrionSoft.dev"
+description: "We offer comprehensive solutions tailored to your business's digital needs. Web development, e-commerce, mobile applications, and digital marketing services."
+keywords: "web development services, e-commerce solutions, mobile app development, digital marketing, seo services, enterprise software"
+lang: en
+---
+
+<div class="py-16 relative">
+  <div class="container-custom text-center">
+    <div class="animate-on-scroll">
+      <div class="inline-block px-4 py-2 bg-orion-cyan/10 border border-orion-cyan/30 text-orion-cyan rounded-full mb-6 font-medium backdrop-blur-sm">
+        Our Digital Solutions
+      </div>
+    </div>
+    <h1 class="mb-6 animate-on-scroll text-orion-white">{{ page.title }}</h1>
+    <p class="text-orion-gray text-lg max-w-3xl mx-auto animate-on-scroll">
+      {{ page.description }}
+    </p>
+  </div>
+</div>
+
+<!-- Web Services -->
+<section class="section relative">
+  <div class="container-custom">
+    <div class="mb-12 animate-on-scroll">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-12 h-12 bg-orion-cyan/10 rounded-lg flex items-center justify-center">
+          <svg class="w-6 h-6 text-orion-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+          </svg>
+        </div>
+        <h2 class="text-orion-white">Web & Software Solutions</h2>
+      </div>
+      <p class="text-orion-gray text-lg">Modern and scalable web solutions</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 mb-20 card-group">
+      {% assign web_services = site.services_en | where: "category", "web" %}
+      {% for service in web_services %}
+      <a href="{{ service.url }}" class="card group">
+        <div class="p-8">
+          <div class="w-16 h-16 bg-gradient-to-br from-orion-cyan to-orion-purple rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <svg class="w-8 h-8 text-orion-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="mb-4 text-orion-white group-hover:text-orion-cyan transition-colors">{{ service.title }}</h3>
+          <p class="text-orion-gray mb-6">{{ service.description }}</p>
+
+          <div class="space-y-2 mb-6">
+            {% for feature in service.features limit:4 %}
+            <div class="flex items-center gap-2 text-sm text-orion-white">
+              <svg class="w-4 h-4 text-success flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span>{{ feature }}</span>
+            </div>
+            {% endfor %}
+          </div>
+
+          <div class="flex items-center text-orion-cyan font-medium group-hover:gap-2 transition-all">
+            View Details
+            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </div>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+
+    <!-- Marketing Services -->
+    <div class="mb-12 animate-on-scroll">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-12 h-12 bg-orion-purple/10 rounded-lg flex items-center justify-center">
+          <svg class="w-6 h-6 text-orion-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+          </svg>
+        </div>
+        <h2 class="text-orion-white">Digital Marketing & Management</h2>
+      </div>
+      <p class="text-orion-gray text-lg">Marketing solutions that grow your brand</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 card-group">
+      {% assign marketing_services = site.services_en | where: "category", "marketing" %}
+      {% for service in marketing_services %}
+      <a href="{{ service.url }}" class="card group">
+        <div class="p-8">
+          <div class="w-16 h-16 bg-gradient-to-br from-orion-purple to-orion-cyan rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <svg class="w-8 h-8 text-orion-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h3 class="mb-4 text-orion-white group-hover:text-orion-purple transition-colors">{{ service.title }}</h3>
+          <p class="text-orion-gray mb-6">{{ service.description }}</p>
+
+          <div class="space-y-2 mb-6">
+            {% for feature in service.features limit:4 %}
+            <div class="flex items-center gap-2 text-sm text-orion-white">
+              <svg class="w-4 h-4 text-success flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span>{{ feature }}</span>
+            </div>
+            {% endfor %}
+          </div>
+
+          <div class="flex items-center text-orion-purple font-medium group-hover:gap-2 transition-all">
+            View Details
+            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </div>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section bg-gradient-to-r from-orion-cyan to-orion-purple text-orion-navy relative overflow-hidden">
+  <div class="absolute inset-0 bg-orion-navy/60 backdrop-blur-sm"></div>
+  <div class="container-custom text-center animate-on-scroll relative z-10">
+    <h2 class="text-orion-white mb-6 drop-shadow-lg">Which Service is Right for You?</h2>
+    <p class="text-orion-white/90 max-w-2xl mx-auto mb-8 text-lg drop-shadow-md">
+      Contact us for a free consultation, and let's find the perfect solution for you
+    </p>
+    <a href="/en/contact" class="btn btn-secondary">
+      Get Free Consultation
+      <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+      </svg>
+    </a>
+  </div>
+</section>

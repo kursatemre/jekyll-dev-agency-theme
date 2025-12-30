@@ -1,3 +1,7 @@
+{% assign current_lang = page.lang | default: 'tr' %}
+{% assign t = site.data.translations[current_lang] %}
+{% assign nav = site.data.navigation[current_lang] %}
+
 <footer class="bg-orion-navy border-t border-orion-cyan/20 text-orion-gray">
   <div class="container-custom py-16">
     <div class="grid md:grid-cols-4 gap-12 mb-12">
@@ -5,7 +9,7 @@
       <div>
         <h4 class="text-orion-cyan text-xl font-bold mb-4">OrionSoft.dev</h4>
         <p class="text-sm mb-4">
-          Modern web çözümleri ve yazılım geliştirme hizmetleri. Full-stack development, e-ticaret ve özel yazılım projeleri.
+          {{ t.footer.about_text }}
         </p>
         <div class="flex gap-4">
           <a href="https://facebook.com/orionsoft.dev" target="_blank" rel="noopener" class="w-10 h-10 bg-orion-cyan/10 border border-orion-cyan/30 rounded-full flex items-center justify-center hover:bg-orion-cyan hover:text-orion-navy transition-all text-orion-cyan" aria-label="Facebook">
@@ -28,31 +32,27 @@
 
       <!-- Quick Links -->
       <div>
-        <h4 class="text-orion-cyan text-lg font-semibold mb-4">Hızlı Linkler</h4>
+        <h4 class="text-orion-cyan text-lg font-semibold mb-4">{{ t.footer.quick_links }}</h4>
         <ul class="space-y-2">
-          <li><a href="/" class="hover:text-orion-cyan transition-colors">Ana Sayfa</a></li>
-          <li><a href="/hizmetler" class="hover:text-orion-cyan transition-colors">Hizmetler</a></li>
-          <li><a href="/portfolyo" class="hover:text-orion-cyan transition-colors">Portfolyo</a></li>
-          <li><a href="/blog" class="hover:text-orion-cyan transition-colors">Blog</a></li>
-          <li><a href="/iletisim" class="hover:text-orion-cyan transition-colors">İletişim</a></li>
+          {% for item in nav.main %}
+          <li><a href="{{ item.url }}" class="hover:text-orion-cyan transition-colors">{{ item.title }}</a></li>
+          {% endfor %}
         </ul>
       </div>
 
       <!-- Services -->
       <div>
-        <h4 class="text-orion-cyan text-lg font-semibold mb-4">Hizmetlerimiz</h4>
+        <h4 class="text-orion-cyan text-lg font-semibold mb-4">{{ t.footer.services_title }}</h4>
         <ul class="space-y-2">
-          <li><a href="/hizmetler/kurumsal-web" class="hover:text-orion-cyan transition-colors">Kurumsal Web Sitesi</a></li>
-          <li><a href="/hizmetler/e-ticaret" class="hover:text-orion-cyan transition-colors">E-Ticaret</a></li>
-          <li><a href="/hizmetler/ozel-yazilim" class="hover:text-orion-cyan transition-colors">Özel Yazılım</a></li>
-          <li><a href="/hizmetler/sosyal-medya" class="hover:text-orion-cyan transition-colors">Sosyal Medya</a></li>
-          <li><a href="/hizmetler/reklam-yonetimi" class="hover:text-orion-cyan transition-colors">Reklam Yönetimi</a></li>
+          {% for service in nav.services %}
+          <li><a href="{{ service.url }}" class="hover:text-orion-cyan transition-colors">{{ service.title }}</a></li>
+          {% endfor %}
         </ul>
       </div>
 
       <!-- Contact -->
       <div>
-        <h4 class="text-orion-cyan text-lg font-semibold mb-4">İletişim</h4>
+        <h4 class="text-orion-cyan text-lg font-semibold mb-4">{{ t.footer.contact_title }}</h4>
         <ul class="space-y-3">
           <li class="flex items-start gap-2">
             <svg class="w-5 h-5 mt-1 flex-shrink-0 text-orion-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -71,7 +71,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
             </svg>
-            <span>İstanbul, Türkiye</span>
+            <span>{{ t.footer.location }}</span>
           </li>
         </ul>
       </div>
@@ -79,7 +79,7 @@
 
     <!-- Bottom Bar -->
     <div class="pt-8 border-t border-orion-cyan/20 text-center text-sm">
-      <p>&copy; {{ 'now' | date: "%Y" }} <span class="text-orion-cyan font-semibold">OrionSoft.dev</span> - Tüm hakları saklıdır.</p>
+      <p>&copy; {{ 'now' | date: "%Y" }} <span class="text-orion-cyan font-semibold">OrionSoft.dev</span> - {{ t.footer.rights }}</p>
     </div>
   </div>
 </footer>

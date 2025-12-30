@@ -1,0 +1,53 @@
+tr:
+  main:
+    - title: "Ana Sayfa"
+      url: "/"
+    - title: "Hizmetler"
+      url: "/hizmetler"
+    - title: "Portfolyo"
+      url: "/portfolyo"
+    - title: "Blog"
+      url: "/blog"
+    - title: "Hakkımızda"
+      url: "/hakkimizda"
+    - title: "İletişim"
+      url: "/iletisim"
+
+  services:
+    - title: "Kurumsal Web Sitesi"
+      url: "/hizmetler/kurumsal-web"
+    - title: "E-Ticaret"
+      url: "/hizmetler/e-ticaret"
+    - title: "Özel Yazılım"
+      url: "/hizmetler/ozel-yazilim"
+    - title: "Sosyal Medya"
+      url: "/hizmetler/sosyal-medya"
+    - title: "Reklam Yönetimi"
+      url: "/hizmetler/reklam-yonetimi"
+
+en:
+  main:
+    - title: "Home"
+      url: "/en/"
+    - title: "Services"
+      url: "/en/services"
+    - title: "Portfolio"
+      url: "/en/portfolio"
+    - title: "Blog"
+      url: "/en/blog"
+    - title: "About"
+      url: "/en/about"
+    - title: "Contact"
+      url: "/en/contact"
+
+  services:
+    - title: "Corporate Website"
+      url: "/en/services/corporate-web"
+    - title: "E-Commerce"
+      url: "/en/services/ecommerce"
+    - title: "Custom Software"
+      url: "/en/services/custom-software"
+    - title: "Social Media"
+      url: "/en/services/social-media"
+    - title: "Advertising Management"
+      url: "/en/services/advertising-management"

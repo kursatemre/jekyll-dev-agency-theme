@@ -1,0 +1,946 @@
+---
+layout: default
+lang: en
+title: "Modern Web Solutions | OrionSoft.dev"
+description: "Full-stack development, e-commerce, and custom software projects to elevate your business to the top in the digital world. Modern web solutions with React, Next.js, and ASP.NET Core."
+keywords: "web design, software development, full-stack developer, e-commerce, react, nextjs, asp.net core, digital marketing"
+author: "OrionSoft.dev"
+image: /assets/images/og-image.jpg
+---
+
+<!-- Hero Section -->
+<section class="hero-section orion-constellation relative min-h-screen flex items-center justify-center overflow-hidden">
+
+  <!-- Orion Constellation Circle -->
+  <div class="orion-constellation-circle opacity-30"></div>
+
+  <div class="container-custom relative z-10 py-32 text-center">
+    <div class="animate-on-scroll">
+      <div class="inline-block px-4 py-2 bg-orion-cyan/10 border border-orion-cyan/30 text-orion-cyan rounded-full mb-6 font-medium backdrop-blur-sm">
+        OrionSoft.dev - Modern Web Solutions
+      </div>
+    </div>
+
+    <h1 class="max-w-4xl mx-auto mb-6 animate-on-scroll text-orion-white">
+      Transforming Your Digital Vision into Reality
+    </h1>
+
+    <p class="max-w-2xl mx-auto text-orion-gray text-lg mb-10 animate-on-scroll">
+      We elevate your business to the top in the digital world through full-stack development, e-commerce, and custom software projects.
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate-on-scroll">
+      <a href="/en/contact" class="btn btn-primary">
+        Get Quote
+        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
+      </a>
+      <a href="/en/portfolio" class="btn btn-secondary">
+        View Our Projects
+      </a>
+    </div>
+
+    <!-- Stats -->
+    <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto animate-on-scroll">
+      {% for stat in site.data.stats['en'] %}
+      <div class="text-center">
+        {% assign clean_value = stat.value | remove: '+' | remove: '%' %}
+        <div class="text-3xl md:text-4xl font-bold text-orion-cyan mb-2">
+          <span class="counter" data-target="{{ clean_value }}">0</span>{% if stat.value contains '+' %}+{% elsif stat.value contains '%' %}%{% endif %}
+        </div>
+        <div class="text-orion-gray text-sm">{{ stat.label }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce-slow">
+    <div class="w-6 h-10 border-2 border-orion-cyan/50 rounded-full flex justify-center">
+      <div class="w-1 h-3 bg-orion-cyan rounded-full mt-2"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section class="section relative">
+  <div class="container-custom relative z-10">
+    <div class="text-center mb-16 animate-on-scroll">
+      <h2 class="mb-4">Our Services</h2>
+      <p class="text-orion-gray max-w-2xl mx-auto text-lg">
+        We offer comprehensive solutions tailored to your business's digital needs.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12 mb-20">
+      <!-- Web Solutions -->
+      <div>
+        <div class="flex items-center gap-3 mb-6 animate-on-scroll">
+          <div class="w-12 h-12 bg-orion-cyan/10 rounded-lg flex items-center justify-center">
+            <svg class="w-6 h-6 text-orion-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+            </svg>
+          </div>
+          <h3>Web & Software Solutions</h3>
+        </div>
+
+        <div class="space-y-4 card-group">
+          {% assign web_services = site.services_en | where: "category", "web" %}
+          {% for service in web_services %}
+          <a href="{{ service.url }}" class="card group block">
+            <div class="p-6">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-gradient-to-br from-orion-cyan to-orion-purple rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <svg class="w-6 h-6 text-orion-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                </div>
+                <div class="flex-1">
+                  <h4 class="mb-2 text-orion-white group-hover:text-orion-cyan transition-colors">{{ service.title }}</h4>
+                  <p class="text-orion-gray text-sm">{{ service.description | truncate: 100 }}</p>
+                </div>
+                <svg class="w-5 h-5 text-orion-gray group-hover:text-orion-cyan group-hover:translate-x-1 transition-all flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </div>
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Marketing Solutions -->
+      <div>
+        <div class="flex items-center gap-3 mb-6 animate-on-scroll">
+          <div class="w-12 h-12 bg-orion-purple/10 rounded-lg flex items-center justify-center">
+            <svg class="w-6 h-6 text-orion-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+            </svg>
+          </div>
+          <h3>Digital Marketing & Management</h3>
+        </div>
+
+        <div class="space-y-4 card-group">
+          {% assign marketing_services = site.services_en | where: "category", "marketing" %}
+          {% for service in marketing_services %}
+          <a href="{{ service.url }}" class="card group block">
+            <div class="p-6">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-gradient-to-br from-orion-purple to-orion-cyan rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <svg class="w-6 h-6 text-orion-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                  </svg>
+                </div>
+                <div class="flex-1">
+                  <h4 class="mb-2 text-orion-white group-hover:text-orion-purple transition-colors">{{ service.title }}</h4>
+                  <p class="text-orion-gray text-sm">{{ service.description | truncate: 100 }}</p>
+                </div>
+                <svg class="w-5 h-5 text-orion-gray group-hover:text-orion-purple group-hover:translate-x-1 transition-all flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </div>
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center animate-on-scroll">
+      <a href="/en/services" class="btn btn-secondary">
+        View All Services
+        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us -->
+<section class="section relative orion-belt-stars">
+  <div class="container-custom relative z-10">
+    <div class="text-center mb-16 animate-on-scroll">
+      <h2 class="mb-4">Why Choose Us?</h2>
+      <p class="text-orion-gray max-w-2xl mx-auto text-lg">
+        If you're looking for a reliable partner for your digital projects, you're in the right place.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8 card-group">
+      {% for feature in site.data.features %}
+      <div class="card">
+        <div class="p-6">
+          <div class="w-12 h-12 bg-orion-cyan/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-orion-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h4 class="mb-3">{{ feature.title }}</h4>
+          <p class="text-orion-gray text-sm">{{ feature.description }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section class="section relative">
+  <div class="container-custom relative z-10">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- Left: Content -->
+      <div class="animate-on-scroll">
+        <div class="inline-block px-4 py-2 bg-orion-cyan/10 text-orion-cyan rounded-full mb-4 font-medium text-sm border border-orion-cyan/30">
+          About Us
+        </div>
+        <h2 class="mb-6">Your Trusted Solution Partner in the Digital World</h2>
+        <p class="text-orion-gray text-lg mb-6">
+          With over 150 successful projects, we lead businesses' digital transformation using modern technologies.
+        </p>
+        <p class="text-orion-gray mb-8">
+          We provide corporate websites, e-commerce platforms, custom software solutions, and digital marketing services using the latest technologies such as React, Next.js, Vue.js, and ASP.NET Core. We produce scalable and sustainable projects with modern software development principles like Clean Architecture, CQRS pattern, and microservices architecture.
+        </p>
+        <div class="flex flex-wrap gap-4 mb-8">
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <span class="text-orion-white">150+ Completed Projects</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <span class="text-orion-white">Modern Technology Stack</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <span class="text-orion-white">100% Customer Satisfaction</span>
+          </div>
+        </div>
+        <a href="/en/about" class="btn btn-primary inline-flex items-center gap-2">
+          Learn More
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Right: Tech Stack Grid -->
+      <div class="animate-on-scroll">
+        <div class="grid grid-cols-3 gap-4">
+          <div class="card p-6 text-center hover:shadow-xl transition-shadow">
+            <div class="text-3xl mb-2">⚛️</div>
+            <div class="text-sm font-medium text-orion-white">React</div>
+          </div>
+          <div class="card p-6 text-center hover:shadow-xl transition-shadow">
+            <div class="text-3xl mb-2">▲</div>
+            <div class="text-sm font-medium text-orion-white">Next.js</div>
+          </div>
+          <div class="card p-6 text-center hover:shadow-xl transition-shadow">
+            <div class="text-3xl mb-2">💚</div>
+            <div class="text-sm font-medium text-orion-white">Vue.js</div>
+          </div>
+          <div class="card p-6 text-center hover:shadow-xl transition-shadow">
+            <div class="text-3xl mb-2">📘</div>
+            <div class="text-sm font-medium text-orion-white">TypeScript</div>
+          </div>
+          <div class="card p-6 text-center hover:shadow-xl transition-shadow">
+            <div class="text-3xl mb-2">🎨</div>
+            <div class="text-sm font-medium text-orion-white">Tailwind</div>
+          </div>
+          <div class="card p-6 text-center hover:shadow-xl transition-shadow">
+            <div class="text-3xl mb-2">⚡</div>
+            <div class="text-sm font-medium text-orion-white">Vite</div>
+          </div>
+          <div class="card p-6 text-center hover:shadow-xl transition-shadow">
+            <div class="text-3xl mb-2">🟦</div>
+            <div class="text-sm font-medium text-orion-white">ASP.NET</div>
+          </div>
+          <div class="card p-6 text-center hover:shadow-xl transition-shadow">
+            <div class="text-3xl mb-2">🐘</div>
+            <div class="text-sm font-medium text-orion-white">PostgreSQL</div>
+          </div>
+          <div class="card p-6 text-center hover:shadow-xl transition-shadow">
+            <div class="text-3xl mb-2">🐳</div>
+            <div class="text-sm font-medium text-orion-white">Docker</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Clients Section -->
+<section class="section relative">
+  <div class="container-custom relative z-10">
+    <div class="text-center mb-12 animate-on-scroll">
+      <h3 class="mb-4">Trusted Brands Choose Us</h3>
+      <p class="text-orion-gray">We have 120+ happy clients from various industries.</p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center animate-on-scroll">
+      {% for client in site.data.clients %}
+      <div class="flex items-center justify-center p-6 bg-orion-navy/40 border border-orion-cyan/20 rounded-lg shadow-sm backdrop-blur-md">
+        <span class="text-orion-gray text-lg font-semibold">{{ client.name }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="section relative overflow-hidden">
+  <div class="container-custom relative z-10">
+    <div class="text-center mb-12 animate-on-scroll">
+      <h2 class="mb-4">What Our Clients Say?</h2>
+      <p class="text-orion-gray max-w-2xl mx-auto">
+        Experiences from our valued clients
+      </p>
+    </div>
+
+    <!-- Testimonials Slider -->
+    <div class="testimonials-slider relative">
+      <div class="testimonials-track flex gap-6">
+        <!-- Testimonial 1 - Okan Bey (BCS Meşrubat) -->
+        <div class="testimonial-card card p-8 min-w-[350px] md:min-w-[450px]">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 bg-gradient-to-br from-orion-cyan to-orion-purple rounded-full flex items-center justify-center text-white font-bold text-xl">
+              O
+            </div>
+            <div>
+              <h4 class="text-orion-white font-semibold">Okan</h4>
+              <p class="text-orion-gray text-sm">BCS Meşrubat - bcsmesrubat.com</p>
+            </div>
+          </div>
+          <div class="flex mb-3">
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+          </div>
+          <p class="text-orion-gray italic">"They designed our corporate website in a modern and user-friendly way. With their professional approach and quality work, they strengthened our brand's digital presence. Thank you!"</p>
+        </div>
+
+        <!-- Testimonial 2 - Mehmet Said (Ekip Proje) -->
+        <div class="testimonial-card card p-8 min-w-[350px] md:min-w-[450px]">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 bg-gradient-to-br from-orion-purple to-orion-cyan rounded-full flex items-center justify-center text-white font-bold text-xl">
+              M
+            </div>
+            <div>
+              <h4 class="text-orion-white font-semibold">Mehmet Said</h4>
+              <p class="text-orion-gray text-sm">Ekip Proje - ekipproje.com</p>
+            </div>
+          </div>
+          <div class="flex mb-3">
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+          </div>
+          <p class="text-orion-gray italic">"The website they developed for our architecture platform is both aesthetic and functional. We can showcase our projects perfectly. They did an amazing job!"</p>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card card p-8 min-w-[350px] md:min-w-[450px]">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 bg-gradient-to-br from-orion-cyan to-orion-purple rounded-full flex items-center justify-center text-white font-bold text-xl">
+              E
+            </div>
+            <div>
+              <h4 class="text-orion-white font-semibold">Elif Demir</h4>
+              <p class="text-orion-gray text-sm">Corporate Company Manager</p>
+            </div>
+          </div>
+          <div class="flex mb-3">
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+          </div>
+          <p class="text-orion-gray italic">"They renewed our corporate website. We achieved both a modern design and fast performance. Customer feedback is great!"</p>
+        </div>
+
+        <!-- Testimonial 4 -->
+        <div class="testimonial-card card p-8 min-w-[350px] md:min-w-[450px]">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 bg-gradient-to-br from-orion-purple to-orion-cyan rounded-full flex items-center justify-center text-white font-bold text-xl">
+              C
+            </div>
+            <div>
+              <h4 class="text-orion-white font-semibold">Can Öztürk</h4>
+              <p class="text-orion-gray text-sm">Startup Founder</p>
+            </div>
+          </div>
+          <div class="flex mb-3">
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+          </div>
+          <p class="text-orion-gray italic">"They quickly developed our MVP. Both code quality and delivery time were perfect. I definitely recommend!"</p>
+        </div>
+
+        <!-- Testimonial 5 -->
+        <div class="testimonial-card card p-8 min-w-[350px] md:min-w-[450px]">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 bg-gradient-to-br from-orion-cyan to-orion-purple rounded-full flex items-center justify-center text-white font-bold text-xl">
+              Z
+            </div>
+            <div>
+              <h4 class="text-orion-white font-semibold">Zeynep Arslan</h4>
+              <p class="text-orion-gray text-sm">Digital Marketing Specialist</p>
+            </div>
+          </div>
+          <div class="flex mb-3">
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+          </div>
+          <p class="text-orion-gray italic">"They took over our Google Ads management. Our ROI increased by 3 times! Analysis reports are detailed and clear. They make continuous improvements."</p>
+        </div>
+
+        <!-- DUPLICATE SET FOR SEAMLESS INFINITE SCROLL -->
+        <!-- Duplicate 1 - Okan Bey -->
+        <div class="testimonial-card card p-8 min-w-[350px] md:min-w-[450px]">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 bg-gradient-to-br from-orion-cyan to-orion-purple rounded-full flex items-center justify-center text-white font-bold text-xl">
+              O
+            </div>
+            <div>
+              <h4 class="text-orion-white font-semibold">Okan</h4>
+              <p class="text-orion-gray text-sm">BCS Meşrubat - bcsmesrubat.com</p>
+            </div>
+          </div>
+          <div class="flex mb-3">
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+          </div>
+          <p class="text-orion-gray italic">"They designed our corporate website in a modern and user-friendly way. With their professional approach and quality work, they strengthened our brand's digital presence. Thank you!"</p>
+        </div>
+
+        <!-- Duplicate 2 - Mehmet Said -->
+        <div class="testimonial-card card p-8 min-w-[350px] md:min-w-[450px]">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 bg-gradient-to-br from-orion-purple to-orion-cyan rounded-full flex items-center justify-center text-white font-bold text-xl">
+              M
+            </div>
+            <div>
+              <h4 class="text-orion-white font-semibold">Mehmet Said</h4>
+              <p class="text-orion-gray text-sm">Ekip Proje - ekipproje.com</p>
+            </div>
+          </div>
+          <div class="flex mb-3">
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+          </div>
+          <p class="text-orion-gray italic">"The website they developed for our architecture platform is both aesthetic and functional. We can showcase our projects perfectly. They did an amazing job!"</p>
+        </div>
+
+        <!-- Duplicate 3 - Elif -->
+        <div class="testimonial-card card p-8 min-w-[350px] md:min-w-[450px]">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 bg-gradient-to-br from-orion-cyan to-orion-purple rounded-full flex items-center justify-center text-white font-bold text-xl">
+              E
+            </div>
+            <div>
+              <h4 class="text-orion-white font-semibold">Elif Demir</h4>
+              <p class="text-orion-gray text-sm">Corporate Company Manager</p>
+            </div>
+          </div>
+          <div class="flex mb-3">
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+          </div>
+          <p class="text-orion-gray italic">"They renewed our corporate website. We achieved both a modern design and fast performance. Customer feedback is great!"</p>
+        </div>
+
+        <!-- Duplicate 4 - Can -->
+        <div class="testimonial-card card p-8 min-w-[350px] md:min-w-[450px]">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 bg-gradient-to-br from-orion-purple to-orion-cyan rounded-full flex items-center justify-center text-white font-bold text-xl">
+              C
+            </div>
+            <div>
+              <h4 class="text-orion-white font-semibold">Can Öztürk</h4>
+              <p class="text-orion-gray text-sm">Startup Founder</p>
+            </div>
+          </div>
+          <div class="flex mb-3">
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+          </div>
+          <p class="text-orion-gray italic">"They quickly developed our MVP. Both code quality and delivery time were perfect. I definitely recommend!"</p>
+        </div>
+
+        <!-- Duplicate 5 - Zeynep -->
+        <div class="testimonial-card card p-8 min-w-[350px] md:min-w-[450px]">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 bg-gradient-to-br from-orion-cyan to-orion-purple rounded-full flex items-center justify-center text-white font-bold text-xl">
+              Z
+            </div>
+            <div>
+              <h4 class="text-orion-white font-semibold">Zeynep Arslan</h4>
+              <p class="text-orion-gray text-sm">Digital Marketing Specialist</p>
+            </div>
+          </div>
+          <div class="flex mb-3">
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+          </div>
+          <p class="text-orion-gray italic">"They took over our Google Ads management. Our ROI increased by 3 times! Analysis reports are detailed and clear. They make continuous improvements."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials-slider {
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+
+  .testimonials-track {
+    animation: scroll 40s linear infinite;
+    will-change: transform;
+  }
+
+  .testimonials-track:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-474px * 5));
+    }
+  }
+
+  @media (max-width: 768px) {
+    @keyframes scroll {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(calc(-374px * 5));
+      }
+    }
+  }
+</style>
+
+<!-- Featured Portfolio Carousel -->
+<section class="section relative">
+  <div class="container-custom relative z-10">
+    <!-- Header -->
+    <div class="text-center mb-8 lg:mb-12 animate-on-scroll">
+      <h2 class="mb-3">Our Latest Projects</h2>
+      <p class="text-orion-gray text-base md:text-lg max-w-2xl mx-auto">Successful projects from various industries</p>
+    </div>
+
+    <!-- Carousel Container -->
+    <div class="portfolio-carousel-wrapper relative">
+      <div class="portfolio-carousel overflow-hidden" data-carousel="portfolio">
+        <div class="portfolio-track flex transition-transform duration-500 ease-out" style="transform: translateX(0)">
+          {% assign featured_projects = site.portfolio | sort: 'date' | reverse | limit: 6 %}
+          {% for project in featured_projects %}
+          <div class="carousel-slide flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-3">
+            <a href="{{ project.url }}" class="card group block h-full">
+              {% if project.featured_image %}
+              <div class="relative overflow-hidden bg-gradient-to-br from-orion-cyan/20 to-orion-purple/20 rounded-t-xl" style="padding-bottom: 60%;">
+                <img src="{{ project.featured_image }}" alt="{{ project.title }}" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              </div>
+              {% endif %}
+              <div class="p-4 md:p-6">
+                <span class="inline-block text-orion-cyan text-xs md:text-sm font-medium mb-2">{{ project.category }}</span>
+                <h3 class="text-base md:text-lg font-bold mb-2 text-orion-white group-hover:text-orion-cyan transition-colors line-clamp-2">{{ project.title }}</h3>
+                <p class="text-orion-gray text-sm line-clamp-2">{{ project.excerpt }}</p>
+              </div>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Navigation Arrows - Desktop -->
+      <button class="portfolio-prev hidden lg:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 z-20 w-10 h-10 xl:w-12 xl:h-12 bg-orion-navy/90 backdrop-blur-sm border border-orion-cyan/40 rounded-full items-center justify-center text-orion-cyan hover:bg-orion-cyan hover:text-orion-navy hover:scale-110 transition-all shadow-lg disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-orion-navy/90 disabled:hover:text-orion-cyan disabled:hover:scale-100" aria-label="Previous">
+        <svg class="w-5 h-5 xl:w-6 xl:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path>
+        </svg>
+      </button>
+      <button class="portfolio-next hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 z-20 w-10 h-10 xl:w-12 xl:h-12 bg-orion-navy/90 backdrop-blur-sm border border-orion-cyan/40 rounded-full items-center justify-center text-orion-cyan hover:bg-orion-cyan hover:text-orion-navy hover:scale-110 transition-all shadow-lg disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-orion-navy/90 disabled:hover:text-orion-cyan disabled:hover:scale-100" aria-label="Next">
+        <svg class="w-5 h-5 xl:w-6 xl:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+        </svg>
+      </button>
+
+      <!-- Dots Indicator -->
+      <div class="portfolio-dots flex justify-center gap-2 mt-6" role="tablist"></div>
+    </div>
+
+    <!-- CTA Button -->
+    <div class="text-center mt-8 lg:mt-12">
+      <a href="/en/portfolio" class="btn btn-secondary inline-flex items-center gap-2">
+        View All Projects
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Blog Carousel -->
+<section class="section bg-orion-navy/30 relative">
+  <div class="container-custom relative z-10">
+    <!-- Header -->
+    <div class="text-center mb-8 lg:mb-12 animate-on-scroll">
+      <h2 class="mb-3">Blog & Updates</h2>
+      <p class="text-orion-gray text-base md:text-lg max-w-2xl mx-auto">Our latest articles and news</p>
+    </div>
+
+    <!-- Carousel Container -->
+    <div class="blog-carousel-wrapper relative">
+      <div class="blog-carousel overflow-hidden" data-carousel="blog">
+        <div class="blog-track flex transition-transform duration-500 ease-out" style="transform: translateX(0)">
+          {% assign featured_posts = site.posts | sort: 'date' | reverse | limit: 6 %}
+          {% for post in featured_posts %}
+          <div class="carousel-slide flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-3">
+            <a href="{{ post.url }}" class="card group block h-full">
+              {% if post.featured_image %}
+              <div class="relative overflow-hidden bg-gradient-to-br from-orion-purple/20 to-orion-cyan/20 rounded-t-xl" style="padding-bottom: 60%;">
+                <img src="{{ post.featured_image }}" alt="{{ post.title }}" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              </div>
+              {% endif %}
+              <div class="p-4 md:p-6">
+                <div class="flex items-center gap-2 mb-2 text-xs md:text-sm text-orion-gray">
+                  <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%m/%d/%Y' }}</time>
+                  {% if post.categories[0] %}<span>•</span><span class="text-orion-cyan">{{ post.categories[0] }}</span>{% endif %}
+                </div>
+                <h3 class="text-base md:text-lg font-bold mb-2 text-orion-white group-hover:text-orion-cyan transition-colors line-clamp-2">{{ post.title }}</h3>
+                <p class="text-orion-gray text-sm line-clamp-2">{{ post.excerpt | strip_html | truncate: 100 }}</p>
+              </div>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Navigation Arrows - Desktop -->
+      <button class="blog-prev hidden lg:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 z-20 w-10 h-10 xl:w-12 xl:h-12 bg-orion-navy/90 backdrop-blur-sm border border-orion-purple/40 rounded-full items-center justify-center text-orion-purple hover:bg-orion-purple hover:text-orion-navy hover:scale-110 transition-all shadow-lg disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-orion-navy/90 disabled:hover:text-orion-purple disabled:hover:scale-100" aria-label="Previous">
+        <svg class="w-5 h-5 xl:w-6 xl:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path>
+        </svg>
+      </button>
+      <button class="blog-next hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 z-20 w-10 h-10 xl:w-12 xl:h-12 bg-orion-navy/90 backdrop-blur-sm border border-orion-purple/40 rounded-full items-center justify-center text-orion-purple hover:bg-orion-purple hover:text-orion-navy hover:scale-110 transition-all shadow-lg disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-orion-navy/90 disabled:hover:text-orion-purple disabled:hover:scale-100" aria-label="Next">
+        <svg class="w-5 h-5 xl:w-6 xl:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+        </svg>
+      </button>
+
+      <!-- Dots Indicator -->
+      <div class="blog-dots flex justify-center gap-2 mt-6" role="tablist"></div>
+    </div>
+
+    <!-- CTA Button -->
+    <div class="text-center mt-8 lg:mt-12">
+      <a href="/en/blog" class="btn btn-primary inline-flex items-center gap-2">
+        Read All Articles
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+(function() {
+  'use strict';
+
+  function initCarousel(type) {
+    const wrapper = document.querySelector(`.${type}-carousel-wrapper`);
+    if (!wrapper) return;
+
+    const track = wrapper.querySelector(`.${type}-track`);
+    const prevBtn = wrapper.querySelector(`.${type}-prev`);
+    const nextBtn = wrapper.querySelector(`.${type}-next`);
+    const dotsContainer = wrapper.querySelector(`.${type}-dots`);
+    const slides = Array.from(track.querySelectorAll('.carousel-slide'));
+
+    if (!track || slides.length === 0) return;
+
+    let currentIndex = 0;
+    let startX = 0;
+    let isDragging = false;
+    let startTransform = 0;
+    let autoplayInterval = null;
+
+    // Get slides per view based on screen size
+    function getSlidesPerView() {
+      if (window.innerWidth >= 1024) return 3; // lg
+      if (window.innerWidth >= 640) return 2;  // sm
+      return 1; // mobile
+    }
+
+    // Calculate total pages
+    function getTotalPages() {
+      const slidesPerView = getSlidesPerView();
+      return Math.max(1, Math.ceil(slides.length / slidesPerView));
+    }
+
+    // Update transform
+    function updateTransform(smooth = true) {
+      const slidesPerView = getSlidesPerView();
+      const slideWidth = 100 / slidesPerView;
+      const offset = -(currentIndex * slideWidth);
+
+      track.style.transition = smooth ? 'transform 500ms cubic-bezier(0.4, 0, 0.2, 1)' : 'none';
+      track.style.transform = `translateX(${offset}%)`;
+
+      updateButtons();
+      updateDots();
+    }
+
+    // Update button states
+    function updateButtons() {
+      if (!prevBtn || !nextBtn) return;
+
+      const totalPages = getTotalPages();
+      prevBtn.disabled = currentIndex === 0;
+      nextBtn.disabled = currentIndex >= totalPages - 1;
+    }
+
+    // Create and update dots
+    function createDots() {
+      if (!dotsContainer) return;
+
+      dotsContainer.innerHTML = '';
+      const totalPages = getTotalPages();
+
+      for (let i = 0; i < totalPages; i++) {
+        const dot = document.createElement('button');
+        dot.className = 'w-2 h-2 rounded-full transition-all duration-300';
+        dot.setAttribute('aria-label', `Slide ${i + 1}`);
+        dot.setAttribute('role', 'tab');
+        dot.addEventListener('click', () => goToSlide(i));
+        dotsContainer.appendChild(dot);
+      }
+
+      updateDots();
+    }
+
+    function updateDots() {
+      if (!dotsContainer) return;
+
+      const dots = dotsContainer.querySelectorAll('button');
+      const accentColor = type === 'portfolio' ? 'bg-orion-cyan' : 'bg-orion-purple';
+
+      dots.forEach((dot, index) => {
+        if (index === currentIndex) {
+          dot.className = `w-8 h-2 rounded-full transition-all duration-300 ${accentColor}`;
+          dot.setAttribute('aria-selected', 'true');
+        } else {
+          dot.className = 'w-2 h-2 rounded-full transition-all duration-300 bg-orion-gray/30';
+          dot.setAttribute('aria-selected', 'false');
+        }
+      });
+    }
+
+    // Navigation functions
+    function goToSlide(index, smooth = true) {
+      const totalPages = getTotalPages();
+      currentIndex = Math.max(0, Math.min(index, totalPages - 1));
+      updateTransform(smooth);
+      resetAutoplay();
+    }
+
+    function nextSlide() {
+      const totalPages = getTotalPages();
+      if (currentIndex < totalPages - 1) {
+        goToSlide(currentIndex + 1);
+      }
+    }
+
+    function prevSlide() {
+      if (currentIndex > 0) {
+        goToSlide(currentIndex - 1);
+      }
+    }
+
+    // Autoplay
+    function startAutoplay() {
+      stopAutoplay();
+      autoplayInterval = setInterval(() => {
+        const totalPages = getTotalPages();
+        if (currentIndex >= totalPages - 1) {
+          goToSlide(0);
+        } else {
+          nextSlide();
+        }
+      }, 5000);
+    }
+
+    function stopAutoplay() {
+      if (autoplayInterval) {
+        clearInterval(autoplayInterval);
+        autoplayInterval = null;
+      }
+    }
+
+    function resetAutoplay() {
+      stopAutoplay();
+      startAutoplay();
+    }
+
+    // Touch/Swipe support
+    function handleTouchStart(e) {
+      isDragging = true;
+      startX = e.type === 'mousedown' ? e.pageX : e.touches[0].pageX;
+
+      const transform = window.getComputedStyle(track).transform;
+      if (transform !== 'none') {
+        const matrix = new DOMMatrix(transform);
+        startTransform = matrix.m41;
+      } else {
+        startTransform = 0;
+      }
+
+      track.style.transition = 'none';
+      stopAutoplay();
+    }
+
+    function handleTouchMove(e) {
+      if (!isDragging) return;
+
+      const currentX = e.type === 'mousemove' ? e.pageX : e.touches[0].pageX;
+      const diff = currentX - startX;
+      const percentage = (diff / track.offsetWidth) * 100;
+
+      track.style.transform = `translateX(calc(${startTransform}px + ${percentage}%))`;
+    }
+
+    function handleTouchEnd(e) {
+      if (!isDragging) return;
+      isDragging = false;
+
+      const endX = e.type === 'mouseup' ? e.pageX : (e.changedTouches ? e.changedTouches[0].pageX : startX);
+      const diff = endX - startX;
+      const threshold = 50;
+
+      if (Math.abs(diff) > threshold) {
+        if (diff > 0) {
+          prevSlide();
+        } else {
+          nextSlide();
+        }
+      } else {
+        updateTransform(true);
+      }
+
+      resetAutoplay();
+    }
+
+    // Event listeners
+    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+
+    // Touch events
+    track.addEventListener('touchstart', handleTouchStart, { passive: true });
+    track.addEventListener('touchmove', handleTouchMove, { passive: true });
+    track.addEventListener('touchend', handleTouchEnd, { passive: true });
+
+    // Mouse events
+    track.addEventListener('mousedown', handleTouchStart);
+    track.addEventListener('mousemove', handleTouchMove);
+    track.addEventListener('mouseup', handleTouchEnd);
+    track.addEventListener('mouseleave', () => {
+      if (isDragging) handleTouchEnd({ pageX: startX });
+    });
+
+    // Pause autoplay on hover (desktop only)
+    if (window.matchMedia('(hover: hover)').matches) {
+      wrapper.addEventListener('mouseenter', stopAutoplay);
+      wrapper.addEventListener('mouseleave', startAutoplay);
+    }
+
+    // Window resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        const totalPages = getTotalPages();
+        if (currentIndex >= totalPages) {
+          currentIndex = totalPages - 1;
+        }
+        createDots();
+        updateTransform(false);
+      }, 150);
+    });
+
+    // Initialize
+    createDots();
+    updateTransform(false);
+    startAutoplay();
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      initCarousel('portfolio');
+      initCarousel('blog');
+    });
+  } else {
+    initCarousel('portfolio');
+    initCarousel('blog');
+  }
+})();
+</script>
+
+<!-- CTA Section -->
+<section class="section bg-gradient-to-r from-orion-cyan to-orion-purple text-orion-navy relative overflow-hidden">
+  <!-- Dark overlay for better text contrast -->
+  <div class="absolute inset-0 bg-orion-navy/60 backdrop-blur-sm"></div>
+
+  <div class="container-custom text-center animate-on-scroll relative z-10">
+    <h2 class="text-orion-white mb-6 drop-shadow-lg">Let's Get Started on Your Project</h2>
+    <p class="max-w-2xl mx-auto mb-8 text-orion-white/90 text-lg drop-shadow-md">
+      We're with you on your digital transformation journey. Contact us for a free consultation.
+    </p>
+    <a href="/en/contact" class="btn btn-secondary">
+      Get Free Quote
+      <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+      </svg>
+    </a>
+  </div>
+</section>

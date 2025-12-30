@@ -3,6 +3,7 @@ description: "Modern web çözümleri ve yazılım geliştirme hizmetleri - Full
 url: "https://orionsoft.dev"
 baseurl: ""
 lang: tr
+languages: ["tr", "en"]
 
 # SEO Settings
 author:
@@ -47,6 +48,15 @@ collections:
   posts:
     output: true
     permalink: /blog/:slug/
+  services_en:
+    output: true
+    permalink: /en/services/:slug/
+  portfolio_en:
+    output: true
+    permalink: /en/portfolio/:slug/
+  posts_en:
+    output: true
+    permalink: /en/blog/:slug/
 
 # Defaults
 defaults:
@@ -55,16 +65,41 @@ defaults:
       type: "services"
     values:
       layout: "service"
+      lang: tr
   - scope:
       path: ""
       type: "portfolio"
     values:
       layout: "case-study"
+      lang: tr
   - scope:
       path: ""
       type: "posts"
     values:
       layout: "post"
+      lang: tr
+  - scope:
+      path: ""
+      type: "services_en"
+    values:
+      layout: "service"
+      lang: en
+  - scope:
+      path: ""
+      type: "portfolio_en"
+    values:
+      layout: "case-study"
+      lang: en
+  - scope:
+      path: ""
+      type: "posts_en"
+    values:
+      layout: "post"
+      lang: en
+  - scope:
+      path: "en"
+    values:
+      lang: en
 
 # Plugins
 plugins:

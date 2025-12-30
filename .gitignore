@@ -10,3 +10,4 @@ vendor/
 Gemfile.lock
 package-lock.json
 .vercel
+nul

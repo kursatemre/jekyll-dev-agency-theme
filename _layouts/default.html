@@ -1,5 +1,8 @@
+{% assign current_lang = page.lang | default: 'tr' %}
+{% assign current_path = page.url %}
+
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="{{ current_lang }}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +10,33 @@
 
   {% seo %}
   {% include schema.html %}
+
+  <!-- Hreflang tags for multilingual SEO -->
+  {% if current_lang == 'tr' %}
+    <link rel="alternate" hreflang="tr" href="{{ site.url }}{{ current_path }}" />
+    {% if current_path == '/' or current_path == '/index.html' %}
+      <link rel="alternate" hreflang="en" href="{{ site.url }}/en/" />
+      <link rel="alternate" hreflang="x-default" href="{{ site.url }}/" />
+    {% elsif current_path contains '/hizmetler' %}
+      <link rel="alternate" hreflang="en" href="{{ site.url }}{{ current_path | replace: '/hizmetler', '/en/services' }}" />
+    {% elsif current_path contains '/portfolyo' %}
+      <link rel="alternate" hreflang="en" href="{{ site.url }}{{ current_path | replace: '/portfolyo', '/en/portfolio' }}" />
+    {% elsif current_path contains '/blog' %}
+      <link rel="alternate" hreflang="en" href="{{ site.url }}{{ current_path | replace: '/blog', '/en/blog' }}" />
+    {% endif %}
+  {% else %}
+    <link rel="alternate" hreflang="en" href="{{ site.url }}{{ current_path }}" />
+    {% if current_path == '/en/' or current_path == '/en/index.html' %}
+      <link rel="alternate" hreflang="tr" href="{{ site.url }}/" />
+      <link rel="alternate" hreflang="x-default" href="{{ site.url }}/" />
+    {% elsif current_path contains '/en/services' %}
+      <link rel="alternate" hreflang="tr" href="{{ site.url }}{{ current_path | replace: '/en/services', '/hizmetler' }}" />
+    {% elsif current_path contains '/en/portfolio' %}
+      <link rel="alternate" hreflang="tr" href="{{ site.url }}{{ current_path | replace: '/en/portfolio', '/portfolyo' }}" />
+    {% elsif current_path contains '/en/blog' %}
+      <link rel="alternate" hreflang="tr" href="{{ site.url }}{{ current_path | replace: '/en/blog', '/blog' }}" />
+    {% endif %}
+  {% endif %}
 
   <!-- Performance: Preconnect to external domains -->
   <link rel="preconnect" href="https://fonts.googleapis.com">

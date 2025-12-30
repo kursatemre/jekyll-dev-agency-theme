@@ -1,0 +1,151 @@
+---
+layout: default
+title: "Blog | OrionSoft.dev"
+description: "Useful information, tips and trends about the digital world. Articles about web development, software architecture and technology."
+keywords: "software blog, web development tips, technology news, programming articles"
+lang: en
+---
+
+<div class="py-16 relative">
+  <div class="container-custom text-center">
+    <div class="animate-on-scroll">
+      <div class="inline-block px-4 py-2 bg-orion-cyan/10 border border-orion-cyan/30 text-orion-cyan rounded-full mb-6 font-medium backdrop-blur-sm">
+        Knowledge Center
+      </div>
+    </div>
+    <h1 class="mb-6 animate-on-scroll text-orion-white">{{ page.title }}</h1>
+    <p class="text-orion-gray text-lg max-w-3xl mx-auto animate-on-scroll">
+      {{ page.description }}
+    </p>
+  </div>
+</div>
+
+<section class="section relative" x-data="{ activeCategory: 'All', searchQuery: '' }">
+  <div class="container-custom">
+    <!-- Search Bar -->
+    {% if site.posts_en.size > 0 %}
+    <div class="mb-8 max-w-2xl mx-auto animate-on-scroll">
+      <div class="relative">
+        <input
+          type="text"
+          x-model="searchQuery"
+          placeholder="Search blog posts..."
+          class="w-full px-6 py-4 pl-14 rounded-full bg-orion-navy/60 border-2 border-orion-cyan/30 focus:border-orion-cyan focus:outline-none transition-colors text-orion-white placeholder-orion-gray"
+        >
+        <svg class="w-6 h-6 text-orion-gray absolute left-5 top-1/2 transform -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Category Filter -->
+    <div class="mb-12 animate-on-scroll">
+      <div class="flex flex-wrap justify-center gap-3">
+        <button
+          @click="activeCategory = 'All'"
+          :class="activeCategory === 'All' ? 'bg-orion-cyan text-orion-navy' : 'bg-orion-navy/60 border border-orion-cyan/30 text-orion-gray hover:border-orion-cyan/50'"
+          class="px-6 py-2 rounded-full font-medium transition-all duration-300"
+        >
+          All Posts ({{ site.posts_en.size }})
+        </button>
+        {% assign categories = site.posts_en | map: "categories" | join: "," | split: "," | uniq | sort %}
+        {% for category in categories %}
+        {% if category != "" %}
+        {% assign category_count = site.posts_en | where_exp: "post", "post.categories contains category" | size %}
+        <button
+          @click="activeCategory = '{{ category }}'"
+          :class="activeCategory === '{{ category }}' ? 'bg-orion-cyan text-orion-navy' : 'bg-orion-navy/60 border border-orion-cyan/30 text-orion-gray hover:border-orion-cyan/50'"
+          class="px-6 py-2 rounded-full font-medium transition-all duration-300"
+        >
+          {{ category }} ({{ category_count }})
+        </button>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Blog Posts Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 card-group">
+      {% for post in site.posts_en %}
+      <a
+        href="{{ post.url }}"
+        class="card group"
+        x-show="(activeCategory === 'All' || '{{ post.categories | join: "," }}'.includes(activeCategory)) &&
+                (searchQuery === '' ||
+                 '{{ post.title | downcase }}'.includes(searchQuery.toLowerCase()) ||
+                 '{{ post.excerpt | strip_html | downcase }}'.includes(searchQuery.toLowerCase()))"
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0 transform scale-95"
+        x-transition:enter-end="opacity-100 transform scale-100"
+      >
+        {% if post.featured_image %}
+        <div class="aspect-video overflow-hidden bg-gradient-to-br from-orion-cyan/20 to-orion-purple/20">
+          <img
+            src="{{ post.featured_image | relative_url }}"
+            alt="{{ post.title }}"
+            loading="lazy"
+            decoding="async"
+            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+          >
+        </div>
+        {% endif %}
+        <div class="p-6">
+          <div class="flex items-center gap-2 mb-3 text-sm text-orion-gray">
+            {% if post.categories.first %}
+            <span class="px-3 py-1 bg-orion-cyan/20 border border-orion-cyan/30 text-orion-cyan rounded-full font-medium">
+              {{ post.categories.first }}
+            </span>
+            <span>•</span>
+            {% endif %}
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d %b %Y" }}</time>
+          </div>
+          <h3 class="mb-3 text-orion-white group-hover:text-orion-cyan transition-colors">{{ post.title }}</h3>
+          <p class="text-orion-gray text-sm mb-4">{{ post.excerpt | strip_html | truncate: 120 }}</p>
+          <div class="flex items-center text-orion-cyan font-medium group-hover:gap-2 transition-all">
+            Read More
+            <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </div>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+
+    <!-- No Results Message -->
+    <div
+      x-show="[...document.querySelectorAll('[x-show]')].filter(el => el.style.display !== 'none').length === 0"
+      class="text-center py-16"
+    >
+      <div class="w-24 h-24 bg-orion-navy/60 border border-orion-cyan/30 rounded-full flex items-center justify-center mx-auto mb-6">
+        <svg class="w-12 h-12 text-orion-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
+      </div>
+      <h3 class="mb-4 text-orion-white">No Results Found</h3>
+      <p class="text-orion-gray max-w-lg mx-auto mb-6">
+        No blog posts found matching your criteria. Please try a different search or category.
+      </p>
+      <button
+        @click="activeCategory = 'All'; searchQuery = ''"
+        class="btn btn-primary"
+      >
+        Clear Filters
+      </button>
+    </div>
+    {% else %}
+    <!-- Placeholder when no posts -->
+    <div class="text-center py-16">
+      <div class="w-24 h-24 bg-orion-navy/60 border border-orion-cyan/30 rounded-full flex items-center justify-center mx-auto mb-6">
+        <svg class="w-12 h-12 text-orion-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+        </svg>
+      </div>
+      <h3 class="mb-4 text-orion-white">Blog Posts Coming Soon</h3>
+      <p class="text-orion-gray max-w-lg mx-auto">
+        Helpful content about the digital world will be here soon.
+      </p>
+    </div>
+    {% endif %}
+  </div>
+</section>
