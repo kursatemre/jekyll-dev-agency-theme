@@ -1,6 +1,6 @@
 ---
 title: "Custom Software Development"
-slug: custom-software
+slug: ozel-yazilim
 lang: en
 category: web
 category_label: "Web & Software Solutions"

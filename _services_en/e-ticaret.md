@@ -1,6 +1,6 @@
 ---
 title: "E-Commerce Solutions"
-slug: ecommerce
+slug: e-ticaret
 lang: en
 category: web
 category_label: "Web & Software Solutions"

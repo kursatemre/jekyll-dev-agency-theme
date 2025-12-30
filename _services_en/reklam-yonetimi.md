@@ -1,6 +1,6 @@
 ---
 title: "Google & Meta Advertising Management"
-slug: advertising-management
+slug: reklam-yonetimi
 lang: en
 category: marketing
 category_label: "Digital Marketing & Management"

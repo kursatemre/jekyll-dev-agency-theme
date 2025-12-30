@@ -1,6 +1,6 @@
 ---
 title: "Corporate Website"
-slug: corporate-web
+slug: kurumsal-web
 lang: en
 category: web
 category_label: "Web & Software Solutions"

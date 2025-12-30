@@ -1,6 +1,6 @@
 ---
 title: "Social Media Management"
-slug: social-media
+slug: sosyal-medya
 lang: en
 category: marketing
 category_label: "Digital Marketing & Management"
