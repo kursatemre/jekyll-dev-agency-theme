@@ -20,6 +20,8 @@ facebook:
   publisher:
 
 logo: /assets/images/logo.png
+image: /assets/images/og-image.png
+
 social:
   name: OrionSoft.dev
   links:
