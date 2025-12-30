@@ -42,7 +42,7 @@ image: /assets/images/og-image.jpg
 
     <!-- Stats -->
     <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto animate-on-scroll">
-      {% for stat in site.data.stats %}
+      {% for stat in site.data.stats['tr'] %}
       <div class="text-center">
         {% assign clean_value = stat.value | remove: '+' | remove: '%' %}
         <div class="text-3xl md:text-4xl font-bold text-orion-cyan mb-2">
@@ -168,7 +168,7 @@ image: /assets/images/og-image.jpg
     </div>
 
     <div class="grid md:grid-cols-3 gap-8 card-group">
-      {% for feature in site.data.features %}
+      {% for feature in site.data.features['tr'] %}
       <div class="card">
         <div class="p-6">
           <div class="w-12 h-12 bg-orion-cyan/10 rounded-lg flex items-center justify-center mb-4">
