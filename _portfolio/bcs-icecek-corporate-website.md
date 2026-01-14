@@ -2,7 +2,7 @@
 layout: case-study
 title: "BCS İçecek - Toptan Su ve Meşrubat Dağıtım"
 client: "BCS İçecek"
-category: "Kurumsal Web Sitesi"
+category: "Kurumsal Web"
 tags: [Next.js, React, TypeScript, Tailwind CSS, SEO]
 date: 2024-12-16
 featured_image: "https://i.hizliresim.com/8xntcwc.png"

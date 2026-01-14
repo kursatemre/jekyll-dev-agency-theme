@@ -20,12 +20,51 @@ lang: en
   </div>
 </div>
 
-<section class="section relative">
+<section class="section relative" x-data="{ activeFilter: 'all' }">
   <div class="container-custom">
-    <div class="text-center mb-16 animate-on-scroll">
+    <div class="text-center mb-8 animate-on-scroll">
       <p class="text-orion-gray text-lg">
         Explore our 150+ successful projects accomplished together with our clients
       </p>
+    </div>
+
+    <!-- Category Filter -->
+    <div class="flex flex-wrap justify-center gap-3 mb-12 animate-on-scroll">
+      <button
+        @click="activeFilter = 'all'"
+        :class="activeFilter === 'all' ? 'bg-orion-cyan text-orion-navy' : 'bg-orion-navy/50 text-orion-gray hover:text-orion-cyan border border-orion-cyan/30'"
+        class="px-5 py-2 rounded-full font-medium transition-all duration-300"
+      >
+        All
+      </button>
+      <button
+        @click="activeFilter = 'E-Commerce'"
+        :class="activeFilter === 'E-Commerce' ? 'bg-orion-cyan text-orion-navy' : 'bg-orion-navy/50 text-orion-gray hover:text-orion-cyan border border-orion-cyan/30'"
+        class="px-5 py-2 rounded-full font-medium transition-all duration-300"
+      >
+        E-Commerce
+      </button>
+      <button
+        @click="activeFilter = 'Corporate Web'"
+        :class="activeFilter === 'Corporate Web' ? 'bg-orion-cyan text-orion-navy' : 'bg-orion-navy/50 text-orion-gray hover:text-orion-cyan border border-orion-cyan/30'"
+        class="px-5 py-2 rounded-full font-medium transition-all duration-300"
+      >
+        Corporate Web
+      </button>
+      <button
+        @click="activeFilter = 'Web Application'"
+        :class="activeFilter === 'Web Application' ? 'bg-orion-cyan text-orion-navy' : 'bg-orion-navy/50 text-orion-gray hover:text-orion-cyan border border-orion-cyan/30'"
+        class="px-5 py-2 rounded-full font-medium transition-all duration-300"
+      >
+        Web Application
+      </button>
+      <button
+        @click="activeFilter = 'SaaS Platform'"
+        :class="activeFilter === 'SaaS Platform' ? 'bg-orion-cyan text-orion-navy' : 'bg-orion-navy/50 text-orion-gray hover:text-orion-cyan border border-orion-cyan/30'"
+        class="px-5 py-2 rounded-full font-medium transition-all duration-300"
+      >
+        SaaS Platform
+      </button>
     </div>
 
     <!-- Portfolio Grid -->
@@ -33,7 +72,13 @@ lang: en
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 card-group">
       {% assign sorted_portfolio = site.portfolio_en | sort: 'date' | reverse %}
       {% for project in sorted_portfolio %}
-      <a href="{{ project.url }}" class="card group">
+      <a href="{{ project.url }}"
+         class="card group"
+         x-show="activeFilter === 'all' || activeFilter === '{{ project.category }}'"
+         x-transition:enter="transition ease-out duration-300"
+         x-transition:enter-start="opacity-0 transform scale-95"
+         x-transition:enter-end="opacity-100 transform scale-100"
+      >
         {% if project.featured_image %}
         <div class="aspect-video overflow-hidden bg-gradient-to-br from-orion-cyan/20 to-orion-purple/20">
           <img

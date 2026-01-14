@@ -2,7 +2,7 @@
 layout: case-study
 title: "Ekip Proje - Mimarlık & Mühendislik Platformu"
 client: "Ekip Proje"
-category: "Kurumsal Web Platformu"
+category: "Kurumsal Web"
 tags: [Next.js, React, TypeScript, Supabase, Mimarlık]
 date: 2024-12-17
 featured_image: "https://i.hizliresim.com/qb7nnmx.png"

@@ -2,7 +2,7 @@
 layout: case-study
 title: "Hexo Theme Aurora - Blog Teması"
 client: "Open Source"
-category: "Web Tasarım"
+category: "Web Uygulaması"
 tags: [Vue, TypeScript, Hexo, Blog, Theme]
 date: 2024-11-19
 featured_image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&h=630&fit=crop"

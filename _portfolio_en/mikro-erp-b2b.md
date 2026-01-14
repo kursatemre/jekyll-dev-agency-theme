@@ -2,7 +2,7 @@
 layout: case-study
 title: "Mikro ERP B2B - Sales Representative Account Integrated System"
 client: "B2B Enterprise"
-category: "ERP Integration"
+category: "SaaS Platform"
 tags: [ERP, B2B, Mikro ERP, Sales Rep, Current Account]
 date: 2024-10-25
 featured_image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&h=630&fit=crop"

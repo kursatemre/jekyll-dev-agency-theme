@@ -2,7 +2,7 @@
 layout: case-study
 title: "BCS İçecek - Wholesale Water and Beverage Distribution"
 client: "BCS İçecek"
-category: "Corporate Website"
+category: "Corporate Web"
 tags: [Next.js, React, TypeScript, Tailwind CSS, SEO]
 date: 2024-12-16
 featured_image: "https://i.hizliresim.com/8xntcwc.png"

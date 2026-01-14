@@ -2,7 +2,7 @@
 layout: case-study
 title: "Enterprise E-commerce Platform - Supabase"
 client: "E-Commerce SaaS"
-category: "E-ticaret"
+category: "E-Ticaret"
 tags: [Next.js, React, TypeScript, Supabase, E-Ticaret]
 date: 2024-12-16
 featured_image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=1200&h=630&fit=crop"

@@ -2,7 +2,7 @@
 layout: case-study
 title: "MotoParça - Motorcycle Parts E-Commerce Platform"
 client: "E-Commerce / Automotive"
-category: "Full-Stack E-Commerce"
+category: "E-Commerce"
 tags: [Next.js, React, TypeScript, E-Commerce, B2B]
 date: 2024-12-01
 featured_image: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=1200&h=630&fit=crop"

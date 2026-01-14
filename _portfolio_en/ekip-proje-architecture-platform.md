@@ -2,7 +2,7 @@
 layout: case-study
 title: "Ekip Proje - Architecture & Engineering Platform"
 client: "Ekip Proje"
-category: "Corporate Web Platform"
+category: "Corporate Web"
 tags: [Next.js, React, TypeScript, Supabase, Architecture]
 date: 2024-12-17
 featured_image: "https://i.hizliresim.com/qb7nnmx.png"
