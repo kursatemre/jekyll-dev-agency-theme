@@ -6,7 +6,7 @@ category: "Corporate Web Platform"
 tags: [Next.js, React, TypeScript, Supabase, Architecture]
 date: 2024-12-17
 featured_image: "https://i.hizliresim.com/qb7nnmx.png"
-project_url: "https://ekipproje.vercel.app/"
+project_url: "https://ekipproje.com/"
 excerpt: "Enterprise-grade web platform developed for Turkish architecture and engineering firm. Modern solution reflecting luxury brand identity with Next.js 15, Supabase, and advanced admin panel."
 lang: en
 ---
@@ -60,7 +60,7 @@ Digital presence in architecture and engineering sector:
 
 **Deployment:**
 - **Vercel**: Edge network deployment
-- **Domain**: ekipproje.vercel.app
+- **Domain**: ekipproje.com
 
 ### Design System
 
@@ -278,7 +278,7 @@ Digital presence in architecture and engineering sector:
 
 ## Project Links
 
-- **Live Website**: [ekipproje.vercel.app](https://ekipproje.vercel.app/)
+- **Live Website**: [ekipproje.com](https://ekipproje.com/)
 
 ## Testimonial
 

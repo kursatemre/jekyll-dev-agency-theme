@@ -6,7 +6,7 @@ category: "Kurumsal Web Platformu"
 tags: [Next.js, React, TypeScript, Supabase, Mimarlık]
 date: 2024-12-17
 featured_image: "https://i.hizliresim.com/qb7nnmx.png"
-project_url: "https://ekipproje.vercel.app/"
+project_url: "https://ekipproje.com/"
 excerpt: "Türk mimarlık ve mühendislik firması için geliştirilmiş enterprise-grade web platformu. Next.js 15, Supabase ve gelişmiş admin panel ile lüks marka kimliği yansıtan modern çözüm."
 ---
 
@@ -59,7 +59,7 @@ Mimarlık ve mühendislik sektöründe dijital varlık:
 
 **Deployment:**
 - **Vercel**: Edge network deployment
-- **Domain**: ekipproje.vercel.app
+- **Domain**: ekipproje.com
 
 ### Tasarım Sistemi
 
@@ -277,7 +277,7 @@ Mimarlık ve mühendislik sektöründe dijital varlık:
 
 ## Proje Linkleri
 
-- **Live Website**: [ekipproje.vercel.app](https://ekipproje.vercel.app/)
+- **Live Website**: [ekipproje.com](https://ekipproje.com/)
 
 ## Testimonial
 
