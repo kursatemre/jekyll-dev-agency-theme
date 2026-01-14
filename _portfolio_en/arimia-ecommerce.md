@@ -5,7 +5,7 @@ client: "Arimia"
 category: "E-Commerce"
 tags: [İkas, E-Commerce, Custom Design, CSS, JavaScript]
 date: 2025-01-14
-featured_image: "https://i.hizliresim.com/pyannsx.png"
+featured_image: "https://i.hizliresim.com/emo6ic4.png"
 project_url: "https://arimia.com.tr"
 excerpt: "A beekeeping and honey products e-commerce website built on İkas platform with custom design and development. Turnkey setup with custom header, contact page, and CSS/JavaScript integrations."
 results:

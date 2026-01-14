@@ -5,7 +5,7 @@ client: "Arimia"
 category: "E-Ticaret"
 tags: [İkas, E-Ticaret, Özel Tasarım, CSS, JavaScript]
 date: 2025-01-14
-featured_image: "https://i.hizliresim.com/pyannsx.png"
+featured_image: "https://i.hizliresim.com/emo6ic4.png"
 project_url: "https://arimia.com.tr"
 excerpt: "İkas altyapısı üzerinde özel tasarım ve geliştirmelerle hayata geçirilen arıcılık ve bal ürünleri e-ticaret sitesi. Özel header, iletişim sayfası ve CSS/JavaScript entegrasyonları ile anahtar teslim kurulum."
 results:
