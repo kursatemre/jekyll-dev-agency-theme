@@ -65,6 +65,13 @@ lang: en
       >
         SaaS Platform
       </button>
+      <button
+        @click="activeFilter = 'Mobile App'"
+        :class="activeFilter === 'Mobile App' ? 'bg-orion-cyan text-orion-navy' : 'bg-orion-navy/50 text-orion-gray hover:text-orion-cyan border border-orion-cyan/30'"
+        class="px-5 py-2 rounded-full font-medium transition-all duration-300"
+      >
+        Mobile App
+      </button>
     </div>
 
     <!-- Portfolio Grid -->

@@ -64,6 +64,13 @@ keywords: "web tasarım örnekleri, portfolyo, başarılı projeler, referanslar
       >
         SaaS Platform
       </button>
+      <button
+        @click="activeFilter = 'Mobil Uygulama'"
+        :class="activeFilter === 'Mobil Uygulama' ? 'bg-orion-cyan text-orion-navy' : 'bg-orion-navy/50 text-orion-gray hover:text-orion-cyan border border-orion-cyan/30'"
+        class="px-5 py-2 rounded-full font-medium transition-all duration-300"
+      >
+        Mobil Uygulama
+      </button>
     </div>
 
     <!-- Portfolio Grid -->
