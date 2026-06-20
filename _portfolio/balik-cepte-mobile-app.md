@@ -3,11 +3,11 @@ layout: case-study
 title: "Balık Cepte - AI Destekli Balıkçılık Platformu"
 client: "Balık Cepte"
 category: "Mobil Uygulama"
-tags: [Next.js, Expo, React Native, Claude AI, Supabase, Turborepo, iOS, Android]
+tags: [Next.js, Expo, React Native, Claude AI, Supabase, iOS, Android]
 date: 2026-01-01
 featured_image: "https://i.hizliresim.com/iax850q.png"
 project_url: "https://balikcepte.app/"
-excerpt: "Türk balıkçılar için AI destekli av günlüğü ve tahmin platformu. Next.js web uygulaması ve Expo React Native mobil uygulama tek Turborepo monorepo içinde. Claude Sonnet 4.6 ile solunar + hava verisini birleştiren saatlik başarı tahmini."
+excerpt: "Türk balıkçılar için AI destekli av günlüğü ve tahmin platformu. iOS, Android ve Web'de çalışan uygulama; solunar takvim, gerçek zamanlı hava verileri ve Claude AI ile saatlik başarı tahmini sunar."
 results:
   - value: "1.000+"
     label: "Kayıtlı Kullanıcı"
@@ -19,8 +19,7 @@ technologies:
   - Next.js 14
   - Expo React Native
   - Claude Sonnet 4.6
-  - Supabase (PostgreSQL + RLS)
-  - Turborepo
+  - Supabase
   - Open-Meteo API
   - Leaflet / OpenStreetMap
   - EAS Build & Vercel
@@ -30,149 +29,79 @@ technologies:
 
 ## Proje Özeti
 
-Balık Cepte, Türk balıkçılar için geliştirilmiş AI destekli av günlüğü ve tahmin platformudur. Web uygulaması (Next.js 14) ve native mobil uygulama (Expo React Native) tek bir Turborepo monorepo içinde birleştirilmiştir. Claude Sonnet 4.6 ile solunar periyotları, hava verileri ve topluluk av geçmişini birleştirerek LRF, SPİN ve SURFCASTING disiplinleri için saatlik başarı tahmini üretir.
+Balık Cepte, Türk balıkçılar için geliştirilmiş AI destekli av günlüğü ve tahmin platformudur. iOS, Android ve Web olmak üzere üç platformda erişilebilen uygulama; Claude AI, solunar takvim ve gerçek zamanlı hava verilerini birleştirerek LRF, SPİN ve SURFCASTING disiplinleri için saatlik başarı tahmini üretir.
 
 ## Challenge (Zorluk)
 
 ### İş İhtiyaçları
 
-- **Veri Karmaşıklığı**: Basınç trendi, solunar periyotlar, su sıcaklığı, dalga, gelgit ve ay fazını tek skor modeline dönüştürmek
-- **Çok Platform**: iOS, Android ve Web'de tutarlı, native deneyim sunmak
-- **AI Doğruluk**: Genel balıkçılık tavsiyesi değil, kullanıcının kendi merasına ve geçmiş av verilerine göre kişiselleştirilmiş tahmin
-- **Topluluk Güveni**: Sahte raporları önleyip gerçek verileri AI'a beslemek
-- **Offline Destek**: İnternetsiz ortamda av raporu alabilmek
+- **Çok Platform**: iOS, Android ve Web'de tek kod tabanından tutarlı deneyim sunmak
+- **Kişiselleştirme**: Genel balıkçılık tavsiyesi değil, kullanıcının kendi mera geçmişine göre tahmin
+- **Topluluk Güveni**: Gerçek av verilerini toplarken sahte raporları önlemek
+- **Offline Destek**: İnternetsiz ortamda av raporu kaydedebilmek
 
 ### Teknik Gereksinimler
 
 - Gerçek zamanlı hava, deniz ve solunar veri entegrasyonu
-- Supabase RLS ile güvenli çok kullanıcılı veri izolasyonu
-- Upstash Redis ile rate limiting (günlük AI tahmin kotası)
-- EAS Build ile store build + OTA güncelleme altyapısı
-- pg_cron ile günlük sabah push bildirimi
+- Çok kullanıcılı güvenli veri izolasyonu
+- Günlük sabah push bildirimleri
+- App Store ve Google Play store build + OTA güncelleme altyapısı
 
 ## Solution (Çözüm)
 
-### Monorepo Mimarisi
-
-```
-lurelogic/
-├── apps/
-│   ├── web/        — Next.js 14 (Vercel)
-│   └── mobile/     — Expo React Native (iOS + Android)
-├── supabase/
-│   ├── functions/  — Deno edge functions
-│   └── migrations/ — PostgreSQL migration dosyaları
-└── turbo.json
-```
-
-Turborepo ile paylaşılan tipler ve iş mantığı tek yerden yönetilir; web ve mobil takımlara ayrılmadan aynı repo üzerinde geliştirme yapılır.
-
 ### AI Tahmin Motoru
 
-**Claude Sonnet 4.6** + prompt caching ile maliyet optimize edilmiş tahmin akışı:
+**Claude Sonnet 4.6** ile güçlendirilen tahmin sistemi; solunar periyotları, hava basıncı trendi, rüzgar, su sıcaklığı ve dalga verilerini birleştirerek günün her saati için 0–100 arası başarı skoru hesaplar. Kullanıcının geçmiş av verileri de tahmine dahil edilir; aynı merada tekrar eden başarılı avlar AI'ın tahminini kişiselleştirir.
 
-**Chain-of-Thought Akıl Yürütme:**
-1. Basınç trendi değerlendirmesi — düşen +25p, stabil 0, yükselen -15p
-2. Dalga + rüzgar skoru — disipline özel ideal koşul analizi
-3. Solunar değerlendirme — major +30p / minor +15p
-4. Golden Hour değerlendirmesi — +20p ama major periyodun altında
-5. Saat bazlı ham skorlama → 0–100 normalize
-6. En iyi 2–3 saat seçimi (golden hour'a otomatik öncelik verilmez)
+### Veri Kaynakları
 
-**Kullanıcı Verisi Override:**
-- 1+ başarılı av (≥3 yıldız) → o saate minimum %60 olasılık
-- 2+ başarılı av → minimum %70
-- Override'da UI'da mavi bilgi banner'ı gösterilir
-
-**Kalibrasyon Sistemi:**
-- Son 90 günde gerçek av ile tahmin eşleşmesi izlenir
-- Doğruluk %70+ → kalibrasyon korunur | %50–70 → olasılıklar %5–10 düşer | <%50 → confidence_level='low'
-
-### Veri Katmanı
-
-| Kaynak | Kapsam |
-|--------|--------|
-| Open-Meteo | Hava, dalga, su sıcaklığı (SST), gelgit |
-| suncalc | Solunar periyotlar, ay fazı, gün doğuşu/batışı |
-| Supabase seed_catches | Admin onaylı topluluk av geçmişi (AI'a gider) |
-| Kullanıcı geçmişi | Mera bazlı override hesabı |
-
-### Güven & Doğrulama Sistemi
-
-Admin onayı olmadan hiçbir av raporu AI verisine girmez. `trigger_seed_on_verify` DB trigger'ı `is_verified` false→true geçişinde otomatik `seed_catches` kaydı oluşturur (had_catch=true, success_rating≥3, species ve spot_id zorunlu).
-
-### Push Bildirim Altyapısı
-
-`pg_cron` ile her sabah 06:00 İstanbul saatinde tetiklenen `daily-fishing-notification` Deno Edge Function:
-- Günün peak solunar periyodunda ulaşılabilecek skor hesaplanır
-- 4 şablon: SIMDI_GIT (≥75 + major) / FENA_DEGIL (≥50) / ZAYIF_AMA_DENE (≥35 + solunar) / GUNLUK_OZET
-- FCM V1 + Expo Push Notifications ile iOS & Android native bildirim
+- **Open-Meteo**: Hava durumu, dalga yüksekliği, su sıcaklığı
+- **suncalc**: Solunar periyotlar ve ay fazı
+- **Topluluk verisi**: Onaylı av raporları tahmin kalitesini artırır
 
 ## Özellikler
 
 ### Dashboard
-- 7 günlük tarih seçici — hava, ay ve solunar verileri seçilen güne yenilenir
-- GPS öncelikli konum (izin verilmezse bölge merkezi)
-- Saatlik skor chip'leri — yatay kaydırmalı
-- Solunar takvim widget — aktif periyotta "ŞİMDİ" badge
-- İleri gün skoru (+1..+4 gün)
-
-### Mera Yönetimi
-- Haritadan seç (Leaflet + OpenStreetMap), GPS veya manuel koordinat
-- Zemin yapısı, derinlik aralığı, cephe yönü (8 yön)
-- Mera silinince ilişkili tahminler ve av raporları soft unlink (CASCADE yok)
-
-### Harita Skor Kartı
-- Haritada herhangi bir noktaya dokunulabilir
-- Kara noktası kontrolü — Marine API wave_height ile su üstü mü; kara ise "Bu nokta karada" toast (5s cache)
-- "Mera Olarak Kaydet" butonuyla pre-fill form
+- 7 günlük tarih seçici — hava, ay ve solunar veriler seçilen güne göre güncellenir
+- Saatlik skor chip'leri — günün en verimli saatlerini tek bakışta görme
+- Solunar takvim widget — aktif periyotlar anlık gösterilir
+- İleri gün skoru (+1 ila +4 gün görünümü)
 
 ### AI Av Tahmini
 - LRF / SPİN / SURFCASTING disiplin modları
-- En iyi saat dilimi, saatlik breakdown, tür tahminleri
-- Sahte/yem önerileri — envanterde var mı badge
-- Analiz kartı: basınç trendi, rüzgar etkisi, ay etkisi, 1–10 skor
+- En iyi saat dilimi, saatlik olasılık dağılımı, tür tahminleri
+- Sahte/yem önerileri — envanterdeki sahte eşleşmesi otomatik işaretlenir
 
-### Av Raporları
+### Mera Yönetimi
+- Haritadan seç, GPS veya manuel koordinat girişi
+- Zemin yapısı, derinlik aralığı, cephe yönü kaydı
+
+### Harita Skor Kartı
+- Haritada herhangi bir noktaya dokunarak anlık av potansiyeli görme
+- Kara noktası tespiti ile anlamlı uyarılar
+
+### Av Raporları & Galeri
 - Çok adımlı form: mera/GPS → sahte → sonuç → tarih
-- Fotoğraf yükleme: browser-image-compression → WebP → Supabase Storage
-- 3. avdan sonra App Store / Google Play native değerlendirme isteği
+- Fotoğraflı av kaydı ve tüm avların galeri görünümü
 
-### Offline Mod (Web)
-- IndexedDB / Dexie ile av raporu kayıt
-- Online'a dönünce `useOfflineSync` hook ile otomatik senkronizasyon
-- Fotoğraflar da offline kaydedilip sonra Storage'a yüklenir
+### Offline Mod
+- İnternet olmadan av raporu kaydetme
+- Online'a dönünce otomatik senkronizasyon
 
 ### Topluluk Feed
-- Bölge filtresi (Ege, Akdeniz, Marmara, Karadeniz)
-- Reaksiyon, yorum/yanıt, takipçi/takip
-- 5 kategorili raporlama — kendi gönderisini veya aynı gönderiyi tekrar raporlayamaz
+- Bölge bazlı filtreleme (Ege, Akdeniz, Marmara, Karadeniz)
+- Reaksiyon, yorum ve takipçi sistemi
 
-### Zorunlu Güncelleme Sistemi
-- Supabase `app_config` tablosundan `minimum_app_version` çekilir
-- Semver karşılaştırması; altındaysa `OutdatedScreen` (mağazaya yönlendirir)
-- Native build gerekmez — OTA ile anında aktif edilir
+### Push Bildirimleri
+- Her sabah günün av skoru ve en iyi saat penceresiyle bildirim
+- iOS ve Android native bildirim desteği
 
-## Teknik Yığın
+## Sonuçlar
 
-| Katman | Teknoloji |
-|--------|-----------|
-| Web Framework | Next.js 14 (App Router) |
-| UI (Web) | shadcn/ui + Radix UI + Tailwind CSS |
-| Mobile | Expo SDK 52 + React Native 0.76 |
-| UI (Mobile) | NativeWind + Expo Router |
-| Auth & DB | Supabase (PostgreSQL + RLS) |
-| Storage | Supabase Storage |
-| Edge Functions | Supabase Deno Functions |
-| AI | Claude Sonnet 4.6 (prompt caching) |
-| Harita | Leaflet 1.9 + OpenStreetMap |
-| Hava Verisi | Open-Meteo |
-| Astronomi | suncalc |
-| Offline | Dexie v4 + useOfflineSync hook |
-| Rate Limiting | Upstash Redis + in-memory fallback |
-| Push Bildirim | Expo Push + FCM V1 |
-| Monorepo | Turborepo |
-| Build & Deploy | EAS Build (mobile) + Vercel (web) |
+- App Store ve Google Play'de aktif yayın
+- Türkiye'nin 4 denizini kapsayan veri modeli
+- Yapay zeka destekli ilk Türkçe balıkçılık uygulaması
+- Türkiye'nin en iyi balıkçılık platformu olma hedefiyle büyümeye devam
 
 ## Mağaza Linkleri
 
